@@ -1,0 +1,38 @@
+#############
+#
+#     Directory Labbook - Michael Turchin
+#              Intended to include notes for changes / scripts / code used pertaining to files within said (and potentially other) directories
+#
+#############
+
+20130516 - /home/pg/michaelt/Data/ALL_MAPPING 
+
+Run:
+cat DataOrganization.CollectAllIndvMIDRLsffFiles.Thu_May_16_14:54:21_CDT_2013.output | python DataOrganization.CheckForsffRLMIDDupsForManualInspection.py - | perl -lane 'if ($F[$#F] > 1 ) { print join("\t", @F); } ' | vi -
+Shows directories which map to the same original source .sff file -- hence not necessary to process each directory (since using the exact same beginning .sff RLMID separated file; multiple folders may have been created for downstream analysis differences/branch points?)
+Manually commented out second versions (or more) of 'original' folder from DataOrganization.CollectAllIndvMIDRLsffFiles.Thu_May_16_14:54:21_CDT_2013.output into DataOrganization.CollectAllIndvMIDRLsffFiles.Thu_May_16_14:54:21_CDT_2013.DuplicatesCommentedOut.output
+
+Directories commented out:
+
+/home/pg/michaelt/Data/ALL_MAPPING/mapping_pool_1-46/POOL36_2-05R
+
+NOTE -- decided not to proceed with this setup. Decided to process all folder/files as is. If folders contain identical files then filenames will be identical later on and this will be noticed/can be dealt with then (rationale: unclear whether this 'duplicate' pattern was truly for all files within a duplicate directory or only some of the files within a duplicate directory, therefore potentially making this a heterogenous culling procedure. Rather just process things as is and decide later on whether files are duplicates are not).
+
+~~~
+
+20130523
+
+List of POOLs that authentically have two or more runs for the same sequences (versus POOLS/directories that were redudant -- cite same .sff files -- for probably some assembly-difference comparisons):
+/home/pg/michaelt/Data/ALL_MAPPING/mapping_pool_1-46/POOL15-##RL	/home/pg/michaelt/Data/ALL_MAPPING/mapping_pool_1-46/POOL15_rerun-##RL
+/home/pg/michaelt/Data/ALL_MAPPING/mapping_pool_1-46/POOL25_1-2-##RL
+/home/pg/michaelt/Data/ALL_MAPPING/mapping_pool_1-46/POOL39-##RL /home/pg/michaelt/Data/ALL_MAPPING/mapping_pool_47-68/POOL39_2-##RL (maybe separate DNA library pools? just a guess atm)
+/home/pg/michaelt/Data/ALL_MAPPING/mapping_pool_47-68/POOL63-1-##RL /home/pg/michaelt/Data/ALL_MAPPING/mapping_pool_47-68/POOL63-2-##RL
+/home/pg/michaelt/Data/ALL_MAPPING/mapping_pool_69-77/POOL69-##RL /home/pg/michaelt/Data/ALL_MAPPING/mapping_pool_69-77/POOL69-3-##RL
+/home/pg/michaelt/Data/ALL_MAPPING/mapping_pool_69-77/POOL70-##RL /home/pg/michaelt/Data/ALL_MAPPING/mapping_pool_69-77/POOL70-3-##RL
+/home/pg/michaelt/Data/ALL_MAPPING/mapping_pool_69-77/POOL74-1-##RL /home/pg/michaelt/Data/ALL_MAPPING/mapping_pool_69-77/POOL74-2-##RL
+/home/pg/michaelt/Data/ALL_MAPPING/mapping_pool_69-77/POOL75-##RL /home/pg/michaelt/Data/ALL_MAPPING/mapping_pool_69-77/POOL75-3-##RL
+/home/pg/michaelt/Data/ALL_MAPPING/mapping_pool_69-77/POOL77-##RL /home/pg/michaelt/Data/ALL_MAPPING/mapping_pool_69-77/POOL77-3-##RL
+/home/pg/michaelt/Data/ALL_MAPPING/mapping_pool_78-90/POOL78-##RL /home/pg/michaelt/Data/ALL_MAPPING/mapping_pool_78-90/POOL78-3-##RL
+
+
+
