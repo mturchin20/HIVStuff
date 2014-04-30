@@ -58,8 +58,8 @@ fi
 
 /home/shared/software/samtools/samtools-0.1.19/bcftools/bcftools view ${baseFileN}.Samtools.Chr${I}.C50.raw.bcf | perl /home/shared/software/samtools/samtools-0.1.19/bcftools/vcfutils.pl varFilter -D 1000 | gzip > ${baseFileN}.Samtools.Chr${I}.C50.flt.vcf.gz
 
-mv /tmp/$PBS_JOBID/$baseFileN* $mainDir1/. 
-#mv /tmp/$PBS_JOBID/$baseFileN* $mainDir1/Samtools/. 
+#mv /tmp/$PBS_JOBID/$baseFileN* $mainDir1/. 
+mv /tmp/$PBS_JOBID/$baseFileN* $mainDir1/Samtools/. 
 
 rm -r /tmp/$PBS_JOBID
 

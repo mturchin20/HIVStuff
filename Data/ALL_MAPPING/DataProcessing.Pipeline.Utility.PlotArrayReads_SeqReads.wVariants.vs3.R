@@ -14,7 +14,7 @@ for (i in 1:1) {
 
 	OutputFile1 <- paste(cmd_args[8], ".Chr", chrList[i], ".plot.jpg", sep="")
 	maxLength <- chrLngth[i] * 1000000
-	plotTitle <- paste("Chromosome ", chrList[i], ": Array Reads, Seq Reads & Called Variants - 1kb Window", sep="")
+	plotTitle <- paste("Chromosome ", chrList[i], ": Array Reads, Seq Reads & Called Variants - 0kb Window", sep="")
 
 	Data2.Chr <- Data2[Data2[,1]==chrList[i],]
 
@@ -54,7 +54,7 @@ for (i in 1:1) {
 	par(mar=c(5.1,4.1,1,2.1))
 
 	Data3.Chr <- Data3[Data3[,1]==chrList[i],]
-	plot(NULL, xlim=c(Data2.Chr[1,2], Data2.Chr[nrow(Data2.Chr),3]), ylim=c(0,1), main="", xlab="bp", ylab="Genotype Missingness")
+	plot(NULL, xlim=c(Data2.Chr[1,2], Data2.Chr[nrow(Data2.Chr),3]), ylim=c(0,1), main="", xlab="bp", ylab="1 - Genotype Missingness")
 	points(Data3.Chr[,2], 1-Data3.Chr[,6], col=Data3.Chr[,7], pch=1)
 
 	abline(h=.95, col="PURPLE", lty=2, lwd=2)

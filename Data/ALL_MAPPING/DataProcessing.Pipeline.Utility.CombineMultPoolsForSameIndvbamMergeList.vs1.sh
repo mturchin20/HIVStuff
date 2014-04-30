@@ -32,9 +32,9 @@ do
 
 		read -a entryComponents <<< "$indvEntry"
 
-
 		if [ -e ${mergeBamList1}.multPOOLperIndvCollected.temp1 ] ; then
 			cat $mergeBamList1 | grep -i "${entryComponents[1]}-.*${entryComponents[0]}RL" > ${mergeBamList1}.multPOOLperIndvCollected.temp2
+		
 			paste ${mergeBamList1}.multPOOLperIndvCollected.temp1 ${mergeBamList1}.multPOOLperIndvCollected.temp2 > ${mergeBamList1}.multPOOLperIndvCollected.temp3
 			mv ${mergeBamList1}.multPOOLperIndvCollected.temp3 ${mergeBamList1}.multPOOLperIndvCollected.temp1
 			rm ${mergeBamList1}.multPOOLperIndvCollected.temp2

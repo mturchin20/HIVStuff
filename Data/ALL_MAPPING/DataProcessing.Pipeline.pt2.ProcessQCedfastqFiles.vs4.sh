@@ -26,6 +26,8 @@ POOLID=`echo $mainDir1 | perl -F/ -ane 'if ($F[9] =~ m/(POOL[a-zA-Z0-9]+).*(\d\d
 #libraryID=`echo $mainDir1 | perl -F/ -ane 'if ($F[9] =~ m/(POOL\d+).*(\d\dRL)/) { print $1; }'` 
 libraryID=`echo $mainDir1 | perl -F/ -ane 'if ($F[9] =~ m/(POOL[a-zA-Z0-9]+).*(\d\dRL)/) { print $1; }'` 
 
+echo $POOLID $libraryID
+
 if [ -z "$POOLID" ]; then
 	echo "Error1a - Variable \$POOLID not set ($mainDir1 $baseFile1 $refFileFlag1)"
 	exit

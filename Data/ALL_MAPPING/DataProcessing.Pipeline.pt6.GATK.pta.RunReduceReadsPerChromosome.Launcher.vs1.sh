@@ -6,8 +6,9 @@
 mainDir1="$1"
 baseFile1="$2"
 
-for i in {1..22}
-#for i in {X..X}
+#for i in {1..22}
+#for i in {1..1}
+for i in {X..X}
 do
 	if [ ! -d ${mainDir1}/qsubout ] ; then
 		mkdir ${mainDir1}/qsubout
@@ -35,7 +36,7 @@ do
 
 #	mainDir2, baseFile1, refFileFlag1
 
-	qsub -j oe -o $qsubout -e $qsubout -l walltime=720:00:00,mem=55gb,nodes=1:ppn=6 -v mainDir1=$mainDir1,baseFileN=${baseFile1}.Chr${i},I=$i,refFileFlag1=$refFileFlag1 DataProcessing.Pipeline.pt6.GATK.pta.RunReduceReadsPerChromosome.vs1.sh 
+	qsub -j oe -o $qsubout -e $qsubout -l walltime=720:00:00,mem=55gb,nodes=1:ppn=6 -v mainDir1=$mainDir1,baseFileN=${baseFile1}.Chr${i},I=$i,refFileFlag1=$refFileFlag1 DataProcessing.Pipeline.pt6.GATK.pta.RunReduceReadsPerChromosome.vs2.sh 
 
 #	sleep 1
 

@@ -57,6 +57,7 @@ fi
 /home/shared/software/java/jre1.7.0_09/bin/java -Xmx5g -jar /home/shared/software/GATK/2.5.2/GenomeAnalysisTK.jar -T VariantRecalibrator -R $refFile1 -input $mainDir1/${baseFileN}.Chr${I}.GATK.ReduceReads.UG.raw.vcf -recalFile ${baseFileN}.Chr${I}.GATK.ReduceReads.UG.VQSR.recal -tranchesFile ${baseFileN}.Chr${I}.GATK.ReduceReads.UG.VQSR.tranches -nt 4 -percentBad .01 -minNumBad 1000 -resource:hapmap,known=false,training=true,truth=true,prior=15.0 /home/michaelt/Software/GATK/2.5.2/resources/hapmap_3.3.b37.vcf -resource:omni,known=false,training=true,truth=true,prior=12.0 /home/michaelt/Software/GATK/2.5.2/resources/1000G_omni2.5.b37.vcf -resource:1000G,known=false,training=true,truth=false,prior=10.0 /home/michaelt/Software/GATK/2.5.2/resources/1000G_phase1.snps.high_confidence.b37.vcf -resource:dbsnp,known=true,training=false,truth=false,prior=2.0 /home/michaelt/Software/GATK/2.5.2/resources/dbsnp_137.b37.excluding_sites_after_129.vcf -an QD -an MQRankSum -an ReadPosRankSum -an FS -an DP -an HaplotypeScore -tranche 100.0 -tranche 99.9 -tranche 99.0 -tranche 90.0 -mode SNP
 
 /home/shared/software/java/jre1.7.0_09/bin/java -Xmx5g -jar /home/shared/software/GATK/2.5.2/GenomeAnalysisTK.jar -T ApplyRecalibration -R $refFile1 -input $mainDir1/${baseFileN}.Chr${I}.GATK.ReduceReads.UG.raw.vcf -recalFile ${baseFileN}.Chr${I}.GATK.ReduceReads.UG.VQSR.recal -tranchesFile ${baseFileN}.Chr${I}.GATK.ReduceReads.UG.VQSR.tranches -o ${baseFileN}.Chr${I}.GATK.ReduceReads.UG.VQSR.SNP.vcf --ts_filter_level 99.9 -mode SNP
+#/home/shared/software/java/jre1.7.0_09/bin/java -Xmx5g -jar /home/shared/software/GATK/2.5.2/GenomeAnalysisTK.jar -T ApplyRecalibration -R $refFile1 -input $mainDir1/${baseFileN}.Chr${I}.GATK.ReduceReads.UG.raw.vcf -recalFile ${baseFileN}.Chr${I}.GATK.ReduceReads.UG.VQSR.recal -tranchesFile ${baseFileN}.Chr${I}.GATK.ReduceReads.UG.VQSR.tranches -o ${baseFileN}.Chr${I}.GATK.ReduceReads.UG.VQSR.SNP.ts90.vcf --ts_filter_level 90 -mode SNP
 
 #java -Xmx3g -jar GenomeAnalysisTK.jar \
 #   -T ApplyRecalibration \
@@ -67,8 +68,8 @@ fi
 #	          -o path/to/output.recalibrated.filtered.vcf \
 
 
-#gzip ${baseFileN}.Chr${I}.GATK.ReduceReads.raw.run2.vc
-gzip ${baseFileN}.Chr${I}.GATK.ReduceReads.UG.VQSR.SNP.vcf
+gzip ${baseFileN}.Chr${I}.GATK.ReduceReads.raw.run2.vc
+#gzip ${baseFileN}.Chr${I}.GATK.ReduceReads.UG.VQSR.SNP.ts90.vcf
 
 #mv /tmp/$PBS_JOBID/$baseFileN* $mainDir1/GATK/. 
 mv /tmp/$PBS_JOBID/$baseFileN* $mainDir1/. 

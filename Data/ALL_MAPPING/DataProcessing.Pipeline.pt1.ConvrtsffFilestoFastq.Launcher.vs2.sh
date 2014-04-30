@@ -47,7 +47,7 @@ do
 #		echo $qsubout
 #		totalDir sffFile1
 
-		qsub -j oe -o $qsubout -e $qsubout -l walltime=10:00:00,mem=6gb,nodes=1:ppn=4 -v totalDir=$mainDir,baseFile1=$baseFile DataProcessing.Pipeline.pt1.ConvrtsffFilestoFastq.vs2.sh 
+		qsub -j oe -o $qsubout -e $qsubout -l walltime=10:00:00,mem=6gb,nodes=1:ppn=6 -v totalDir=$mainDir,baseFile1=$baseFile DataProcessing.Pipeline.pt1.ConvrtsffFilestoFastq.vs2.sh 
 #		qsub -o $qsubout1 -e $qsubout2 -l walltime=10:00:00,mem=1gb,nodes=1:ppn=1 -v totalDir=$mainDir,baseFile1=$baseFile DataProcessing.ConvrtsffFilestoFastq.sh 
 
 #		sleep 1

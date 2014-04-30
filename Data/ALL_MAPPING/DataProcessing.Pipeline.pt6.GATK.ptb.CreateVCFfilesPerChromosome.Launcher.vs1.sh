@@ -7,7 +7,7 @@ mainDir1="$1"
 baseFile1="$2"
 
 #for i in {1..22}
-#for i in {2..22}
+#for i in {1..1}
 for i in {X..X}
 do
 	if [ ! -d ${mainDir1}/qsubout ] ; then

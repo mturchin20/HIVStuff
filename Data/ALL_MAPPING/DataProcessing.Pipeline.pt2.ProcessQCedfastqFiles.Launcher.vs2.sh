@@ -56,7 +56,7 @@ do
 #		totalDir baseFile refFileFlag
 
 #		qsub -j oe -o $qsubout -e $qsubout -l walltime=72:00:00,mem=6gb,nodes=1:ppn=1 -v mergeFlag1=$mergeFlag,mainDir1=$mainDir,baseFile1=$baseFile,refFileFlag1=$refFileFlag DataProcessing.Pipeline.pt2.ProcessQCedfastqFiles.vs1.sh 
-		qsub -j oe -o $qsubout -e $qsubout -l walltime=72:00:00,mem=6gb,nodes=1:ppn=6 -v mainDir1=$mainDir,baseFile1=$baseFile,refFileFlag1=$refFileFlag DataProcessing.Pipeline.pt2.ProcessQCedfastqFiles.vs4.sh 
+		qsub -j oe -o $qsubout -e $qsubout -l walltime=72:00:00,mem=6gb,nodes=1:ppn=6 -v mainDir1=$mainDir,baseFile1=$baseFile,refFileFlag1=$refFileFlag DataProcessing.Pipeline.pt2.ProcessQCedfastqFiles.vs5.sh 
 
 #		sleep 1
 
