@@ -111,6 +111,9 @@ scp /home/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/S
 
 
 
+
+
+
 scp /home/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/EigenstratFiles/AllPools.Vs2.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wHapMap3Data.CEUCHBYRI.Results.pca.altrd.race.plot.1vs2.pdf mturchin20@wolfy.uchicago.edu:/Users/mturchin20/LabStuff/StephensLab/HIVStuff/PG/ALL_MAPPING/Pools/PostMerge/mapping_pool_merged/GATK/EigenstratFiles/.
 
 #python /home/pg/michaelt/Data/ALL_MAPPING/DataProcessing.Pipeline.EditEigenstratPCAfileForPlotting.py --file1 /home/pg/michaelt/Data/ALL_MAPPING/DataProcessing.Pipeline.CreateProperIndvPhenoLinkFile.vs2.20140322_POP_genomics_sample.status_list_12-10-13.output --file2 /home/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/EigenstratFiles/AllPools.Vs2.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wHapMap3Data.CEUCHBYRI.Results.pca > /home/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/EigenstratFiles/AllPools.Vs2.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wHapMap3Data.CEUCHBYRI.Results.pca.altrd.race.pt1
