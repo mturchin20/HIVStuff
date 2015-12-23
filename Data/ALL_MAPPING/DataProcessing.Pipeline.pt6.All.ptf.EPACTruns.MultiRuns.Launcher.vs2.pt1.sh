@@ -34,8 +34,9 @@ qsubout="${mainDir1}/qsubout/qsubout.EPACTSruns.MultiRuns.Launcher.vs2.txt"
 
 echo $qsubout
 
-groupfCommandExonicNon="Exonic.Nonsynonymous"
-#groupfCommandExonicNon="Exonic.Nonsynonymous.wSplice"
+#groupfCommandExonicNon="Exonic.Nonsynonymous"
+###groupfCommandExonicNon="Exonic.Nonsynonymous.wSplice"
+groupfCommandExonicNon="Intronic"
 
 #echo $groupfCommandAll
 

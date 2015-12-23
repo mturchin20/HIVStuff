@@ -34,12 +34,13 @@ qsubout="${mainDir1}/qsubout/qsubout.EPACTSruns.MultiRuns.Launcher.vs2.txt"
 
 echo $qsubout
 
-groupfCommandExonicNon="Exonic.Nonsynonymous"
-#groupfCommandExonicNon="Exonic.Nonsynonymous.wSplice"
+#groupfCommandExonicNon="Exonic.Nonsynonymous"
+###groupfCommandExonicNon="Exonic.Nonsynonymous.wSplice"
+groupfCommandExonicNon="Intronic"
 
 #echo $groupfCommandAll
 
-for i in {2..1000} 
+for i in {2..100} 
 #for i in `cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/EPACTSFiles/Permutations/DataProcessing.Pipeline.pt6.All.ptf.EPACTruns.PermutationRuns.Launcher.vs2.pt1.RedoList.FakePheno.Pheno1.Exonic.Nonsynonymous`
 do
 

@@ -121,15 +121,15 @@ qsub -j oe -o $qsubout -e $qsubout -l walltime=720:00:00,mem=6gb,nodes=1:ppn=6 -
 
 #Pheno2
 outCommand="--out ${out1}.${groupfSpecific}.Pheno2.maf1.skat0.run${runNum1} "; qsubout="${mainDir1}/qsubout/qsubout.EPACTruns.MultiRuns.Launcher.vs3.pt2.${groupfSpecific}.Pheno2.maf1.skat0.run${runNum1}"; commandLine1=`echo $mainCommandsTotal $pheno2 $cov1 $maxMaf100 $skat0 $run1 $outCommand`
-qsub -j oe -o $qsubout -e $qsubout -l walltime=720:00:00,mem=6gb,nodes=1:ppn=6 -v mainCommands1="$commandLine1 " /data/userdata/pg/michaelt/Data/ALL_MAPPING/DataProcessing.Pipeline.pt6.All.ptf.EPACTruns.vs2.sh
+#qsub -j oe -o $qsubout -e $qsubout -l walltime=720:00:00,mem=6gb,nodes=1:ppn=6 -v mainCommands1="$commandLine1 " /data/userdata/pg/michaelt/Data/ALL_MAPPING/DataProcessing.Pipeline.pt6.All.ptf.EPACTruns.vs2.sh
 
 #Pheno3
 outCommand="--out ${out1}.${groupfSpecific}.Pheno3.maf1.skat0.run${runNum1} "; qsubout="${mainDir1}/qsubout/qsubout.EPACTruns.MultiRuns.Launcher.vs3.pt2.${groupfSpecific}.Pheno3.maf1.skat0.run${runNum1}"; commandLine1=`echo $mainCommandsTotal $pheno3 $cov1 $maxMaf100 $skat0 $run1 $outCommand`
-qsub -j oe -o $qsubout -e $qsubout -l walltime=720:00:00,mem=6gb,nodes=1:ppn=6 -v mainCommands1="$commandLine1 " /data/userdata/pg/michaelt/Data/ALL_MAPPING/DataProcessing.Pipeline.pt6.All.ptf.EPACTruns.vs2.sh
+#qsub -j oe -o $qsubout -e $qsubout -l walltime=720:00:00,mem=6gb,nodes=1:ppn=6 -v mainCommands1="$commandLine1 " /data/userdata/pg/michaelt/Data/ALL_MAPPING/DataProcessing.Pipeline.pt6.All.ptf.EPACTruns.vs2.sh
 
 #Pheno4
 outCommand="--out ${out1}.${groupfSpecific}.Pheno4.maf1.skat0.run${runNum1} "; qsubout="${mainDir1}/qsubout/qsubout.EPACTruns.MultiRuns.Launcher.vs3.pt2.${groupfSpecific}.Pheno4.maf1.skat0.run${runNum1}"; commandLine1=`echo $mainCommandsTotal $pheno4 $cov1 $maxMaf100 $skat0 $run1 $outCommand`
-qsub -j oe -o $qsubout -e $qsubout -l walltime=720:00:00,mem=6gb,nodes=1:ppn=6 -v mainCommands1="$commandLine1 " /data/userdata/pg/michaelt/Data/ALL_MAPPING/DataProcessing.Pipeline.pt6.All.ptf.EPACTruns.vs2.sh
+#qsub -j oe -o $qsubout -e $qsubout -l walltime=720:00:00,mem=6gb,nodes=1:ppn=6 -v mainCommands1="$commandLine1 " /data/userdata/pg/michaelt/Data/ALL_MAPPING/DataProcessing.Pipeline.pt6.All.ptf.EPACTruns.vs2.sh
 
 #sleep 1
 
