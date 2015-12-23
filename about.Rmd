@@ -6,12 +6,15 @@ title: "About"
 
 **Code version:** `r system("git log -1 --format='%H'", intern = TRUE)`
 
-PoYuan Tung is a postdoctoral fellow in the Department of Human Genetics at the University of Chicago.
+Michael Turchin is a graduate student in the Department of Human Genetics at the University of Chicago
 
-John Blischak is a graduate student in the Committee on Genetics, Genomics, and Systems Biology at the University of Chicago.
+Sudhir Penugonda is a research assistant professor in the Division of Infectious Diseases at the Northwestern University Feinberg School of Medicine
 
-Joyce Hsiao is a postdoctoral fellow in the Department of Human Genetics at the University of Chicago.
+Eun-Young Kim is a research associate professor in the Division of Infectious Diseases at the Northwestern University Feinberg School of Medicine
 
-Yoav Gilad is a Professor in the Department of Human Genetics at the University of Chicago.
+Matthew Stephens is a professor in the Departments of Statistics and Human Genetics at the University of Chicago
 
-[Gilad lab website](http://giladlab.uchicago.edu)
+Steven Wolinsky is a professor in the Division of Infectious Diseases at the Northwestern University Feinberg School of Medicine
+
+[Stephens lab website](https://stephenslab.uchicago.edu/)
+[Division of Infectious Diseases at the Northwestern University Feinberg School of Medicine](https://www.medicine.northwestern.edu/divisions/infectious-diseases/)

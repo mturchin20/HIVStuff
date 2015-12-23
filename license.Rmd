@@ -9,9 +9,6 @@ title: "License"
 ## Code
 
 The code is licensed under the [GPLv3][code-license].
-We use multiple [Bioconductor][bioc] packages which are GPL'd.
-
-[bioc]: https://www.bioconductor.org/about
 
 ## Site
 

@@ -1,0 +1,34 @@
+---
+title: "Stephens & Wolinsky Labs: Candidate HIV-Target Human Gene-Exome Sequencing and Analysis"
+---
+
+**Last updated:** `r Sys.Date()`
+
+**Code version:** `r system("git log -1 --format='%H'", intern = TRUE)`
+
+## Notes
+
+*  [Explanation of github page](githubpage_explanation.html)
+
+## Data PreProcessing
+
+* 
+
+## Data Processing
+
+*
+
+## Data Main Analyses
+
+*  [Quality control at level of single cell samples](qc-cell-ipsc.html) - ([LCLs](qc-cell-lcl.html))
+     * [Sequencing depth and cellular RNA content](depth.html)
+
+## Data Follow-up Analyses
+
+## Data Side Analyses
+
+## Paper
+
+## Other
+
+
