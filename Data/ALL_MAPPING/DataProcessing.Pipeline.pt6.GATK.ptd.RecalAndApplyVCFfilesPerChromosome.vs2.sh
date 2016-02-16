@@ -74,8 +74,8 @@ fi
 #	          -o path/to/output.recalibrated.filtered.vcf \
 
 
-gzip ${baseFileN}.Chr${I}.GATK.ReduceReads.raw.run2.vc
-#gzip ${baseFileN}.Chr${I}.GATK.ReduceReads.UG.VQSR.SNP.ts90.vcf
+#gzip ${baseFileN}.Chr${I}.GATK.ReduceReads.raw.run2.vc
+gzip ${baseFileN}.Chr${I}.GATK.ReduceReads.UG.VQSR.SNP.ts90.vcf
 
 #mv /tmp/$PBS_JOBID/$baseFileN* $mainDir1/GATK/. 
 mv /tmp/$PBS_JOBID/$baseFileN* $mainDir1/. 

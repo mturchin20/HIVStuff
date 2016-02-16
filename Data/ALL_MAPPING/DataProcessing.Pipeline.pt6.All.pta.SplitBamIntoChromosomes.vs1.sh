@@ -23,9 +23,9 @@ refFile1=""
 
 cd $mainDir1
 
-samtools view -b ${baseFileN}.bam ${I} > ${baseFileN}.Chr${I}.bam
+/home/shared/software/samtools/samtools-0.1.19/samtools view -b ${baseFileN}.bam ${I} > ${baseFileN}.Chr${I}.bam
 
-samtools index ${baseFileN}.Chr${I}.bam ${baseFileN}.Chr${I}.bai
+/home/shared/software/samtools/samtools-0.1.19/samtools index ${baseFileN}.Chr${I}.bam ${baseFileN}.Chr${I}.bai
 
 endTime1=`perl -e 'print time;'`
 #timeDiff1=$((($endTime1-$beginTime1)/60/60))

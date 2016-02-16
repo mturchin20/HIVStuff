@@ -117,7 +117,8 @@ echo $mainCommandsTotal $pheno1 $cov1 $maxMaf005 $skat0 $run1 $out1
 END
 #Pheno1
 outCommand="--out ${out1}.${groupfSpecific}.Pheno1.maf1.skat0.perm${runNum1} "; qsubout="${mainDir1}/qsubout/qsubout.EPACTruns.PermutationRuns.Launcher.vs3.pt2.${groupfSpecific}.Pheno1.maf1.skat0.perm${runNum1}"; commandLine1=`echo $mainCommandsTotal $pheno1 $cov1 $maxMaf100 $skat0 $run1 $outCommand`
-qsub -j oe -o $qsubout -e $qsubout -l walltime=720:00:00,mem=6gb,nodes=1:ppn=6 -v mainCommands1="$commandLine1 " /data/userdata/pg/michaelt/Data/ALL_MAPPING/DataProcessing.Pipeline.pt6.All.ptf.EPACTruns.vs2.sh
+#qsub -j oe -o $qsubout -e $qsubout -l walltime=720:00:00,mem=6gb,nodes=1:ppn=6 -v mainCommands1="$commandLine1 " /data/userdata/pg/michaelt/Data/ALL_MAPPING/DataProcessing.Pipeline.pt6.All.ptf.EPACTruns.vs2.sh
+echo qsub -j oe -o $qsubout -e $qsubout -l walltime=720:00:00,mem=6gb,nodes=1:ppn=6 -v mainCommands1="$commandLine1 " /data/userdata/pg/michaelt/Data/ALL_MAPPING/DataProcessing.Pipeline.pt6.All.ptf.EPACTruns.vs2.sh
 
 #Pheno2
 outCommand="--out ${out1}.${groupfSpecific}.Pheno2.maf1.skat0.perm${runNum1} "; qsubout="${mainDir1}/qsubout/qsubout.EPACTruns.PermutationRuns.Launcher.vs3.pt2.${groupfSpecific}.Pheno2.maf1.skat0.perm${runNum1}"; commandLine1=`echo $mainCommandsTotal $pheno2 $cov1 $maxMaf100 $skat0 $run1 $outCommand`

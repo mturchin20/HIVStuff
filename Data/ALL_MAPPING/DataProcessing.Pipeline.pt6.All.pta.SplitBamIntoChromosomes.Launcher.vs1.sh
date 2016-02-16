@@ -35,7 +35,7 @@ do
 
 #	mainDir2, baseFile1, refFileFlag1
 
-	qsub -j oe -o $qsubout -e $qsubout -l walltime=720:00:00,mem=6gb,nodes=1:ppn=6 -v mainDir1=$mainDir1,baseFileN=$baseFile1,I=$i,refFileFlag1=$refFileFlag1 DataProcessing.Pipeline.pt6.All.pta.SplitBamIntoChromosomes.vs1.sh 
+	qsub -j oe -o $qsubout -e $qsubout -l walltime=720:00:00,mem=6gb,nodes=1:ppn=6 -v mainDir1=$mainDir1,baseFileN=$baseFile1,I=$i,refFileFlag1=$refFileFlag1 /data/userdata/pg/michaelt/Data/ALL_MAPPING/DataProcessing.Pipeline.pt6.All.pta.SplitBamIntoChromosomes.vs1.sh 
 
 #	sleep 1
 

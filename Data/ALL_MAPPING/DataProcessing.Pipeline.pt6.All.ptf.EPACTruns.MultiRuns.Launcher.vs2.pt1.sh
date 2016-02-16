@@ -34,13 +34,13 @@ qsubout="${mainDir1}/qsubout/qsubout.EPACTSruns.MultiRuns.Launcher.vs2.txt"
 
 echo $qsubout
 
-#groupfCommandExonicNon="Exonic.Nonsynonymous"
+groupfCommandExonicNon="Exonic.Nonsynonymous"
 ###groupfCommandExonicNon="Exonic.Nonsynonymous.wSplice"
-groupfCommandExonicNon="Intronic"
+#groupfCommandExonicNon="Intronic"
 
 #echo $groupfCommandAll
 
-for i in {2..100} 
+for i in {1..1} 
 do
 
 	bash /data/userdata/pg/michaelt/Data/ALL_MAPPING/DataProcessing.Pipeline.pt6.All.ptf.EPACTruns.MultiRuns.Launcher.vs3.pt2.sh $mainDir1 $vcf1 $groupf1 $groupfCommandExonicNon $ped1 $out1 $i
