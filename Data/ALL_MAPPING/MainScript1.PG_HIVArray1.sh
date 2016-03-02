@@ -14906,7 +14906,8 @@ Ph: (858)646-3100 x3574
 #20150921 CHECK_0: Aleksandar these are the directories to be backed up? /home/michaelt/LabStuff/StephensLab/HIVStuff/PG/Backup/michaelt/Data/ALL_MAPPING and all subdirectories of /home/michaelt/LabStuff/StephensLab/HIVStuff/PG/Backup/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/* ?
 #20150921 CHECK_0: Consider whether there are other files other than scripts that should be backed up? Go through them 
 
-##Github
+###Github
+###
 
 #20150921
 cd /data/userdata/pg/michaelt/Data/ALL_MAPPING
@@ -14919,6 +14920,32 @@ git add /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_
 
 git commit -m "20150921 -- updating"
 git push origin master
+
+#20160302
+
+#PWD -- /data/userdata/pg/michaelt
+git status > .gitignore
+
+cat .gitignore | grep -v ALL_MAPPING\/Pools\/ > PossibleFilesToNotgitIgnore.txt
+
+#Then manually edited PossibleFilesToNotgitIgnore.txt, eg removing the files that are actually being kept/followed
+
+~~~
+[  michaelt@login2  /data/userdata/pg/michaelt]$cat .gitignore | wc
+    740     740  116474
+[  michaelt@login2  /data/userdata/pg/michaelt]$cat .gitignore | grep -v -f PossibleFilesToNotgitIgnore.txt | wc
+    603     603  101837
+[  michaelt@login2  /data/userdata/pg/michaelt]$cat PossibleFilesToNotgitIgnore.txt | wc
+    107     107   11276
+~~~
+
+mv .gitignore 20160302.gitignore
+
+cat 20160302.gitignore | grep -v -f PossibleFilesToNotgitIgnore.txt > .gitignore
+
+
+
+
 
 
 ##From /userdata/ to work desktop
@@ -14938,6 +14965,13 @@ scp -p /data/userdata/pg/michaelt/Data/ALL_MAPPING/*sh /data/userdata/pg/michael
 
 scp -p /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/*sh /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/*R /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/*py mturchin20@wolfy.uchicago.edu:/Users/mturchin20/LabStuff/StephensLab/HIVStuff/PG/Backup/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/.
 
+#20160302
+#PWD -- /data/userdata/pg/michaelt
+#From http://superuser.com/questions/115997/how-can-i-copy-multiple-files-over-scp-in-one-command
+tar cvzf - -T PossibleFilesToNotgitIgnore.txt | ssh mturchin20@wolfy.uchicago.edu "cd /Users/mturchin20/LabMisc/StephensLab/HIVStuff/PG/Backup/michaelt/Data/ALL_MAPPING/; tar xzf -"
+scp -p PossibleFilesToNotgitIgnore.txt mturchin20@wolfy.uchicago.edu:/Users/mturchin20/LabMisc/StephensLab/HIVStuff/PG/Backup/michaelt/.
+
+
 ##From /userdata/ to /home/
 
 mkdir /home/michaelt/LabStuff/StephensLab/HIVStuff/PG/Backup 
@@ -14953,6 +14987,10 @@ mkdir /home/michaelt/LabStuff/StephensLab/HIVStuff/PG/Backup/michaelt/Data/ALL_M
 cp -p /data/userdata/pg/michaelt/Data/ALL_MAPPING/*sh /data/userdata/pg/michaelt/Data/ALL_MAPPING/*R  /data/userdata/pg/michaelt/Data/ALL_MAPPING/*py /home/michaelt/LabStuff/StephensLab/HIVStuff/PG/Backup/michaelt/Data/ALL_MAPPING/. 
 
 cp -p /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/*sh /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/*R /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/*py /home/michaelt/LabStuff/StephensLab/HIVStuff/PG/Backup/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/. 
+
+#20160302
+for i in `cat PossibleFilesToNotgitIgnore.txt`; do cp -p $i /home/michaelt/LabStuff/StephensLab/HIVStuff/PG/Backup/michaelt/Data/ALL_MAPPING/.; done
+
 
 
 ##20150327
