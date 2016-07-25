@@ -6854,6 +6854,59 @@ POS     POOL81_11RL
 41625,41625,1,POOL81-01RL,White non-Hispanic,0,0,1,0,0,0,0,0,0,0
 40063,40063,7,POOL81-07RL,White non-Hispanic,0,0,1,0,0,0,0,0,0,0
 
+#20160328 -- redoing the above analysis for 12_49089559 just to double check
+
+[  michaelt@login2  /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/SudhirSNPFlankingSequence]$zcat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/XChrFollowup/AllPools.Vs3.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.RRs.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wHM3.justWhite.QCed.DropIBD.indv80.wProperXChr.vcf.gz | grep 49089559 | perl -lane 'for (my $i = 9; $i <= $#F; $i++) { my @vals1 = split(/:/, $F[$i]); if ($vals1[0] =~ m/1/) { print $i, "\t", $F[$i] } } ;'
+660     0/1:12,11:23:99:304,0,282
+[  michaelt@login2  /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/SudhirSNPFlankingSequence]$zcat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/XChrFollowup/AllPools.Vs3.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.RRs.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wHM3.justWhite.QCed.DropIBD.indv80.wProperXChr.vcf.gz | grep 49089559 | awk '{ print $661 }'                                                                                                                  
+0/1:12,11:23:99:304,0,282
+[  michaelt@login2  /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/SudhirSNPFlankingSequence]$zcat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/XChrFollowup/AllPools.Vs3.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.RRs.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wHM3.justWhite.QCed.DropIBD.indv80.wProperXChr.vcf.gz | awk '{ print $2, "\t", $661 }' | perl -lane 'my @vals1 = split(/:/, $F[1]); if ($vals1[0] =~ m/POOL|\/1/) { print join("\t", @F); }' | grep -E '49089559|POOL'
+POS     POOL81_11RL
+49089559        0/1:12,11:23:99:304,0,282
+[  michaelt@login2  /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/SudhirSNPFlankingSequence]$cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/DataProcessing.Pipeline.CreateProperIndvPhenoLinkFile.vs2.20140322_POP_genomics_sample.status_list_12-10-13.output | grep POOL81
+41493,41493,4,POOL81-04RL,White non-Hispanic,0,0,1,0,0,0,0,0,0,0
+40457,40457,10,POOL81-10RL,White non-Hispanic,0,1,0,0,0,0,0,0,0,0
+41574,41574,11,POOL81-11RL,White non-Hispanic,0,0,1,0,0,0,0,0,0,0
+30751,30751,3,POOL81-03RL,White non-Hispanic,0,0,1,0,0,0,0,0,0,0
+41628,41628,9,POOL81-09RL,White non-Hispanic,33.3,0,0,0,1,0,0,0,0,0.53
+40270,40270,8,POOL81-08RL,White non-Hispanic,0,1,0,0,0,0,0,0,0,0
+41625,41625,1,POOL81-01RL,White non-Hispanic,0,0,1,0,0,0,0,0,0,0
+40063,40063,7,POOL81-07RL,White non-Hispanic,0,0,1,0,0,0,0,0,0,0
+[  michaelt@login2  /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/SudhirSNPFlankingSequence]$zcat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/XChrFollowup/AllPools.Vs3.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.RRs.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wHM3.justWhite.QCed.DropIBD.indv80.wProperXChr.vcf.gz | awk '{ print $2, "\t", $661 }' | perl -lane 'my @vals1 = split(/:/, $F[1]); if ($vals1[0] =~ m/POOL|\/1/) { print join("\t", @F); }' | wc 
+   5008   10016  165199
+[  michaelt@login2  /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/SudhirSNPFlankingSequence]$zcat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/XChrFollowup/AllPools.Vs3.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.RRs.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wHM3.justWhite.QCed.DropIBD.indv80.wProperXChr.vcf.gz | awk '{ print $2, "\t", $661 }' | perl -lane 'my @vals1 = split(/:/, $F[1]); if ($vals1[0] =~ m/POOL|\/1/) { print join("\t", @F); }' | head -n 10
+POS     POOL81_11RL
+1151973 0/1:5,5:10:99:127,0,125
+1154539 0/1:20,15:34:99:407,0,527
+1155238 0/1:10,11:20:99:282,0,207
+1155321 0/1:14,9:22:99:241,0,337
+1156429 0/1:24,14:37:99:334,0,631
+1156655 0/1:19,14:32:99:368,0,466
+1156735 0/1:19,11:29:99:281,0,517
+1157340 0/1:10,5:15:99:109,0,265
+1157372 0/1:10,5:15:99:123,0,273
+
+#Positive control with 12_49087441 which does have HESN AC -- yes, column 686, indv POOL85_05RL is HESN and this variant is recorded as having 1 HESN alt AC
+
+[  michaelt@login2  /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/SudhirSNPFlankingSequence]$zcat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/XChrFollowup/AllPools.Vs3.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.RRs.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wHM3.justWhite.QCed.DropIBD.indv80.wProperXChr.vcf.gz | grep 49087441 | perl -lane 'for (my $i = 9; $i <= $#F; $i++) { my @vals1 = split(/:/, $F[$i]); if ($vals1[0] =~ m/1/) { print $i, "\t", $F[$i] } } ;'
+685     0/1:28,14:40:99:248,0,850
+[  michaelt@login2  /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/SudhirSNPFlankingSequence]$zcat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/XChrFollowup/AllPools.Vs3.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.RRs.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wHM3.justWhite.QCed.DropIBD.indv80.wProperXChr.vcf.gz | awk '{ print $2, "\t", $686 }' | perl -lane 'my @vals1 = split(/:/, $F[1]); if ($vals1[0] =~ m/POOL|\/1/) { print join("\t", @F); }' | grep -E '49087441|POOL'
+POS     POOL85_05RL
+49087441        0/1:28,14:40:99:248,0,850
+[  michaelt@login2  /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/SudhirSNPFlankingSequence]$cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/DataProcessing.Pipeline.CreateProperIndvPhenoLinkFile.vs2.20140322_POP_genomics_sample.status_list_12-10-13.output | grep POOL85
+40157,40157,9,POOL85-09RL,White Hispanic,0,1,0,0,0,0,0,0,0,0
+40840,40840,7,POOL85-07RL,White non-Hispanic,0,0,1,0,0,0,0,0,0,0
+41695,41695,5,POOL85-05RL,White non-Hispanic,0,1,0,0,0,0,0,0,0,0
+41411,41411,12,POOL85-12RL,White non-Hispanic,32,0,0,0,1,0,0,0,0,11.37
+41130,41130,1,POOL85-01RL,White non-Hispanic,0,0,1,0,0,0,0,0,0,0
+40082,40082,8,POOL85-08RL,White non-Hispanic,0,1,0,0,0,0,0,0,0,0
+41147,41147,10,POOL85-10RL,American Indian or Alaskan Native,0,1,0,0,0,0,0,0,0,0
+40309,40309,11,POOL85-11RL,White non-Hispanic,0,0,1,0,0,0,0,0,0,0
+
+
+
+
+
 #20150127 -- continuing this specific HESN-subset group analysis, now interested in just seeing whether a specific group of genes that they have identified have any type of clustering of variants among these 12 individuals
 
 gzip /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/ForPeople/ForKevinO/AllPools.Vs2.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.20140925KevinIndvRequest.vcf
@@ -12520,7 +12573,7 @@ cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool
 
 paste <(cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/AllPools.Vs2.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.vcf.AnnovarFormat.genome_summary.csv | grep -f <(cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/AllPools.Vs2.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe | awk '{ if ($6 < .0001) { print $0 } } ' | awk '{ print $1 "," $2 }' )) <(cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/AllPools.Vs2.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe | grep -f <(cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/AllPools.Vs2.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe | awk '{ if ($6 < .0001) { print $0 } } ' | awk '{ print $1 "\t" $2 }' )) > /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/CheckHWESNPs/AllPools.Vs2.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.genome_summary.wHardyPLINK.txt
 
-#20151217 CHECK_0 -- Prob: Redo analyses on X chromosome
+#20151217 201601/02__? CHECK_1 -- Prob: Redo analyses on X chromosome Soln: I took care of this and redid these analyses
 
 
 
@@ -13090,14 +13143,7 @@ X       154467678       .       A       G       172.05  VQSRTrancheSNP99.00to99.
 X       154468046       rs143206182     T       C       373.31  VQSRTrancheSNP90.00to99.00      AA=T;AC=3;AF=1.667e-03;AN=1800;BaseQRankSum=2.275;DB;DP=11469;Dels=0.00;FS=3.170;HRun=0;HaplotypeScore=1.9134;InbreedingCoeff=0.1243;MLEAC=2;MLEAF=1.111e-03;MQ=59.96;MQ0=0;MQRankSum=0.286;POSITIVE_TRAIN_SITE;QD=20.74;ReadPosRankSum=0.459;VQSLOD=2.45;culprit=HaplotypeScore   GT:AD:DP:GQ:PL  0/0:18,0:18:54:0,54,615
 ~~~
 
-
-
-
-
-#20160216 CHECK_0 -- Problem: redo vcf concat by doing auto only from original main file and including all XChr from redone X vcf version
-
-
-
+#20160216  201602__ CHECK_1 -- Problem: redo vcf concat by doing auto only from original main file and including all XChr from redone X vcf version Soln: I took care of during mid/end of February
 
 #zcat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/AllPools.Vs3.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.RRs.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wHM3.justWhite.QCed.DropIBD.indv80.vcf.gz | grep -v ^# | perl -lane 'print $F[0], "\t", $F[1];' > /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/AllPools.Vs3.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.RRs.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wHM3.justWhite.QCed.DropIBD.indv80.vcf.ChrBP.txt
 #
@@ -13177,6 +13223,14 @@ mv /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_
 
 cat <(zcat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/AllPools.Vs3.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.RRs.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wHM3.justWhite.QCed.DropIBD.indv80.vcf.gz | grep -v ^X) <(zcat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/XChrFollowup/AllPools.Vs3.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.XChr.wHM3.CEUCHBYRI.10PCs.justWhite.QCed.DropIBD.indv80.vs3.gt10Het.recode.vcf.gz | grep -v ^#) | /home/michaelt/Software/vcftools_0.1.11/bin/vcf-sort | gzip > /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/XChrFollowup/AllPools.Vs3.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.RRs.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wHM3.justWhite.QCed.DropIBD.indv80.wProperXChr.vcf.gz 
 
+cat <(zcat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/AllPools.Vs3.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.RRs.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wHM3.justWhite.QCed.DropIBD.indv80.vcf.gz | grep -v ^X) <(zcat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/XChrFollowup/AllPools.Vs3.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.XChr.wHM3.CEUCHBYRI.10PCs.justWhite.QCed.DropIBD.indv80.vs3.gt10Het.recode.vcf.gz | grep -v ^#) | /home/michaelt/Software/vcftools_0.1.11/bin/vcf-sort > /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/XChrFollowup/AllPools.Vs3.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.RRs.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wHM3.justWhite.QCed.DropIBD.indv80.wProperXChr.vcf.bgzip 
+
+/home/shared/software/tabix-0.2.5/bgzip /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/XChrFollowup/AllPools.Vs3.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.RRs.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wHM3.justWhite.QCed.DropIBD.indv80.wProperXChr.vcf.bgzip
+/home/shared/software/tabix-0.2.5/tabix -pvcf -f /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/XChrFollowup/AllPools.Vs3.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.RRs.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wHM3.justWhite.QCed.DropIBD.indv80.wProperXChr.vcf.bgzip.gz
+
+/home/shared/software/tabix-0.2.5/bgzip /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/AllPools.Vs3.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.RRs.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wHM3.justWhite.QCed.DropIBD.indv80.vcf.bgzip
+/home/shared/software/tabix-0.2.5/tabix -pvcf -f /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/AllPools.Vs3.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.RRs.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wHM3.justWhite.QCed.DropIBD.indv80.vcf.bgzip.gz
+
 cat <(zcat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/AllPools.Vs3.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.RRs.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wHM3.justWhite.QCed.DropIBD.indv80.vs3.FreqInfo.AnnovarAnnotation.vs6.txt.gz | grep -v ^X) <(zcat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/XChrFollowup/AllPools.Vs3.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.XChr.wHM3.CEUCHBYRI.10PCs.justWhite.QCed.DropIBD.indv80.vs3.gt10Het.FreqInfo.AnnovarAnnotation.vs6.txt.gz) | gzip > /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/XChrFollowup/AllPools.Vs3.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.RRs.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wHM3.justWhite.QCed.DropIBD.indv80.vs3.wProperXChr.FreqInfo.AnnovarAnnotation.vs6.txt.gz
 
 ~~~
@@ -13228,12 +13282,6 @@ X       16867033        .       A       C       483.56  VQSRTrancheSNP99.00to99.
 [  michaelt@node7  /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/ForPeople/ForSudhir]$zcat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/XChrFollowup/AllPools.Vs3.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.RRs.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wHM3.justWhite.QCed.DropIBD.indv80.vs3.wProperXChr.FreqInfo.AnnovarAnnotation.vs6.txt.gz | wc
   65573   72253 29506966
 ~~~
-
-
-
-
-
-
 
 #cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/EPACTSFiles/Permutations/TruePheno_XChr/Pheno1/Exonic.Nonsynonymous/DataProcessing.Pipeline.Utility.CollectPValsPerGeneAcrossMultRuns.vs2.TruePheno_XChr.Pheno1.Exonic.Nonsynonymous.output.noNAs.Routput.wVarCounts | awk '{ print $1 }' | grep -v ^NS$ > /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/EPACTSFiles/Permutations/TruePheno_XChr/Pheno1/Exonic.Nonsynonymous/DataProcessing.Pipeline.Utility.CollectPValsPerGeneAcrossMultRuns.vs2.TruePheno_XChr.Pheno1.Exonic.Nonsynonymous.output.noNAs.Routput.wVarCounts.justGeneIDs
 #
@@ -13466,6 +13514,9 @@ mv /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_
 
 cat <(cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/EPACTSFiles/Permutations/TruePheno/Pheno1/Exonic.Nonsynonymous/DataProcessing.Pipeline.Utility.CollectPValsPerGeneAcrossMultRuns.vs2.TruePheno.Pheno1.Exonic.Nonsynonymous.output.noNAs.Routput.wVarCounts.justGeneIDs | grep -v -f <(cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/EPACTSFiles/Permutations/TruePheno/Pheno1/Exonic.Nonsynonymous/AllPools.Vs3.ChrAll.GATK.RRs.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wHM3.justWhite.QCed.DropIBD.indv80.vs3.EPACTS.RMID5PCs.Exonic.Nonsynonymous.Pheno1.maf1.skat0.run1.epacts | grep ^X | perl -lane 'print join("_", (split(/_/, $F[3]))[1..scalar((split(/_/, $F[3])))-1]);')) /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/EPACTSFiles/Permutations/TruePheno_XChr/Pheno1/Exonic.Nonsynonymous/20160118_Orig1/DataProcessing.Pipeline.Utility.CollectPValsPerGeneAcrossMultRuns.vs2.TruePheno_XChr.Pheno1.Exonic.Nonsynonymous.output.noNAs.Routput.wVarCounts.justGeneIDs | sort > /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/EPACTSFiles/Permutations/TruePheno_XChr/Pheno1/Exonic.Nonsynonymous/20160118_Orig1/DataProcessing.Pipeline.Utility.CollectPValsPerGeneAcrossMultRuns.vs2.TruePheno.Pheno1.Exonic.Nonsynonymous.output.noNAs.Routput.wVarCounts.wProperXChr.GeneIDList 
 
+#Including the below code on 20160712
+cat <(cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/EPACTSFiles/Permutations/TruePheno/Pheno1/Exonic.Nonsynonymous/DataProcessing.Pipeline.Utility.CollectPValsPerGeneAcrossMultRuns.vs2.TruePheno.Pheno1.Exonic.Nonsynonymous.output.noNAs.Routput.wVarCounts | grep -v -f <(cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/EPACTSFiles/Permutations/TruePheno/Pheno1/Exonic.Nonsynonymous/AllPools.Vs3.ChrAll.GATK.RRs.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wHM3.justWhite.QCed.DropIBD.indv80.vs3.EPACTS.RMID5PCs.Exonic.Nonsynonymous.Pheno1.maf1.skat0.run1.epacts | grep ^X | perl -lane 'print join("_", (split(/_/, $F[3]))[1..scalar((split(/_/, $F[3])))-1]);')) /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/EPACTSFiles/Permutations/TruePheno_XChr/Pheno1/Exonic.Nonsynonymous/20160118_Orig1/DataProcessing.Pipeline.Utility.CollectPValsPerGeneAcrossMultRuns.vs2.TruePheno_XChr.Pheno1.Exonic.Nonsynonymous.output.noNAs.Routput.wVarCounts | sort > /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/EPACTSFiles/Permutations/TruePheno_XChr/Pheno1/Exonic.Nonsynonymous/20160118_Orig1/DataProcessing.Pipeline.Utility.CollectPValsPerGeneAcrossMultRuns.vs2.TruePheno.Pheno1.Exonic.Nonsynonymous.output.noNAs.Routput.wVarCounts.wProperXChr
+
 ~~~
 #[  michaelt@node4  ~]$cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/EPACTSFiles/Permutations/TruePheno_XChr/Pheno1/Exonic.Nonsynonymous/DataProcessing.Pipeline.Utility.CollectPValsPerGeneAcrossMultRuns.vs2.TruePheno.Pheno1.Exonic.Nonsynonymous.output.noNAs.Routput.wVarCounts.wProperXChr.GeneIDList | wc
 #    475     475    3002
@@ -13481,6 +13532,20 @@ PGRMC1
     463     463    2932
 [  michaelt@node7  /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/ForPeople/ForSudhir]$cat <(cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/EPACTSFiles/Permutations/TruePheno/Pheno1/Exonic.Nonsynonymous/DataProcessing.Pipeline.Utility.CollectPValsPerGeneAcrossMultRuns.vs2.TruePheno.Pheno1.Exonic.Nonsynonymous.output.noNAs.Routput.wVarCounts.justGeneIDs | grep -v -f <(cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/EPACTSFiles/Permutations/TruePheno/Pheno1/Exonic.Nonsynonymous/AllPools.Vs3.ChrAll.GATK.RRs.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wHM3.justWhite.QCed.DropIBD.indv80.vs3.EPACTS.RMID5PCs.Exonic.Nonsynonymous.Pheno1.maf1.skat0.run1.epacts | grep ^X | perl -lane 'print join("_", (split(/_/, $F[3]))[1..scalar((split(/_/, $F[3])))-1]);')) /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/EPACTSFiles/Permutations/TruePheno_XChr/Pheno1/Exonic.Nonsynonymous/20160118_Orig1/DataProcessing.Pipeline.Utility.CollectPValsPerGeneAcrossMultRuns.vs2.TruePheno_XChr.Pheno1.Exonic.Nonsynonymous.output.noNAs.Routput.wVarCounts.justGeneIDs | wc
     474     474    2997
+[  michaelt@login2  /data/userdata/pg/michaelt/Data/ALL_MAPPING]$cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/EPACTSFiles/Permutations/TruePheno_XChr/Pheno1/Exonic.Nonsynonymous/20160118_Orig1/DataProcessing.Pipeline.Utility.CollectPValsPerGeneAcrossMultRuns.vs2.TruePheno.Pheno1.Exonic.Nonsynonymous.output.noNAs.Routput.wVarCounts.wProperXChr | sort -g -k 2,2 | grep -v NUM_PASS_VARS | wc
+    473   12298   66647
+[  michaelt@login2  /data/userdata/pg/michaelt/Data/ALL_MAPPING]$cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/EPACTSFiles/Permutations/TruePheno_XChr/Pheno1/Exonic.Nonsynonymous/20160118_Orig1/DataProcessing.Pipeline.Utility.CollectPValsPerGeneAcrossMultRuns.vs2.TruePheno.Pheno1.Exonic.Nonsynonymous.output.noNAs.Routput.wVarCounts.wProperXChr | sort -g -k 2,2 | grep -v NUM_PASS_VARS | head -n 10
+GEMIN2          0.0007637044 2.849703e-04 0.20828       4       775     0.0090323       4       4       2       0.000482        0.09    775     0.0090323       4       4       2       0.00065358      0.09    775     0.0090323      4       4       2       0.00065358      0.09
+VTI1A           0.0011255423 1.964403e-04 0.20828       4       775     0.0077419       4       4       2       0.00093377      0.04    775     0.0077419       4       4       2       0.0012633       0.01    775     0.0077419      4       4       2       0.0012633       0.01
+VDAC3           0.0021478040 3.558253e-04 0.26496       5       775     0.014194        5       5       2       0.0024929       0       775     0.014194        5       5       2       0.0022545       0       775     0.014194       5       5       2       0.0022545       0
+SDHD            0.0061396500 5.411473e-04 0.31046       1       775     0.028387        1       1       0       0.0061798       NA      775     0.028387        1       1       0       0.0065964       NA      775     0.028387       1       1       0       0.0065964       NA
+NUDC            0.0076396000 0.000000e+00 0.31046       4       775     0.0090323       4       4       1       0.0076396       0.04    775     0.0090323       4       4       1       0.0076396       0.04    775     0.0090323      4       4       1       0.0076396       0.04
+CUL5            0.0081515040 1.771299e-04 0.31046       2       775     0.0064516       2       2       1       0.0080229       0       775     0.0064516       2       2       1       0.0083678       0       775     0.0064516      2       2       1       0.0083678       0
+EDC4            0.0083883740 8.115533e-04 0.31046       7       775     0.023226        7       7       3       0.0086551       0.5     775     0.023226        7       7       3       0.010771        0.5     775     0.023226       7       7       3       0.010771        0.5
+FUT8            0.0086799650 7.713121e-04 0.31046       6       775     0.31613 6       6       3       0.0089602       0       775     0.31613 6       6       3       0.0086014       0       775     0.31613 6       6     3
+        0.0086014       0
+MRPS9           0.0088281470 8.748790e-04 0.31046       9       775     0.059355        9       9       3       0.010088        0.09    775     0.059355        9       9       3       0.0073882       0.04    775     0.059355       9       9       3       0.0073882       0.04
+CIAO1           0.0096308820 2.880849e-04 0.31046       2       775     0.0077419       2       2       0       0.0095245       0       775     0.0077419       2       2       0       0.0096062       0       775     0.0077419      2       2       0       0.0096062       0
 ~~~
 
 cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/EPACTSFiles/AllPools.Vs3.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.RRs.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wHM3.justWhite.QCed.DropIBD.indv80.vs3.bim.wGeneIDs.GroupFile.Exonic.Nonsynonymous.wSplice | awk '{ print $1 }' > /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/EPACTSFiles/AllPools.Vs3.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.RRs.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wHM3.justWhite.QCed.DropIBD.indv80.vs3.bim.wGeneIDs.GroupFile.Exonic.Nonsynonymous.wSplice.justGeneIDs
@@ -14101,6 +14166,10 @@ jpeg(\"/data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_p
 
 
 
+
+
+
+
 ##20160117
 ##Cleaning up some scripts to show to Aleksandar (as requested)
 
@@ -14118,7 +14187,6 @@ mkdir /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_po
 
 #Did not make separate cp -p copies of any of these files. Just copied them to the office desktop 'ForAleksandar' location and then e-mailed Aleksandar the files (along with some explanations). Also copy/pasted the for loop below as another example of coding-style types.
 scp -p /data/userdata/pg/michaelt/Data/ALL_MAPPING/DataProcessing.Pipeline.pt3.MergeallSampleBamFiles.Launcher.vs2.sh /data/userdata/pg/michaelt/Data/ALL_MAPPING/DataProcessing.Pipeline.pt3.MergeallSampleBamFiles.vs4.sh /data/userdata/pg/michaelt/Data/ALL_MAPPING/DataProcessing.Pipeline.pt4.ProcessSampleLvlbamFiles.vs2.sh /data/userdata/pg/michaelt/Data/ALL_MAPPING/DataProcessing.Pipeline.pt4.ProcessSampleLvlbamFiles.Launcher.vs2.sh /data/userdata/pg/michaelt/Data/ALL_MAPPING/DataProcessing.Pipeline.pt6.All.ptf.EPACTruns.MultiRuns.Launcher.vs2.pt1.sh /data/userdata/pg/michaelt/Data/ALL_MAPPING/DataProcessing.Pipeline.pt6.All.ptf.EPACTruns.MultiRuns.Launcher.vs3.pt2.sh /data/userdata/pg/michaelt/Data/ALL_MAPPING/DataProcessing.Pipeline.pt6.All.ptf.EPACTruns.vs2.sh /data/userdata/pg/michaelt/Data/ALL_MAPPING/DataProcessing.Pipeline.pt6.All.ptf.EPACTruns.MultiRuns.TarAndCleanPrevRun.vs2.sh /data/userdata/pg/michaelt/Data/ALL_MAPPING/DataProcessing.Pipeline.pt6.All.ptf.EPACTruns.MultiRuns.MvAndProcessResults.vs3.sh mturchin20@wolfy.uchicago.edu:/Users/mturchin20/LabMisc/StephensLab/HIVStuff/PG/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/ForPeople/ForAleksandar/.
-
 
 
 for gene1 in `cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/EPACTSFiles/Permutations/TruePheno_XChr/Pheno1/Exonic.Nonsynonymous/DataProcessing.Pipeline.Utility.CollectPValsPerGeneAcrossMultRuns.vs2.TruePheno.Pheno1.Exonic.Nonsynonymous.output.noNAs.Routput.wVarCounts.wProperXChr.GeneIDList`
@@ -14849,6 +14917,938 @@ scp -p TempWork/UCSCGenomeBrowserQC/* mturchin20@wolfy.uchicago.edu:/Users/mturc
 ~~~~~~~
 
 
+##20160308
+##GeneIDs from MM5/P1 and P2 for Sudhir
+
+ln -s /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/EPACTSFiles/Permutations/TruePheno_XChr/Pheno1/Exonic.Nonsynonymous/20160118_Orig1/DataProcessing.Pipeline.Utility.CollectPValsPerGeneAcrossMultRuns.vs2.TruePheno.Pheno1.Exonic.Nonsynonymous.output.noNAs.Routput.wVarCounts.wProperXChr.GeneIDList /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/ForPeople/ForSudhir/MM5.skatO.nonsyn.Update1.GeneIDs
+
+ln -s /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/EPACTSFiles/Permutations/TruePheno_XChr/Pheno1/Exonic.Nonsynonymous/20160120_Orig1/DataProcessing.Pipeline.Utility.CollectPValsPerGeneAcrossMultRuns.vs2.TruePheno.Pheno1.Exonic.Nonsynonymous.output.noNAs.Routput.wVarCounts.wProperXChr.GeneIDList /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/ForPeople/ForSudhir/P2.skatO.nonsyn.Update1.GeneIDs
+
+scp -p /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/ForPeople/ForSudhir/MM5.skatO.nonsyn.Update1.GeneIDs mturchin20@wolfy.uchicago.edu:/Users/mturchin20/LabMisc/StephensLab/HIVStuff/PG/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/ForPeople/ForSudhir/.
+scp -p /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/ForPeople/ForSudhir/P2.skatO.nonsyn.Update1.GeneIDs mturchin20@wolfy.uchicago.edu:/Users/mturchin20/LabMisc/StephensLab/HIVStuff/PG/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/ForPeople/ForSudhir/.
+
+#On MacBook Air
+#scp -p mturchin20@wolfy.uchicago.edu:/Users/mturchin20/LabMisc/StephensLab/HIVStuff/PG/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/ForPeople/ForSudhir/MM5.skatO.nonsyn.Update1.GeneIDs /Users/mturchin20/Documents/Work/StephensLab/HIVStuff/PG/.
+#scp -p mturchin20@wolfy.uchicago.edu:/Users/mturchin20/LabMisc/StephensLab/HIVStuff/PG/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/ForPeople/ForSudhir/P2.skatO.nonsyn.Update1.GeneIDs /Users/mturchin20/Documents/Work/StephensLab/HIVStuff/PG/.
+
+#Individual IDs used for P2 actually?
+
+[  michaelt@login2  ~]$mkdir /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/ForPeople/ForSudhir/TempWork
+[  michaelt@login2  ~]$mkdir /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/ForPeople/ForSudhir/TempWork/VCFIndvIds
+[  michaelt@login2  ~]$zcat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/ForPeople/ForSudhir/P2.AllPools.Vs2.annotated.Update1.vcf.gz | head -n 140 | tail -n 1 > /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/ForPeople/ForSudhir/TempWork/VCFIndvIds/P2.AllPools.Vs2.annotated.Update1.vcf.IndvIDs
+[  michaelt@login2  ~]$cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/ForPeople/ForSudhir/TempWork/VCFIndvIds/P2.AllPools.Vs2.annotated.Update1.vcf.IndvIDs | perl -ane 'foreach my $indv (@F) { print $indv, "\n"; }' | grep POOL > /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/ForPeople/ForSudhir/TempWork/VCFIndvIds/P2.AllPools.Vs2.annotated.Update1.vcf.IndvIDs.SinglColmn 
+
+join -1 1 -2 4 <(cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/ForPeople/ForSudhir/TempWork/VCFIndvIds/P2.AllPools.Vs2.annotated.Update1.vcf.IndvIDs.SinglColmn | sort) <(cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/DataProcessing.Pipeline.CreateProperIndvPhenoLinkFile.vs3.ForP2.vs1.20140529_P2_master_pool_sheet.status_list_12-10-13.output | perl -F, -lane 'print join("\t", @F);' | sort -k 4,4)
+
+~~~
+[  michaelt@login2  ~]$join -1 1 -2 4 <(cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/ForPeople/ForSudhir/TempWork/VCFIndvIds/P2.AllPools.Vs2.annotated.Update1.vcf.IndvIDs.SinglColmn | sort) <(cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/DataProcessing.Pipeline.CreateProperIndvPhenoLinkFile.vs3.ForP2.vs1.20140529_P2_master_pool_sheet.status_list_12-10-13.output | perl -F, -lane 'print join("\t", @F);' | sort -k 4,4) | wc
+    747   11952   54634
+[  michaelt@login2  ~]$join -1 1 -2 4 <(cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/ForPeople/ForSudhir/TempWork/VCFIndvIds/P2.AllPools.Vs2.annotated.Update1.vcf.IndvIDs.SinglColmn | sort) <(cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/DataProcessing.Pipeline.CreateProperIndvPhenoLinkFile.vs3.ForP2.vs1.20140529_P2_master_pool_sheet.status_list_12-10-13.output | perl -F, -lane 'print join("\t", @F);' | sort -k 4,4) | head -n 10
+POOL_P2_100_01RL 40374 1 33.14 White non-Hispanic 39.7 0 0 0 1 0 0 0 0 2.62
+POOL_P2_100_03RL 30078 3 26.51 White non-Hispanic 0 0 1 0 0 0 0 0 0 0
+POOL_P2_100_05RL 10039 5 22.86 White non-Hispanic 45.7 0 0 1 1 0 0 0 0 1.24
+POOL_P2_100_09RL 40904 9 48.79 White non-Hispanic 31.3 0 0 1 1 0 0 0 0 3.6
+POOL_P2_100_10RL 30190 10 35.37 White non-Hispanic 0 1 0 0 0 0 0 0 0 0
+POOL_P2_100_11RL 20579 11 40.02 White non-Hispanic 0 1 0 0 0 0 0 0 0 0
+POOL_P2_100_12RL 20779 12 59.65 White non-Hispanic 33.6 0 0 0 1 0 0 0 0 5.74
+POOL_P2_101_01RL 10340 1 36.59 White non-Hispanic 0 0 1 0 0 0 0 0 0 0
+POOL_P2_101_04RL 30983 4 31.22 White non-Hispanic 0 1 0 0 0 0 0 0 0 0
+POOL_P2_101_07RL 40175 7 99.14 White non-Hispanic 37.3 0 0 1 1 0 0 0 0 3.6
+~~~
+
+join -1 1 -2 4 <(cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/ForPeople/ForSudhir/TempWork/VCFIndvIds/P2.AllPools.Vs2.annotated.Update1.vcf.IndvIDs.SinglColmn | sort) <(cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/DataProcessing.Pipeline.CreateProperIndvPhenoLinkFile.vs3.ForP2.vs1.20140529_P2_master_pool_sheet.status_list_12-10-13.output | perl -F, -lane 'print join("\t", @F);' | sort -k 4,4) | awk '{ print $1, "\t", $2 }' > /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/ForPeople/ForSudhir/P2.AllPools.Vs2.annotated.Update1.vcf.POOLIDs_MACSIDs
+
+mkdir /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/ForPeople/ForSudhir/TempWork/
+mkdir /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/ForPeople/ForSudhir/TempWork/VCFIndvIds
+
+zcat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/ForPeople/ForSudhir/MM5.AllPools.Vs3.annotated.Update1.vcf.gz | head -n 142 | tail -n 1 > /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/ForPeople/ForSudhir/TempWork/VCFIndvIds/MM5.AllPools.Vs3.annotated.Update1.vcf.IndvIDs 
+cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/ForPeople/ForSudhir/TempWork/VCFIndvIds/MM5.AllPools.Vs3.annotated.Update1.vcf.IndvIDs | perl -ane 'foreach my $indv (@F) { print $indv, "\n"; }' | grep POOL > /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/ForPeople/ForSudhir/TempWork/VCFIndvIds/MM5.AllPools.Vs3.annotated.Update1.vcf.IndvIDs.SinglColumn
+
+join -1 1 -2 4 <(cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/ForPeople/ForSudhir/TempWork/VCFIndvIds/MM5.AllPools.Vs3.annotated.Update1.vcf.IndvIDs.SinglColumn | sed 's/_/-/g' | sort) <(cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/DataProcessing.Pipeline.CreateProperIndvPhenoLinkFile.vs2.20140322_POP_genomics_sample.status_list_12-10-13.output | perl -F, -lane 'print join("\t", @F);' | sort -k 4,4) | awk '{ print $1, "\t", $2 }' > /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/ForPeople/ForSudhir/MM5.AllPools.Vs3.annotated.Update1.vcf.POOLIDs_MACSIDs 
+
+~~~
+[  michaelt@login2  ~]$cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/ForPeople/ForSudhir/P2.AllPools.Vs2.annotated.Update1.vcf.POOLIDs_MACSIDs | awk '{ print $1 }' | sort | uniq -d                
+[  michaelt@login2  ~]$cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/ForPeople/ForSudhir/P2.AllPools.Vs2.annotated.Update1.vcf.POOLIDs_MACSIDs | awk '{ print $2 }' | sort | uniq -d
+[  michaelt@login2  ~]$cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/ForPeople/ForSudhir/MM5.AllPools.Vs3.annotated.Update1.vcf.POOLIDs_MACSIDs | awk '{ print $1 }' | sort | uniq -d 
+[  michaelt@login2  ~]$cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/ForPeople/ForSudhir/MM5.AllPools.Vs3.annotated.Update1.vcf.POOLIDs_MACSIDs | awk '{ print $2 }' | sort | uniq -d 
+[  michaelt@login2  ~]$
+~~~
+
+scp -p /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/ForPeople/ForSudhir/P2.AllPools.Vs2.annotated.Update1.vcf.POOLIDs_MACSIDs mturchin20@wolfy.uchicago.edu:/Users/mturchin20/LabMisc/StephensLab/HIVStuff/PG/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/ForPeople/ForSudhir/.
+scp -p /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/ForPeople/ForSudhir/MM5.AllPools.Vs3.annotated.Update1.vcf.POOLIDs_MACSIDs mturchin20@wolfy.uchicago.edu:/Users/mturchin20/LabMisc/StephensLab/HIVStuff/PG/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/ForPeople/ForSudhir/.
+
+#On MacBook Air
+#scp -p mturchin20@wolfy.uchicago.edu:/Users/mturchin20/LabMisc/StephensLab/HIVStuff/PG/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/ForPeople/ForSudhir/P2.AllPools.Vs2.annotated.Update1.vcf.POOLIDs_MACSIDs /Users/mturchin20/Documents/Work/StephensLab/HIVStuff/PG/.
+#scp -p mturchin20@wolfy.uchicago.edu:/Users/mturchin20/LabMisc/StephensLab/HIVStuff/PG/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/ForPeople/ForSudhir/MM5.AllPools.Vs3.annotated.Update1.vcf.POOLIDs_MACSIDs /Users/mturchin20/Documents/Work/StephensLab/HIVStuff/PG/.
+
+
+
+
+
+##20160328
+##CCNT1 Work, specific to still using 454/exome sequencing results
+
+#Find HESN individual with NM_001240:c.C760T:p.R254C variant as requested by Nevan/Sudhir
+
+#20160406
+#Interested in doing a few SKAT-O runs using the different components of the P-TEFb complex (CCNT1/CDK9) that interacts with tat
+#This includes CCNT1, CDK9 and AFF4
+#Also going to include a few complexes from http://cpdb.molgen.mpg.de/ using the 'top 35' loci from the main MM5 results -- a bit ad hoc/arbitrary cutoff at the moment just to see a few things
+
+mkdir /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/ComplexFollowup
+
+cd /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/ComplexFollowup
+
+rm /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/ComplexFollowup/AllPools.Vs3.ChrAll.GATK.RRs.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wHM3.justWhite.QCed.DropIBD.indv80.vs3.wProperXChr.bim.wGeneIDs.GroupFile.Exonic.Nonsynonymous.wSplice.HandPickedComplexes1
+
+cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/XChrFollowup/AllPools.Vs3.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.RRs.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wHM3.justWhite.QCed.DropIBD.indv80.vs3.wProperXChr.bim.wGeneIDs.GroupFile.Exonic.Nonsynonymous.wSplice | grep -E 'CCNT1|AFF4|CDK9' | perl -lane 'foreach my $entry1 (@F) { print $entry1; } ' | grep "_" | perl -ane 'print $F[0], "\t";' | paste <(echo "CCNT1_CDK9_AFF4") - >> /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/ComplexFollowup/AllPools.Vs3.ChrAll.GATK.RRs.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wHM3.justWhite.QCed.DropIBD.indv80.vs3.wProperXChr.bim.wGeneIDs.GroupFile.Exonic.Nonsynonymous.wSplice.HandPickedComplexes1
+cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/XChrFollowup/AllPools.Vs3.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.RRs.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wHM3.justWhite.QCed.DropIBD.indv80.vs3.wProperXChr.bim.wGeneIDs.GroupFile.Exonic.Nonsynonymous.wSplice | grep -E 'CCNT1|CDK9' | perl -lane 'foreach my $entry1 (@F) { print $entry1; } ' | grep "_" | perl -ane 'print $F[0], "\t";' | paste <(echo "CCNT1_CDK9") - >> /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/ComplexFollowup/AllPools.Vs3.ChrAll.GATK.RRs.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wHM3.justWhite.QCed.DropIBD.indv80.vs3.wProperXChr.bim.wGeneIDs.GroupFile.Exonic.Nonsynonymous.wSplice.HandPickedComplexes1
+cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/XChrFollowup/AllPools.Vs3.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.RRs.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wHM3.justWhite.QCed.DropIBD.indv80.vs3.wProperXChr.bim.wGeneIDs.GroupFile.Exonic.Nonsynonymous.wSplice | grep -E 'CCNT1|AFF4' | perl -lane 'foreach my $entry1 (@F) { print $entry1; } ' | grep "_" | perl -ane 'print $F[0], "\t";' | paste <(echo "CCNT1_AFF4") - >> /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/ComplexFollowup/AllPools.Vs3.ChrAll.GATK.RRs.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wHM3.justWhite.QCed.DropIBD.indv80.vs3.wProperXChr.bim.wGeneIDs.GroupFile.Exonic.Nonsynonymous.wSplice.HandPickedComplexes1
+cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/XChrFollowup/AllPools.Vs3.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.RRs.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wHM3.justWhite.QCed.DropIBD.indv80.vs3.wProperXChr.bim.wGeneIDs.GroupFile.Exonic.Nonsynonymous.wSplice | grep -E 'AFF4|CDK9' | perl -lane 'foreach my $entry1 (@F) { print $entry1; } ' | grep "_" | perl -ane 'print $F[0], "\t";' | paste <(echo "CDK9_AFF4") - >> /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/ComplexFollowup/AllPools.Vs3.ChrAll.GATK.RRs.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wHM3.justWhite.QCed.DropIBD.indv80.vs3.wProperXChr.bim.wGeneIDs.GroupFile.Exonic.Nonsynonymous.wSplice.HandPickedComplexes1
+cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/XChrFollowup/AllPools.Vs3.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.RRs.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wHM3.justWhite.QCed.DropIBD.indv80.vs3.wProperXChr.bim.wGeneIDs.GroupFile.Exonic.Nonsynonymous.wSplice | grep -E 'GEMIN2|GEMIN6' | perl -lane 'foreach my $entry1 (@F) { print $entry1; } ' | grep "_" | perl -ane 'print $F[0], "\t";' | paste <(echo "GEMIN2_GEMIN6") - >> /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/ComplexFollowup/AllPools.Vs3.ChrAll.GATK.RRs.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wHM3.justWhite.QCed.DropIBD.indv80.vs3.wProperXChr.bim.wGeneIDs.GroupFile.Exonic.Nonsynonymous.wSplice.HandPickedComplexes1
+cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/XChrFollowup/AllPools.Vs3.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.RRs.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wHM3.justWhite.QCed.DropIBD.indv80.vs3.wProperXChr.bim.wGeneIDs.GroupFile.Exonic.Nonsynonymous.wSplice | grep -E 'COPB1|GOLGA1|RANBP2|TPR|G3BP2|VTI1A|CYB5R1|ATG3' | perl -lane 'foreach my $entry1 (@F) { print $entry1; } ' | grep "_" | perl -ane 'print $F[0], "\t";' | paste <(echo "COPB1_GOLGA1_RANBP2_TPR_G3BP2_VTI1A_CYB5R1_ATG3") - >> /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/ComplexFollowup/AllPools.Vs3.ChrAll.GATK.RRs.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wHM3.justWhite.QCed.DropIBD.indv80.vs3.wProperXChr.bim.wGeneIDs.GroupFile.Exonic.Nonsynonymous.wSplice.HandPickedComplexes1
+cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/XChrFollowup/AllPools.Vs3.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.RRs.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wHM3.justWhite.QCed.DropIBD.indv80.vs3.wProperXChr.bim.wGeneIDs.GroupFile.Exonic.Nonsynonymous.wSplice | grep -E 'RANBP2|TPR|G3BP2' | perl -lane 'foreach my $entry1 (@F) { print $entry1; } ' | grep "_" | perl -ane 'print $F[0], "\t";' | paste <(echo "RANBP2_TPR_G3BP2") - >> /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/ComplexFollowup/AllPools.Vs3.ChrAll.GATK.RRs.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wHM3.justWhite.QCed.DropIBD.indv80.vs3.wProperXChr.bim.wGeneIDs.GroupFile.Exonic.Nonsynonymous.wSplice.HandPickedComplexes1
+cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/XChrFollowup/AllPools.Vs3.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.RRs.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wHM3.justWhite.QCed.DropIBD.indv80.vs3.wProperXChr.bim.wGeneIDs.GroupFile.Exonic.Nonsynonymous.wSplice | grep -E 'TPR|RANBP2|GEMIN2|GEMIN6' | perl -lane 'foreach my $entry1 (@F) { print $entry1; } ' | grep "_" | perl -ane 'print $F[0], "\t";' | paste <(echo "TPR_RANBP2_GEMIN2_GEMIN6") - >> /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/ComplexFollowup/AllPools.Vs3.ChrAll.GATK.RRs.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wHM3.justWhite.QCed.DropIBD.indv80.vs3.wProperXChr.bim.wGeneIDs.GroupFile.Exonic.Nonsynonymous.wSplice.HandPickedComplexes1
+cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/XChrFollowup/AllPools.Vs3.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.RRs.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wHM3.justWhite.QCed.DropIBD.indv80.vs3.wProperXChr.bim.wGeneIDs.GroupFile.Exonic.Nonsynonymous.wSplice | grep -E 'CCNT1|CUL5|TPR|RANBP2' | perl -lane 'foreach my $entry1 (@F) { print $entry1; } ' | grep "_" | perl -ane 'print $F[0], "\t";' | paste <(echo "CCNT1_CUL5_TPR_RANBP2") - >> /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/ComplexFollowup/AllPools.Vs3.ChrAll.GATK.RRs.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wHM3.justWhite.QCed.DropIBD.indv80.vs3.wProperXChr.bim.wGeneIDs.GroupFile.Exonic.Nonsynonymous.wSplice.HandPickedComplexes1
+
+#bash /data/userdata/pg/michaelt/Data/ALL_MAPPING/DataProcessing.Pipeline.pt6.All.ptf.EPACTruns.MultiRuns.Launcher.vs2.pt1.sh /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/ComplexFollowup /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/XChrFollowup/AllPools.Vs3.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.RRs.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wHM3.justWhite.QCed.DropIBD.indv80.wProperXChr.vcf.bgzip.gz /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/ComplexFollowup/AllPools.Vs3.ChrAll.GATK.RRs.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wHM3.justWhite.QCed.DropIBD.indv80.vs3.wProperXChr.bim.wGeneIDs.GroupFile /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/PLINKfiles/AllPools.Vs3.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.justWhite.QCed.DropIBD.indv80.vs3.EPACTSedit.ped /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/ComplexFollowup/AllPools.Vs3.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.RRs.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wHM3.justWhite.QCed.DropIBD.indv80.wProperXChr.HandPickedComplexes1 
+
+/home/michaelt/Software/EPACTS-3.2.4/bin/epacts group --vcf /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/XChrFollowup/AllPools.Vs3.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.RRs.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wHM3.justWhite.QCed.DropIBD.indv80.wProperXChr.vcf.bgzip.gz --groupf /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/ComplexFollowup/AllPools.Vs3.ChrAll.GATK.RRs.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wHM3.justWhite.QCed.DropIBD.indv80.vs3.wProperXChr.bim.wGeneIDs.GroupFile.Exonic.Nonsynonymous.wSplice.HandPickedComplexes1 --ped /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/PLINKfiles/AllPools.Vs3.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.justWhite.QCed.DropIBD.indv80.vs3.EPACTSedit.ped --pheno HIVPROG --cov RMID --cov PC1 --cov PC2 --cov PC3 --cov PC4 --cov PC5 --max-maf 1.0 --test skat --skat-o --skat-adjust --beta 1\,25 --run 6 --out /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/ComplexFollowup/AllPools.Vs3.ChrAll.GATK.RRs.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wHM3.justWhite.QCed.DropIBD.indv80.wProperXChr.HandPickedComplexes1.Exonic.Nonsynonymous.Pheno1.maf1.skat0.run1 
+
+~~~
+[  michaelt@node4  /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/ComplexFollowup]$cat AllPools.Vs3.ChrAll.GATK.RRs.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wHM3.justWhite.QCed.DropIBD.indv80.wProperXChr.HandPickedComplexes1.Exonic.Nonsynonymous.Pheno1.maf1.skat0.run1.epacts
+#CHROM  BEGIN   END     MARKER_ID       NS      FRAC_WITH_RARE  NUM_ALL_VARS    NUM_PASS_VARS   NUM_SING_VARS   PVALUE  STATRHO
+multichrs       0       0       multichrs:0-0_CCNT1_CDK9_AFF4   775     0.086452        17      17      12      0.085165        0.25
+multichrs       0       0       multichrs:0-0_CCNT1_CDK9        775     0.068387        10      10      8       0.091614        0.25
+multichrs       0       0       multichrs:0-0_CCNT1_AFF4        775     0.083871        13      13      8       0.037837        0.5
+multichrs       0       0       multichrs:0-0_CDK9_AFF4 775     0.021935        11      11      8       0.39505 0
+multichrs       0       0       multichrs:0-0_GEMIN2_GEMIN6     775     0.16129 9       9       4       0.00015534      0.25
+multichrs       0       0       multichrs:0-0_COPB1_GOLGA1_RANBP2_TPR_G3BP2_VTI1A_CYB5R1_ATG3   775     0.88258 87      87      38      5.9674e-05      0
+multichrs       0       0       multichrs:0-0_RANBP2_TPR_G3BP2  775     0.59871 66      66      28      0.0019906       0
+multichrs       0       0       multichrs:0-0_TPR_RANBP2_GEMIN2_GEMIN6  775     0.67226 72      72      30      0.0011181       0
+multichrs       0       0       multichrs:0-0_CCNT1_CUL5_TPR_RANBP2     775     0.62323 71      71      31      0.0010381       0
+~~~
+
+for i in {2..10}
+do
+	/home/michaelt/Software/EPACTS-3.2.4/bin/epacts group --vcf /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/XChrFollowup/AllPools.Vs3.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.RRs.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wHM3.justWhite.QCed.DropIBD.indv80.wProperXChr.vcf.bgzip.gz --groupf /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/ComplexFollowup/AllPools.Vs3.ChrAll.GATK.RRs.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wHM3.justWhite.QCed.DropIBD.indv80.vs3.wProperXChr.bim.wGeneIDs.GroupFile.Exonic.Nonsynonymous.wSplice.HandPickedComplexes1 --ped /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/PLINKfiles/AllPools.Vs3.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.justWhite.QCed.DropIBD.indv80.vs3.EPACTSedit.ped --pheno HIVPROG --cov RMID --cov PC1 --cov PC2 --cov PC3 --cov PC4 --cov PC5 --max-maf 1.0 --test skat --skat-o --skat-adjust --beta 1\,25 --run 6 --out /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/ComplexFollowup/AllPools.Vs3.ChrAll.GATK.RRs.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wHM3.justWhite.QCed.DropIBD.indv80.wProperXChr.HandPickedComplexes1.Exonic.Nonsynonymous.Pheno1.maf1.skat0.run${i}
+done
+
+for i in {1..10}
+do
+	/home/michaelt/Software/EPACTS-3.2.4/bin/epacts group --vcf /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/XChrFollowup/AllPools.Vs3.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.RRs.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wHM3.justWhite.QCed.DropIBD.indv80.wProperXChr.vcf.bgzip.gz --groupf /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/ComplexFollowup/AllPools.Vs3.ChrAll.GATK.RRs.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wHM3.justWhite.QCed.DropIBD.indv80.vs3.wProperXChr.bim.wGeneIDs.GroupFile.Exonic.Nonsynonymous.wSplice.HandPickedComplexes1 --ped /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/PLINKfiles/Permutations/AllPools.Vs3.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.justWhite.QCed.DropIBD.indv80.vs3.EPACTSedit.perm${i}.vs3.ped --pheno HIVPROG --cov RMID --cov PC1 --cov PC2 --cov PC3 --cov PC4 --cov PC5 --max-maf 1.0 --test skat --skat-o --skat-adjust --beta 1\,25 --run 6 --out /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/ComplexFollowup/AllPools.Vs3.ChrAll.GATK.RRs.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wHM3.justWhite.QCed.DropIBD.indv80.wProperXChr.HandPickedComplexes1.Exonic.Nonsynonymous.Pheno1.maf1.skat0.perm${i}
+done
+
+
+
+
+##20160704
+##Prepping/exploring full data for expanding list of follow-up genoptying variants by going down the q-value sorted list of variants
+##This includes downloading/annotating most recent ExAC data to get an idea for followup genoptying full list of variants for particular genes of interest
+
+mkdir /home/michaelt/Data/ExAC/0.3.1/
+cd /home/michaelt/Data/ExAC/0.3.1/
+wget ftp://ftp.broadinstitute.org/pub/ExAC_release/release0.3.1/ExAC.r0.3.1.sites.vep.vcf.gz
+for i in `cat index.html | sed 's/"/ /g' | awk '{ print $8 }' | grep README`; do wget $i; done
+for i in `cat index.html | sed 's/"/ /g' | awk '{ print $8 }' | grep tbi`; do wget $i; done
+
+zcat /home/michaelt/Data/ExAC/0.3.1/ExAC.r0.3.1.sites.vep.vcf.gz | awk '{ print $1, "\t", $2, "\t", $2, "\t", $4, "\t", $5 }' | grep -v ^# | perl -lane 'my @vals1 = split(//, $F[4]); if ($#vals1 == 0) { print join("\t", @F); }' > /home/michaelt/Data/ExAC/0.3.1/ExAC.r0.3.1.sites.vep.vcf.AnnovarFormat
+zcat /home/michaelt/Data/ExAC/0.3.1/ExAC.r0.3.1.sites.vep.vcf.gz | awk '{ print $1, "\t", $2, "\t", $2, "\t", $4, "\t", $5 }' | grep -v ^# | perl -lane 'my @vals1 = split(//, $F[3]); my @vals2 = split(//, $F[4]); if ($#vals1 == 0 && $#vals2 == 0) { print join("\t", @F); }' > /home/michaelt/Data/ExAC/0.3.1/ExAC.r0.3.1.sites.vep.vcf.AnnovarFormat
+
+~~~
+[  michaelt@login2  ~/Data/ExAC/0.3.1]$zcat ExAC.r0.3.1.sites.vep.vcf.gz | awk '{ print $1 }' | wc
+9362538 9362538 23323850
+[  michaelt@login2  /data/userdata/pg/michaelt/Data/ALL_MAPPING]$cat /home/michaelt/Data/ExAC/0.3.1/ExAC.r0.3.1.sites.vep.vcf.AnnovarFormat | wc
+8167517 40837585 203077303
+[  michaelt@login2  /data/userdata/pg/michaelt/Data/ALL_MAPPING]$zcat /home/michaelt/Data/ExAC/0.3.1/ExAC.r0.3.1.sites.vep.vcf.gz | awk '{ print $1, "\t", $2, "\t", $2, "\t", $4, "\t", $5 }' | grep -v ^# | perl -lane 'my @vals1 = split(//, $F[3]); my @vals2 = split(//, $F[4]); if ($#vals1 > 0 || $#vals2 > 0) { print join("\t", @F); }' | wc
+1194801 5974005 35791856
+[  michaelt@login2  /data/userdata/pg/michaelt/Data/ALL_MAPPING]$zcat /home/michaelt/Data/ExAC/0.3.1/ExAC.r0.3.1.sites.vep.vcf.gz | head -n 1000 | grep ^# | wc
+    220    1372   26808
+[  michaelt@login2  /data/userdata/pg/michaelt/Data/ALL_MAPPING]$R -q -e "8167517 + 1194801 + 220"
+> 8167517 + 1194801 + 220
+[1] 9362538
+> 
+> 
+[  michaelt@login2  ~/Data/ExAC/0.3.1]$zcat ExAC.r0.3.1.sites.vep.vcf.gz | awk '{ print $1, "\t", $2, "\t", $2, "\t", $4, "\t", $5 }' | grep -v ^# | head -n 10
+1        13372   13372   G       C
+1        13380   13380   C       G
+1        13382   13382   C       G
+1        13402   13402   G       C
+1        13404   13404   G       A,T
+1        13417   13417   C       CGAGA
+1        13418   13418   G       A
+1        13426   13426   A       G
+1        13438   13438   C       A
+1        13445   13445   C       G
+[  michaelt@login2  /data/userdata/pg/michaelt/Data/ALL_MAPPING]$cat /home/michaelt/Data/ExAC/0.3.1/ExAC.r0.3.1.sites.vep.vcf.AnnovarFormat | awk '{ print $4 }' | sort | uniq -c
+1456488 A
+2630982 C
+2623941 G
+1456106 T
+[  michaelt@login2  /data/userdata/pg/michaelt/Data/ALL_MAPPING]$cat /home/michaelt/Data/ExAC/0.3.1/ExAC.r0.3.1.sites.vep.vcf.AnnovarFormat | awk '{ print $5 }' | sort | uniq -c
+2431690 A
+1651289 C
+1653549 G
+2430989 T
+~~~
+
+perl /home/michaelt/Software/annovar/summarize_annovar.pl /home/michaelt/Data/ExAC/0.3.1/ExAC.r0.3.1.sites.vep.vcf.AnnovarFormat /home/michaelt/Software/annovar/ --ver1000g 1000g2012apr --verdbsnp 129 --veresp 6500 --buildver hg19 --remove
+
+~~~
+[  michaelt@node3  ~]$cat /home/michaelt/Data/ExAC/0.3.1/ExAC.r0.3.1.sites.vep.vcf.AnnovarFormat.genome_summary.csv | wc
+8167518 12927577 951417204
+[  michaelt@node3  ~]$cat /home/michaelt/Data/ExAC/0.3.1/ExAC.r0.3.1.sites.vep.vcf.AnnovarFormat.genome_summary.csv | head -n 10
+Func,Gene,ExonicFunc,AAChange,Conserved,SegDup,ESP6500_ALL,1000g2012apr_ALL,dbSNP129,AVSIFT,LJB_PhyloP,LJB_PhyloP_Pred,LJB_SIFT,LJB_SIFT_Pred,LJB_PolyPhen2,LJB_PolyPhen2_Pred,LJB_LRT,LJB_LRT_Pred,LJB_MutationTaster,LJB_MutationTaster_Pred,LJB_GERP++,Chr,Start,End,Ref,Obs,Otherinfo
+"ncRNA_exonic","DDX11L1",,,"510;Name=lod=158","0.99",,,,,,,,,,,,,,,,1,13372,13372,G,C,
+"ncRNA_exonic","DDX11L1",,,"510;Name=lod=158","0.99",,,,,,,,,,,,,,,,1,13380,13380,C,G,
+"ncRNA_exonic","DDX11L1",,,"510;Name=lod=158","0.99",,,,,,,,,,,,,,,,1,13382,13382,C,G,
+"ncRNA_exonic","DDX11L1",,,,"0.99",,,,,,,,,,,,,,,,1,13402,13402,G,C,
+"ncRNA_exonic","DDX11L1",,,,"0.99",,,,,,,,,,,,,,,,1,13418,13418,G,A,
+"ncRNA_exonic","DDX11L1",,,,"0.99",,,,,,,,,,,,,,,,1,13426,13426,A,G,
+"ncRNA_exonic","DDX11L1",,,,"0.99",,,,,,,,,,,,,,,,1,13438,13438,C,A,
+"ncRNA_exonic","DDX11L1",,,,"0.99",,,,,,,,,,,,,,,,1,13445,13445,C,G,
+"ncRNA_exonic","DDX11L1",,,,"0.99",,,,,,,,,,,,,,,,1,13448,13448,C,T,
+[  michaelt@node3  ~]$cat /home/michaelt/Data/ExAC/0.3.1/ExAC.r0.3.1.sites.vep.vcf.AnnovarFormat.genome_summary.csv | perl -F, -lane 'print $F[0];' | sort | uniq -c
+ 186691 "UTR3"
+ 135380 "UTR5"
+    435 "UTR5;UTR3"
+  12162 "downstream"
+4811850 "exonic"
+   1017 "exonic;splicing"
+ 122528 "intergenic"
+2652968 "intronic"
+   3597 "ncRNA_UTR3"
+   2367 "ncRNA_UTR5"
+      7 "ncRNA_UTR5;ncRNA_UTR3"
+  88847 "ncRNA_exonic"
+  75127 "ncRNA_intronic"
+    683 "ncRNA_splicing"
+  48595 "splicing"
+  22511 "upstream"
+   2752 "upstream;downstream"
+      1 Func
+[  michaelt@node3  ~]$cat /home/michaelt/Data/ExAC/0.3.1/ExAC.r0.3.1.sites.vep.vcf.AnnovarFormat.genome_summary.csv | perl -F, -lane 'print $F[$#F-23];' | sort | uniq -c
+3355223 
+3068908 "nonsynonymous SNV"
+  87412 "stopgain SNV"
+   7759 "stoploss SNV"
+1595980 "synonymous SNV"
+  52235 "unknown"
+      1 AAChange
+[  michaelt@node3  ~]$cat /home/michaelt/Data/ExAC/0.3.1/ExAC.r0.3.1.sites.vep.vcf.AnnovarFormat.genome_summary.csv | grep NONE | head -n 10
+"intergenic","ELTD1(dist=2100),NONE(dist=NONE)",,,,,,,,,,,,,,,,,,,,1,79474595,79474595,G,A,
+"intergenic","ELTD1(dist=2111),NONE(dist=NONE)",,,,,0.000349,,,,,,,,,,,,,,,1,79474606,79474606,G,T,
+"intergenic","ELTD1(dist=2118),NONE(dist=NONE)",,,,,,,,,,,,,,,,,,,,1,79474613,79474613,C,T,
+"intergenic","ELTD1(dist=2127),NONE(dist=NONE)",,,,,,,,,,,,,,,,,,,,1,79474622,79474622,T,C,
+"intergenic","ELTD1(dist=2128),NONE(dist=NONE)",,,,,,,,,,,,,,,,,,,,1,79474623,79474623,G,A,
+"intergenic","ELTD1(dist=2135),NONE(dist=NONE)",,,,,,,,,,,,,,,,,,,,1,79474630,79474630,A,T,
+"intergenic","ELTD1(dist=2136),NONE(dist=NONE)",,,,,,,,,,,,,,,,,,,,1,79474631,79474631,A,G,
+"intergenic","ELTD1(dist=2143),NONE(dist=NONE)",,,,,,,,,,,,,,,,,,,,1,79474638,79474638,A,T,
+"intergenic","ELTD1(dist=2150),NONE(dist=NONE)",,,,,0.021800,0.01,,,,,,,,,,,,,,1,79474645,79474645,G,A,
+"intergenic","ELTD1(dist=2157),NONE(dist=NONE)",,,,,,,,,,,,,,,,,,,,1,79474652,79474652,A,T,
+[  michaelt@node3  ~]$cat /home/michaelt/Data/ExAC/0.3.1/ExAC.r0.3.1.sites.vep.vcf.AnnovarFormat.genome_summary.csv | grep intergenic | perl -F, -lane 'print $F[1], "\t", $F[2], "\t", $F[3];' | sed 's/=/ /g' | sed 's/)/ /g' | perl -ane 'print $F[1], "\n", $F[3], "\n";' | sort -g | grep -v NONE | head -n 10
+1000
+1000
+1001
+1001
+1001
+1001
+1001
+1002
+1002
+1002
+[  michaelt@node3  ~]$cat /home/michaelt/Data/ExAC/0.3.1/ExAC.r0.3.1.sites.vep.vcf.AnnovarFormat.genome_summary.csv | grep intergenic | perl -F, -lane 'print $F[1], "\t", $F[2], "\t", $F[3];' | sed 's/=/ /g' | sed 's/)/ /g' | perl -ane 'print $F[1], "\n", $F[3], "\n";' | sort -g | grep -v NONE | tail -n 10
+2099560
+2099564
+2099621
+2099631
+2099637
+2099651
+2099652
+2099673
+2099707
+2099730
+[  michaelt@node3  ~]$cat /home/michaelt/Data/ExAC/0.3.1/ExAC.r0.3.1.sites.vep.vcf.AnnovarFormat.genome_summary.csv | grep intergenic | perl -F, -lane 'print $F[1], "\t", $F[2], "\t", $F[3];' | sed 's/=/ /g' | sed 's/)/ /g' | perl -ane 'print $F[1], "\n", $F[3], "\n";' | sort -g | grep -v NONE | R -q -e "Data1 <- read.table(file('stdin'), header=F); quantile(Data1[,1]);"
+> Data1 <- read.table(file('stdin'), header=F); quantile(Data1[,1]);
+        0%        25%        50%        75%       100%
+   1000.00   18830.75   57617.00  153887.25 2099730.00
+>
+>
+~~~
+
+
+
+
+
+
+
+
+
+[  michaelt@node3  ~]$cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/GatheringVariantsForFollowupGenotyping/AllPools.Vs2.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wProperXChr.AnnovarFormat.genome_summary.csv | grep intergenic | perl -F, -lane 'print $F[1], "\t", $F[2], "\t", $F[3];' | sed 's/=/ /g' | sed 's/)/ /g' | perl -ane 'print $F[1], "\n", $F[3], "\n";' | sort -g | R -q -e "Data1 <- read.table(file('stdin'), header=F); quantile(Data1[,1]);"
+> Data1 <- read.table(file('stdin'), header=F); quantile(Data1[,1]);
+       0%       25%       50%       75%      100%
+  1006.00   9653.25  44197.00 100041.25 235638.00
+>
+>
+
+
+
+
+
+
+
+
+mkdir /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/GatheringVariantsForFollowupGenotyping 
+
+#20160705 NOTE -- Using the 'Vs2' version o files since the Vs2 -> Vs3 was predicated on the 'indv80' new cutoff, so not a problem to use the 'Vs2' fiels since only focusing on variants-level QC cutoffs (processing things on the hwe1e4 and hetcount levels otherwise mostly moving forward). using the end tag of 'vs4' to indicate this is a step moving forward from previous analyzes/runs
+#20160705 NOTE -- Getting "Input/output error"'s for a bunch of 'Vs2' files and pulling the fil from the backup. Need to contact Aleksandar about restoring the backups for any files that are now corrupt, if that is possible?
+##/backup/home/pg/michaelt/Data/ALL_MAPPING/.
+#cp -p /backup/home/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/AllPools.Vs2.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.recode.vcf.gz /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/AllPools.Vs2.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.recode.vcf.gz.20160705_BACKUP1 
+#cp -p /backup/home/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/AllPools.Vs2.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.vcf.gz /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/AllPools.Vs2.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.vcf.gz.20160705_BACKUP1 
+
+##zcat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/AllPools.Vs2.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.recode.vcf.gz | grep -v ^# | grep ^X | perl -lane 'BEGIN { my %indvCounts; } my $hetCounts = 0; for (my $i=9; $i <= $#F; $i++) { my $altCounts = 0; my @indvInfo1 = split(/\:/, $F[$i]); my @genoInfo1 = split(/\//, $indvInfo1[0]); if ($genoInfo1[0] eq "1") { $altCounts++; } if ($genoInfo1[1] eq "1") { $altCounts++; } if ($altCounts eq "1") { $hetCounts++; if (!$indvCounts{$i}) { $indvCounts{$i} = 1; } else { $indvCounts{$i}++; } } } END { foreach my $indv1 (keys %indvCounts) { print $indv1, "\t", $indvCounts{$indv1};} } ' > /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/GatheringVariantsForFollowupGenotyping/AllPools.Vs2.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.XChr.vs4.perIndvhetCounts.txt
+#zcat /backup/home/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/AllPools.Vs2.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.recode.vcf.gz | grep -v ^# | grep ^X | perl -lane 'BEGIN { my %indvCounts; } my $hetCounts = 0; for (my $i=9; $i <= $#F; $i++) { my $altCounts = 0; my @indvInfo1 = split(/\:/, $F[$i]); my @genoInfo1 = split(/\//, $indvInfo1[0]); if ($genoInfo1[0] eq "1") { $altCounts++; } if ($genoInfo1[1] eq "1") { $altCounts++; } if ($altCounts eq "1") { $hetCounts++; if (!$indvCounts{$i}) { $indvCounts{$i} = 1; } else { $indvCounts{$i}++; } } } END { foreach my $indv1 (keys %indvCounts) { print $indv1, "\t", $indvCounts{$indv1};} } ' > /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/GatheringVariantsForFollowupGenotyping/AllPools.Vs2.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.XChr.vs4.perIndvhetCounts.txt
+#zcat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/AllPools.Vs2.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.recode.vcf.gz | grep -v ^# | grep ^X | perl -lane 'my $hetCounts = 0; for (my $i=9; $i <= $#F; $i++) { my $altCounts = 0; my @indvInfo1 = split(/\:/, $F[$i]); my @genoInfo1 = split(/\//, $indvInfo1[0]); if ($genoInfo1[0] eq "1") { $altCounts++; } if ($genoInfo1[1] eq "1") { $altCounts++; } if ($altCounts eq "1") { $hetCounts++; } } print join("\t", @F[0..8]), "\t", $hetCounts; ' > /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/GatheringVariantsForFollowupGenotyping/AllPools.Vs2.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.XChr.vs4.perSNPhetCounts.txt
+zcat /backup/home/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/AllPools.Vs2.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.recode.vcf.gz | grep -v ^# | grep ^X | perl -lane 'my $hetCounts = 0; for (my $i=9; $i <= $#F; $i++) { my $altCounts = 0; my @indvInfo1 = split(/\:/, $F[$i]); my @genoInfo1 = split(/\//, $indvInfo1[0]); if ($genoInfo1[0] eq "1") { $altCounts++; } if ($genoInfo1[1] eq "1") { $altCounts++; } if ($altCounts eq "1") { $hetCounts++; } } print join("\t", @F[0..8]), "\t", $hetCounts; ' > /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/GatheringVariantsForFollowupGenotyping/AllPools.Vs2.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.XChr.vs4.perSNPhetCounts.txt
+
+#cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/GatheringVariantsForFollowupGenotyping/AllPools.Vs2.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.XChr.vs4.perIndvhetCounts.txt | awk '{ print $2 }' | sort | uniq -c | sort -g -k 2,2
+cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/GatheringVariantsForFollowupGenotyping/AllPools.Vs2.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.XChr.vs4.perSNPhetCounts.txt | awk '{ print $10 }' | sort | uniq -c | sort -g -k 2,2
+
+~~~
+[  michaelt@login2  /data/userdata/pg/michaelt/Data/ALL_MAPPING]$zcat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/AllPools.Vs2.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.vcf.gz.20160705_BACKUP1 | wc
+  73389 67401779 1578124080
+[  michaelt@login2  /data/userdata/pg/michaelt/Data/ALL_MAPPING]$zcat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/AllPools.Vs2.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.vcf.gz.20160705_BACKUP1 | grep -v ^X | wc
+  72733 66798259 1564516371
+[  michaelt@login2  /data/userdata/pg/michaelt/Data/ALL_MAPPING]$zcat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/AllPools.Vs2.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.vcf.gz.20160705_BACKUP1 | grep ^X | wc
+    656  603520 13607709
+[  michaelt@login2  /data/userdata/pg/michaelt/Data/ALL_MAPPING]$R -q -e "72733 + 656"
+> 72733 + 656
+[1] 73389
+> 
+> 
+[  michaelt@node7  ~]$cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/XChrFollowup/AllPools.Vs3.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.XChr.wHM3.CEUCHBYRI.10PCs.justWhite.QCed.DropIBD.indv80.vs3.perIndvhetCounts.txt | awk '{ print $2 }' | sort | uniq -c | sort -g -k 2,2
+     82 1
+    129 2
+    133 3
+    152 4
+     95 5
+     60 6
+     46 7
+     15 8
+     14 9
+      7 10
+      3 11
+      2 13
+      1 14
+      1 20
+      1 28
+[  michaelt@node7  ~]$cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/GatheringVariantsForFollowupGenotyping/AllPools.Vs2.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.XChr.vs4.perIndvhetCounts.txt | awk '{ print $2 }' | sort | uniq -c | sort -g -k 2,2
+     99 1
+    148 2
+    158 3
+    169 4
+    103 5
+     72 6
+     49 7
+     23 8
+     17 9
+      8 10
+      3 11
+      2 13
+      1 14
+      2 19
+      1 20
+      1 22
+      1 26
+      1 27
+      2 28
+      1 30
+      3 31
+      1 33
+      1 34
+      1 42
+      1 44
+      1 50
+[  michaelt@node3  ~]$cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/XChrFollowup/AllPools.Vs3.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.XChr.wHM3.CEUCHBYRI.10PCs.justWhite.QCed.DropIBD.indv80.vs3.perSNPhetCounts.txt | awk '{ print $10 }' | sort | uniq -c | sort -g -k 2,2 
+    180 0
+    212 1
+    187 2
+    137 3
+     96 4
+     50 5
+     34 6
+     23 7
+     14 8
+     11 9
+      6 10
+      1 11
+      1 12
+      3 13
+      1 14
+      2 15
+      3 16
+      2 20
+      1 23
+      1 31
+      1 43
+      1 50
+      1 103
+      1 230
+[  michaelt@node3  ~]$cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/GatheringVariantsForFollowupGenotyping/AllPools.Vs2.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.XChr.vs4.perSNPhetCounts.txt | awk '{ print $10 }' | sort | uniq -c | sort -g -k 2,2
+    211 0
+    194 1
+    175 2
+    149 3
+     98 4
+     77 5
+     44 6
+     26 7
+     19 8
+     12 9
+     13 10
+     10 11
+      2 12
+      3 13
+      7 14
+      4 15
+      1 17
+      6 18
+      2 19
+      1 21
+      1 22
+      1 23
+      1 24
+      2 25
+      2 31
+      1 37
+      1 53
+      1 56
+      1 121
+      1 273
+[  michaelt@node3  ~]$vcftools --gzvcf /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/AllPools.Vs2.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.vcf.gz.20160705_BACKUP1 --chr X --exclude-positions /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/GatheringVariantsForFollowupGenotyping/AllPools.Vs2.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.XChr.vs4.perSNPhetCounts.get10Hets.ChrBPs --recode --recode-INFO-all --out /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/GatheringVariantsForFollowupGenotyping/AllPools.Vs2.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.XChr.vs4.gthet10
+.
+..
+Keeping 656 entries on specified chromosomes.
+Applying Required Filters.
+Filtering sites by include/exclude positions files
+After filtering, kept 911 out of 911 Individuals
+After filtering, kept 647 out of a possible 656 Sites
+Outputting VCF file... 
+.
+.
+.
+[  michaelt@node3  ~]$cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/GatheringVariantsForFollowupGenotyping/AllPools.Vs2.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.XChr.vs4.perSNPhetCounts.get10Hets.ChrBPs | wc
+     48      96     636
+[  michaelt@node3  ~]$zcat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/AllPools.Vs2.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.vcf.gz.20160705_BACKUP1 | wc
+  73389 67401779 1578124080
+[  michaelt@node3  ~]$zcat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/AllPools.Vs2.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.vcf.gz.20160705_BACKUP1 | grep -v ^X | wc
+  72733 66798259 1564516371
+[  michaelt@node3  ~]$zcat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/AllPools.Vs2.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.vcf.gz.20160705_BACKUP1 | grep ^X | wc
+    656  603520 13607709
+[  michaelt@node3  ~]$zcat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/GatheringVariantsForFollowupGenotyping/AllPools.Vs2.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wProperXChr.vcf.gz | wc
+  73380 67393499 1578021302
+[  michaelt@node3  ~]$zcat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/GatheringVariantsForFollowupGenotyping/AllPools.Vs2.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wProperXChr.vcf.gz | grep -v ^X | wc
+  72733 66798259 1564516371
+[  michaelt@node3  ~]$zcat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/GatheringVariantsForFollowupGenotyping/AllPools.Vs2.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wProperXChr.vcf.gz | grep ^X | wc
+    647  595240 13504931
+[  michaelt@node3  ~]$cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/GatheringVariantsForFollowupGenotyping/AllPools.Vs2.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wProperXChr.AnnovarFormat.genome_summary.csv | wc
+  73253   81019 5804283
+[  michaelt@node3  ~]$cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/GatheringVariantsForFollowupGenotyping/AllPools.Vs2.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wProperXChr.AnnovarFormat.exome_summary.csv | wc
+   7929   15695 1199774
+[  michaelt@node3  ~]$cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/GatheringVariantsForFollowupGenotyping/AllPools.Vs2.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wProperXChr.AnnovarFormat.genome_summary.csv | perl -F, -lane 'print $F[$#F-4], "\t", $F[$#F-3];' | head -n 10
+Start   End
+1       1151620
+1       1151679
+1       1151722
+1       1151908
+1       1151917
+1       1151930
+1       1151973
+1       1152080
+1       1152254
+[  michaelt@node3  ~]$cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/GatheringVariantsForFollowupGenotyping/AllPools.Vs2.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wProperXChr.AnnovarFormat.genome_summary.csv | perl -F, -lane 'print $F[$#F-4], "\t", $F[$#F-3];' | uniq -c | wc
+  73253  219759 1437750
+[  michaelt@node3  ~]$zcat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/GatheringVariantsForFollowupGenotyping/AllPools.Vs2.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wProperXChr.vcf.gz | grep -v ^# | wc
+  73252 67391840 1577993119
+[  michaelt@node3  ~]$cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/GatheringVariantsForFollowupGenotyping/AllPools.Vs2.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wProperXChr.AnnovarFormat.genome_summary.csv | grep intergenic | perl -F, -lane 'print $F[1], "\t", $F[2], "\t", $F[3];' | head -n 10
+"EYA3(dist=5537)        PTAFR(dist=52992)"
+"EYA3(dist=5707)        PTAFR(dist=52822)"
+"EYA3(dist=5734)        PTAFR(dist=52795)"
+"EYA3(dist=5765)        PTAFR(dist=52764)"
+"EYA3(dist=5831)        PTAFR(dist=52698)"
+"EYA3(dist=5846)        PTAFR(dist=52683)"
+"EYA3(dist=5894)        PTAFR(dist=52635)"
+"EYA3(dist=5959)        PTAFR(dist=52570)"
+"EYA3(dist=6069)        PTAFR(dist=52460)"
+"EYA3(dist=6085)        PTAFR(dist=52444)"
+[  michaelt@node3  ~]$cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/GatheringVariantsForFollowupGenotyping/AllPools.Vs2.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wProperXChr.AnnovarFormat.genome_summary.csv | grep intergenic | perl -F, -lane 'print $F[1], "\t", $F[2], "\t", $F[3];' | perl -lane 'print $#F;' | sort | uniq -c
+    318 1
+[  michaelt@node3  ~]$cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/GatheringVariantsForFollowupGenotyping/AllPools.Vs2.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wProperXChr.AnnovarFormat.genome_summary.csv | grep intergenic | perl -F, -lane 'print $F[1], "\t", $F[2], "\t", $F[3];' | sed 's/=/ /g' | sed 's/)/ /g' | head -n 10
+"EYA3(dist 5537         PTAFR(dist 52992 "
+"EYA3(dist 5707         PTAFR(dist 52822 "
+"EYA3(dist 5734         PTAFR(dist 52795 "
+"EYA3(dist 5765         PTAFR(dist 52764 "
+"EYA3(dist 5831         PTAFR(dist 52698 "
+"EYA3(dist 5846         PTAFR(dist 52683 "
+"EYA3(dist 5894         PTAFR(dist 52635 "
+"EYA3(dist 5959         PTAFR(dist 52570 "
+"EYA3(dist 6069         PTAFR(dist 52460 "
+"EYA3(dist 6085         PTAFR(dist 52444 "
+[  michaelt@node3  ~]$cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/GatheringVariantsForFollowupGenotyping/AllPools.Vs2.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wProperXChr.AnnovarFormat.genome_summary.csv | grep intergenic | perl -F, -lane 'print $F[1], "\t", $F[2], "\t", $F[3];' | sed 's/=/ /g' | sed 's/)/ /g' | perl -ane 'print $F[1], "\n", $F[3], "\n";' | head -n 10
+5537
+52992
+5707
+52822
+5734
+52795
+5765
+52764
+5831
+52698
+[  michaelt@node3  ~]$cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/GatheringVariantsForFollowupGenotyping/AllPools.Vs2.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wProperXChr.AnnovarFormat.genome_summary.csv | grep intergenic | perl -F, -lane 'print $F[1], "\t", $F[2], "\t", $F[3];' | sed 's/=/ /g' | sed 's/)/ /g' | perl -ane 'print $F[1], "\n", $F[3], "\n";' | sort -g | head -n 10
+1006
+1028
+1039
+1040
+1045
+1051
+1064
+1073
+1081
+1082
+[  michaelt@node3  ~]$cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/GatheringVariantsForFollowupGenotyping/AllPools.Vs2.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wProperXChr.AnnovarFormat.genome_summary.csv | grep intergenic | perl -F, -lane 'print $F[1], "\t", $F[2], "\t", $F[3];' | sed 's/=/ /g' | sed 's/)/ /g' | perl -ane 'print $F[1], "\n", $F[3], "\n";' | sort -g | tail -n 10
+234704
+234905
+234913
+235131
+235169
+235253
+235261
+235288
+235468
+235638
+[  michaelt@node3  ~]$cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/GatheringVariantsForFollowupGenotyping/AllPools.Vs2.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wProperXChr.AnnovarFormat.genome_summary.csv | grep intergenic | perl -F, -lane 'print $F[1], "\t", $F[2], "\t", $F[3];' | sed 's/=/ /g' | sed 's/)/ /g' | perl -ane 'print $F[1], "\n", $F[3], "\n";' | sort -g | R -q -e "Data1 <- read.table(file('stdin'), header=F); quantile(Data1[,1]);"
+> Data1 <- read.table(file('stdin'), header=F); quantile(Data1[,1]);
+       0%       25%       50%       75%      100% 
+  1006.00   9653.25  44197.00 100041.25 235638.00 
+> 
+> 
+~~~
+
+#20160705 NOTE -- probably going to do gt10 again since you can see that jump once again as like before (see the above two examples, the first one is the results from before)
+
+cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/GatheringVariantsForFollowupGenotyping/AllPools.Vs2.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.XChr.vs4.perSNPhetCounts.txt | awk '{ if ($10 > 10) { print $1, "\t", $2 } }' > /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/GatheringVariantsForFollowupGenotyping/AllPools.Vs2.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.XChr.vs4.perSNPhetCounts.gt10Hets.ChrBPs
+
+vcftools --gzvcf /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/AllPools.Vs2.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.vcf.gz.20160705_BACKUP1 --chr X --exclude-positions /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/GatheringVariantsForFollowupGenotyping/AllPools.Vs2.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.XChr.vs4.perSNPhetCounts.gt10Hets.ChrBPs --recode --recode-INFO-all --out /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/GatheringVariantsForFollowupGenotyping/AllPools.Vs2.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.XChr.vs4.gthet10 
+
+mv /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/GatheringVariantsForFollowupGenotyping/AllPools.Vs2.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.XChr.vs4.gthet10.recode.vcf /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/GatheringVariantsForFollowupGenotyping/AllPools.Vs2.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.XChr.vs4.gthet10.vcf
+
+gzip /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/GatheringVariantsForFollowupGenotyping/AllPools.Vs2.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.XChr.vs4.gthet10.vcf
+
+cat <(zcat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/AllPools.Vs2.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.vcf.gz.20160705_BACKUP1 | grep -v ^X ) <(zcat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/GatheringVariantsForFollowupGenotyping/AllPools.Vs2.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.XChr.vs4.gthet10.vcf.gz | grep -v ^#) | gzip > /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/GatheringVariantsForFollowupGenotyping/AllPools.Vs2.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wProperXChr.vcf.gz
+
+zcat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/GatheringVariantsForFollowupGenotyping/AllPools.Vs2.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wProperXChr.vcf.gz | grep -v ^# | awk '{ print $1, "\t", $2, "\t", $2, "\t", $4, "\t", $5 }' > /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/GatheringVariantsForFollowupGenotyping/AllPools.Vs2.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wProperXChr.AnnovarFormat
+
+perl /home/michaelt/Software/annovar/summarize_annovar.pl /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/GatheringVariantsForFollowupGenotyping/AllPools.Vs2.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wProperXChr.AnnovarFormat /home/michaelt/Software/annovar/ --ver1000g 1000g2012apr --verdbsnp 129 --veresp 6500 --buildver hg19 --remove
+
+~~~
+[  michaelt@login2  /data/userdata/pg/michaelt/Data/ALL_MAPPING]$cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/XChrFollowup/AllPools.Vs3.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.RRs.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wHM3.justWhite.QCed.DropIBD.indv80.vs3.wProperXChr.bim.wGeneIDs.GroupFile.Exonic.Nonsynonymous.wSplice | head -n 10
+PGAP2   11:3819108_G/C
+HSPA6   1:161494743_G/T 1:161495003_T/G 1:161495040_C/T 1:161495148_G/A 1:161495275_T/C 1:161495463_G/A 1:161495497_A/G 1:161495757_C/T 1:161496010_T/G 1:161496039_G/C
+AP1M1   19:16314427_G/A 19:16339645_A/G 19:16339672_C/T
+P4HA2   5:131530706_C/T 5:131531112_G/A 5:131533954_C/T 5:131543430_C/T 5:131543541_G/A 5:131546032_G/C
+SGPL1   10:72604246_A/G 10:72604263_G/T 10:72617424_A/G 10:72628170_G/C 10:72629578_T/A 10:72629610_A/G 10:72633127_G/T 10:72633216_C/T 10:72633291_G/A 10:72633336_C/T 10:72637078_C/T
+SDF4    1:1163951_G/A   1:1164031_A/G   1:1164080_T/C
+SDF2    17:26976071_A/G 17:26976108_T/C 17:26982321_G/A 17:26988852_C/T 17:26988885_C/G
+ALMS1   2:73613108_G/A  2:73613176_C/A  2:73613177_G/C  2:73650009_C/A  2:73651920_C/G  2:73651937_A/G  2:73651967_C/T  2:73653610_G/A  2:73675110_A/G  2:73675263_C/G  2:73675492_G/A  2:73675525_A/G  2:73675630_C/T  2:73675669_T/G 2:73675850_C/G  2:73676131_T/C  2:73676547_T/C  2:73676623_A/G  2:73676730_G/C  2:73676797_G/A  2:73676961_C/G  2:73676965_G/A  2:73677033_C/T  2:73677066_A/G  2:73677466_C/A  2:73677553_C/T  2:73677808_C/G  2:73677853_A/G 2:73677876_G/A  2:73678360_C/T  2:73678540_G/A  2:73678616_G/T  2:73678641_A/G  2:73678642_C/T  2:73678843_A/G  2:73679013_A/G  2:73679107_G/T  2:73679280_A/G  2:73679440_G/A  2:73679617_A/G  2:73679687_T/G  2:73679866_T/C 2:73679990_T/A  2:73680118_A/G  2:73680207_C/T  2:73680226_A/G  2:73680508_G/C  2:73680580_C/T  2:73680922_A/G  2:73680942_A/C  2:73681090_T/C  2:73716810_G/A  2:73717103_G/C  2:73717169_G/A  2:73717343_C/A  2:73717497_G/A 2:73717532_G/C  2:73717567_G/T  2:73717656_A/G  2:73717921_C/G  2:73718012_G/A  2:73718546_A/T  2:73746979_C/T  2:73747021_T/C  2:73747074_C/T  2:73777400_A/G  2:73786188_A/G  2:73799632_C/G  2:73800058_G/A  2:73800109_G/A 2:73800259_A/G  2:73800264_C/G  2:73800270_G/A  2:73800357_A/G  2:73800396_A/G  2:73800496_T/G  2:73826621_C/T  2:73827844_G/A  2:73828443_G/C  2:73828453_C/T  2:73828538_G/A
+TCEB2   16:2821525_G/A  16:2821573_C/T  16:2821589_G/T
+ABCD3   1:94930338_G/T  1:94939335_C/T  1:94946030_G/C  1:94948746_A/G  1:94955337_A/G
+[  michaelt@login2  /data/userdata/pg/michaelt/Data/ALL_MAPPING]$cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/XChrFollowup/AllPools.Vs3.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.RRs.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wHM3.justWhite.QCed.DropIBD.indv80.vs3.wProperXChr.bim.wGeneIDs.GroupFile.Exonic.Nonsynonymous.wSplice | perl -lane 'print join("\t", @F[1..$#F]);' | head -n 10
+11:3819108_G/C
+1:161494743_G/T 1:161495003_T/G 1:161495040_C/T 1:161495148_G/A 1:161495275_T/C 1:161495463_G/A 1:161495497_A/G 1:161495757_C/T 1:161496010_T/G 1:161496039_G/C
+19:16314427_G/A 19:16339645_A/G 19:16339672_C/T
+5:131530706_C/T 5:131531112_G/A 5:131533954_C/T 5:131543430_C/T 5:131543541_G/A 5:131546032_G/C
+10:72604246_A/G 10:72604263_G/T 10:72617424_A/G 10:72628170_G/C 10:72629578_T/A 10:72629610_A/G 10:72633127_G/T 10:72633216_C/T 10:72633291_G/A 10:72633336_C/T 10:72637078_C/T
+1:1163951_G/A   1:1164031_A/G   1:1164080_T/C
+17:26976071_A/G 17:26976108_T/C 17:26982321_G/A 17:26988852_C/T 17:26988885_C/G
+2:73613108_G/A  2:73613176_C/A  2:73613177_G/C  2:73650009_C/A  2:73651920_C/G  2:73651937_A/G  2:73651967_C/T  2:73653610_G/A  2:73675110_A/G  2:73675263_C/G  2:73675492_G/A  2:73675525_A/G  2:73675630_C/T  2:73675669_T/G2:73675850_C/G   2:73676131_T/C  2:73676547_T/C  2:73676623_A/G  2:73676730_G/C  2:73676797_G/A  2:73676961_C/G  2:73676965_G/A  2:73677033_C/T  2:73677066_A/G  2:73677466_C/A  2:73677553_C/T  2:73677808_C/G  2:73677853_A/G2:73677876_G/A   2:73678360_C/T  2:73678540_G/A  2:73678616_G/T  2:73678641_A/G  2:73678642_C/T  2:73678843_A/G  2:73679013_A/G  2:73679107_G/T  2:73679280_A/G  2:73679440_G/A  2:73679617_A/G  2:73679687_T/G  2:73679866_T/C2:73679990_T/A   2:73680118_A/G  2:73680207_C/T  2:73680226_A/G  2:73680508_G/C  2:73680580_C/T  2:73680922_A/G  2:73680942_A/C  2:73681090_T/C  2:73716810_G/A  2:73717103_G/C  2:73717169_G/A  2:73717343_C/A  2:73717497_G/A2:73717532_G/C   2:73717567_G/T  2:73717656_A/G  2:73717921_C/G  2:73718012_G/A  2:73718546_A/T  2:73746979_C/T  2:73747021_T/C  2:73747074_C/T  2:73777400_A/G  2:73786188_A/G  2:73799632_C/G  2:73800058_G/A  2:73800109_G/A2:73800259_A/G   2:73800264_C/G  2:73800270_G/A  2:73800357_A/G  2:73800396_A/G  2:73800496_T/G  2:73826621_C/T  2:73827844_G/A  2:73828443_G/C  2:73828453_C/T  2:73828538_G/A
+16:2821525_G/A  16:2821573_C/T  16:2821589_G/T
+1:94930338_G/T  1:94939335_C/T  1:94946030_G/C  1:94948746_A/G  1:94955337_A/G
+[  michaelt@login2  /data/userdata/pg/michaelt/Data/ALL_MAPPING]$cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/XChrFollowup/AllPools.Vs3.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.RRs.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wHM3.justWhite.QCed.DropIBD.indv80.vs3.wProperXChr.bim.wGeneIDs.GroupFile.Exonic.Nonsynonymous.wSplice | perl -lane 'print join("\t", @F[1..$#F]);' | perl -ane 'foreach my $variant1 (@F) { print $variant1, "\n"; }' | sed 's/_/ /g' | sed 's/:/_/' | head -n 10
+11_3819108 G/C
+1_161494743 G/T
+1_161495003 T/G
+1_161495040 C/T
+1_161495148 G/A
+1_161495275 T/C
+1_161495463 G/A
+1_161495497 A/G
+1_161495757 C/T
+1_161496010 T/G
+[  michaelt@login2  /data/userdata/pg/michaelt/Data/ALL_MAPPING]$cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/XChrFollowup/AllPools.Vs3.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.RRs.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wHM3.justWhite.QCed.DropIBD.indv80.vs3.wProperXChr.bim.wGeneIDs.GroupFile.Exonic.Nonsynonymous.wSplice | perl -lane 'print join("\t", @F[1..$#F]);' | perl -ane 'foreach my $variant1 (@F) { print $variant1, "\n"; }' | sed 's/_/ /g' | sed 's/:/_/' | awk '{ print $1 }' | head -n 10
+11_3819108
+1_161494743
+1_161495003
+1_161495040
+1_161495148
+1_161495275
+1_161495463
+1_161495497
+1_161495757
+1_161496010
+[  michaelt@login2  /data/userdata/pg/michaelt/Data/ALL_MAPPING]$cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/XChrFollowup/AllPools.Vs3.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.RRs.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wHM3.justWhite.QCed.DropIBD.indv80.vs3.wProperXChr.bim.wGeneIDs.GroupFile.Exonic.Nonsynonymous.wSplice | perl -lane 'print join("\t", @F[1..$#F]);' | perl -ane 'foreach my $variant1 (@F) { print $variant1, "\n"; }' | sed 's/_/ /g' | sed 's/:/_/' | awk '{ print $1 }' | wc
+   3743    3743   43269
+#20160725 NOTE -- 3743 (3742 + 1 extra space at end) matches expected total # of nonsynonymous SNPs found in the dataset/used for analysis originally)
+[  michaelt@node3  ~]$cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/GatheringVariantsForFollowupGenotyping/AllPools.Vs2.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wProperXChr.AnnovarFormat.genome_summary.csv | perl -F, -lane 'print $F[0];' | sort | uniq -c
+   7055 "UTR3"
+   1218 "UTR5"
+   2463 "downstream"
+   7891 "exonic"
+      3 "exonic;splicing"
+    318 "intergenic"
+  50558 "intronic"
+    208 "ncRNA_UTR3"
+     21 "ncRNA_UTR5"
+    339 "ncRNA_exonic"
+   1653 "ncRNA_intronic"
+      1 "ncRNA_splicing"
+     34 "splicing"
+   1247 "upstream"
+    243 "upstream;downstream"
+      1 Func
+[  michaelt@node3  ~]$cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/GatheringVariantsForFollowupGenotyping/AllPools.Vs2.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wProperXChr.AnnovarFormat.genome_summary.csv | perl -F, -lane 'print $F[$#F-23];' | sort | uniq -c
+  65358 
+   4219 "nonsynonymous SNV"
+     62 "stopgain SNV"
+     13 "stoploss SNV"
+   3472 "synonymous SNV"
+    128 "unknown"
+      1 AAChange
+[  michaelt@node3  ~]$cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/GatheringVariantsForFollowupGenotyping/AllPools.Vs2.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wProperXChr.AnnovarFormat.genome_summary.csv | grep upstream\;downstream | head -n 10
+"upstream;downstream","SH3D21;THRAP3",,,,,,,,,,,,,,,,,,,,1,36771003,36771003,G,C,
+"upstream;downstream","SH3D21;THRAP3",,,,,,0.0005,,,,,,,,,,,,,,1,36771005,36771005,G,A,
+"upstream;downstream","SH3D21;THRAP3",,,,,,0.01,,,,,,,,,,,,,,1,36771061,36771061,G,A,
+"upstream;downstream","SH3D21;THRAP3",,,,,,,,,,,,,,,,,,,,1,36771268,36771268,A,T,
+"upstream;downstream","SH3D21;THRAP3",,,,,,,,,,,,,,,,,,,,1,36771305,36771305,C,T,
+"upstream;downstream","SH3D21;THRAP3",,,,,,,,,,,,,,,,,,,,1,36771363,36771363,G,A,
+"upstream;downstream","SH3D21;THRAP3",,,,,,0.0014,,,,,,,,,,,,,,1,36771586,36771586,T,C,
+"upstream;downstream","LENEP;FLAD1",,,"420;Name=lod=68",,,,,,,,,,,,,,,,,1,154966014,154966014,G,A,
+"upstream;downstream","LENEP;FLAD1",,,,,,,,,,,,,,,,,,,,1,154966030,154966030,T,C,
+"upstream;downstream","FAM189B;SCAMP3",,,"309;Name=lod=24",,,0.01,,,,,,,,,,,,,,1,155225335,155225335,T,C,
+[  michaelt@node3  ~]$cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/GatheringVariantsForFollowupGenotyping/AllPools.Vs2.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wProperXChr.AnnovarFormat.genome_summary.csv | grep intergenic | grep PTAFR | perl -F, -ane 'if ($F[0] =~ m/intergenic/) { foreach my $entry1 (@F[0..9]) { my $flag1 = 0; if ($entry1 =~ m/(.*)(PTAFR\()(dist=)(\d+)(.*)/) { if ($4 > 51000) { print join(",", @F); } } } } else { print join(",", @F); }' 
+"intergenic","EYA3(dist=5537),PTAFR(dist=52992)",,,,,,0.0005,,,,,,,,,,,,,,1,28420685,28420685,C,G,
+"intergenic","EYA3(dist=5707),PTAFR(dist=52822)",,,,,,0.01,rs61786970,,,,,,,,,,,,,1,28420855,28420855,A,G,
+"intergenic","EYA3(dist=5734),PTAFR(dist=52795)",,,,,,0.0023,,,,,,,,,,,,,,1,28420882,28420882,T,G,
+"intergenic","EYA3(dist=5765),PTAFR(dist=52764)",,,,,,,,,,,,,,,,,,,,1,28420913,28420913,C,T,
+"intergenic","EYA3(dist=5831),PTAFR(dist=52698)",,,,,,,,,,,,,,,,,,,,1,28420979,28420979,A,G,
+"intergenic","EYA3(dist=5846),PTAFR(dist=52683)",,,,,,0.0014,,,,,,,,,,,,,,1,28420994,28420994,C,G,
+"intergenic","EYA3(dist=5894),PTAFR(dist=52635)",,,,,,,,,,,,,,,,,,,,1,28421042,28421042,A,C,
+"intergenic","EYA3(dist=5959),PTAFR(dist=52570)",,,,,,,,,,,,,,,,,,,,1,28421107,28421107,C,A,
+"intergenic","EYA3(dist=6069),PTAFR(dist=52460)",,,,,,,,,,,,,,,,,,,,1,28421217,28421217,G,A,
+"intergenic","EYA3(dist=6085),PTAFR(dist=52444)",,,"243;Name=lod=13",,,,,,,,,,,,,,,,,1,28421233,28421233,T,C,
+"intergenic","EYA3(dist=6095),PTAFR(dist=52434)",,,"243;Name=lod=13",,,0.0009,,,,,,,,,,,,,,1,28421243,28421243,T,G,
+"intergenic","EYA3(dist=6522),PTAFR(dist=52007)",,,"508;Name=lod=155","0.95",,,,,,,,,,,,,,,,1,28421670,28421670,T,C,
+"intergenic","EYA3(dist=6633),PTAFR(dist=51896)",,,"313;Name=lod=25","0.95",,0.17,rs2476548,,,,,,,,,,,,,1,28421781,28421781,T,C,
+"intergenic","EYA3(dist=6683),PTAFR(dist=51846)",,,"278;Name=lod=18","0.95",,,,,,,,,,,,,,,,1,28421831,28421831,T,C,
+"intergenic","EYA3(dist=6707),PTAFR(dist=51822)",,,,"0.95",,,,,,,,,,,,,,,,1,28421855,28421855,A,G,
+"intergenic","EYA3(dist=6798),PTAFR(dist=51731)",,,,"0.95",,,,,,,,,,,,,,,,1,28421946,28421946,A,G,
+"intergenic","EYA3(dist=7512),PTAFR(dist=51017)",,,"718;Name=lod=1107","0.95",,,,,,,,,,,,,,,,1,28422660,28422660,A,G,
+[  michaelt@node3  ~]$cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/GatheringVariantsForFollowupGenotyping/AllPools.Vs2.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wProperXChr.AnnovarFormat.genome_summary.csv | grep intergenic | grep PTAFR | perl -F, -ane 'if ($F[0] =~ m/intergenic/) { foreach my $entry1 (@F[0..9]) { my $flag1 = 0; if ($entry1 =~ m/(.*)(PTAFR\()(dist=)(\d+)(.*)/) { if ($4 < 51000) { print join(",", @F); } } } } else { print join(",", @F); }' 
+"intergenic","EYA3(dist=7544),PTAFR(dist=50985)",,,"718;Name=lod=1107","0.95",,,,,,,,,,,,,,,,1,28422692,28422692,A,G,
+"intergenic","EYA3(dist=7699),PTAFR(dist=50830)",,,,"0.95",,0.71,rs2989472,,,,,,,,,,,,,1,28422847,28422847,C,T,
+"intergenic","EYA3(dist=7765),PTAFR(dist=50764)",,,,,,0.03,,,,,,,,,,,,,,1,28422913,28422913,C,T,
+"intergenic","EYA3(dist=7792),PTAFR(dist=50737)",,,,,,,,,,,,,,,,,,,,1,28422940,28422940,C,A,
+"intergenic","EYA3(dist=7798),PTAFR(dist=50731)",,,,,,0.01,,,,,,,,,,,,,,1,28422946,28422946,T,G,
+"intergenic","EYA3(dist=8047),PTAFR(dist=50482)",,,,,,0.03,,,,,,,,,,,,,,1,28423195,28423195,C,T,
+"intergenic","EYA3(dist=8335),PTAFR(dist=50194)",,,,,,0.34,rs11582538,,,,,,,,,,,,,1,28423483,28423483,C,T,
+"intergenic","EYA3(dist=8465),PTAFR(dist=50064)",,,,,,,,,,,,,,,,,,,,1,28423613,28423613,G,A,
+"intergenic","EYA3(dist=8611),PTAFR(dist=49918)",,,,,,,,,,,,,,,,,,,,1,28423759,28423759,A,G,
+"intergenic","EYA3(dist=8673),PTAFR(dist=49856)",,,,,,0.0014,,,,,,,,,,,,,,1,28423821,28423821,G,A,
+[  michaelt@node3  ~]$gene1="PTAFR"
+[  michaelt@node3  ~]$cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/GatheringVariantsForFollowupGenotyping/AllPools.Vs2.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wProperXChr.AnnovarFormat.genome_summary.csv | grep intergenic | grep PTAFR | perl -F, -sane 'if ($F[0] =~ m/intergenic/) { foreach my $entry1 (@F[0..9]) { my $flag1 = 0; if ($entry1 =~ m/(.*)($gene1\()(dist=)(\d+)(.*)/) { if ($4 < 51000) { print join(",", @F); } } } } else { print join(",", @F); }' -- -gene1=$gene1
+"intergenic","EYA3(dist=7544),PTAFR(dist=50985)",,,"718;Name=lod=1107","0.95",,,,,,,,,,,,,,,,1,28422692,28422692,A,G,
+"intergenic","EYA3(dist=7699),PTAFR(dist=50830)",,,,"0.95",,0.71,rs2989472,,,,,,,,,,,,,1,28422847,28422847,C,T,
+"intergenic","EYA3(dist=7765),PTAFR(dist=50764)",,,,,,0.03,,,,,,,,,,,,,,1,28422913,28422913,C,T,
+"intergenic","EYA3(dist=7792),PTAFR(dist=50737)",,,,,,,,,,,,,,,,,,,,1,28422940,28422940,C,A,
+"intergenic","EYA3(dist=7798),PTAFR(dist=50731)",,,,,,0.01,,,,,,,,,,,,,,1,28422946,28422946,T,G,
+"intergenic","EYA3(dist=8047),PTAFR(dist=50482)",,,,,,0.03,,,,,,,,,,,,,,1,28423195,28423195,C,T,
+"intergenic","EYA3(dist=8335),PTAFR(dist=50194)",,,,,,0.34,rs11582538,,,,,,,,,,,,,1,28423483,28423483,C,T,
+"intergenic","EYA3(dist=8465),PTAFR(dist=50064)",,,,,,,,,,,,,,,,,,,,1,28423613,28423613,G,A,
+"intergenic","EYA3(dist=8611),PTAFR(dist=49918)",,,,,,,,,,,,,,,,,,,,1,28423759,28423759,A,G,
+"intergenic","EYA3(dist=8673),PTAFR(dist=49856)",,,,,,0.0014,,,,,,,,,,,,,,1,28423821,28423821,G,A,
+[  michaelt@node3  ~]$gene1="NotReal"
+[  michaelt@node3  ~]$cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/GatheringVariantsForFollowupGenotyping/AllPools.Vs2.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wProperXChr.AnnovarFormat.genome_summary.csv | grep intergenic | grep PTAFR | perl -F, -sane 'if ($F[0] =~ m/intergenic/) { foreach my $entry1 (@F[0..9]) { my $flag1 = 0; if ($entry1 =~ m/(.*)($gene1\()(dist=)(\d+)(.*)/) { if ($4 < 51000) { print join(",", @F); } } } } else { print join(",", @F); }' -- -gene1=$gene1
+[  michaelt@node3  ~]$gene1="PTAFR"
+[  michaelt@node3  ~]$dist1="51000"
+[  michaelt@node3  ~]$cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/GatheringVariantsForFollowupGenotyping/AllPools.Vs2.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wProperXChr.AnnovarFormat.genome_summary.csv | grep intergenic | grep PTAFR | perl -F, -sane 'if ($F[0] =~ m/intergenic/) { foreach my $entry1 (@F[0..9]) { my $flag1 = 0; if ($entry1 =~ m/(.*)($gene1\()(dist=)(\d+)(.*)/) { if ($4 < $dist1) { print join(",", @F); } } } } else { print join(",", @F); }' -- -gene1=$gene1 -dist1=$dist1
+"intergenic","EYA3(dist=7544),PTAFR(dist=50985)",,,"718;Name=lod=1107","0.95",,,,,,,,,,,,,,,,1,28422692,28422692,A,G,
+"intergenic","EYA3(dist=7699),PTAFR(dist=50830)",,,,"0.95",,0.71,rs2989472,,,,,,,,,,,,,1,28422847,28422847,C,T,
+"intergenic","EYA3(dist=7765),PTAFR(dist=50764)",,,,,,0.03,,,,,,,,,,,,,,1,28422913,28422913,C,T,
+"intergenic","EYA3(dist=7792),PTAFR(dist=50737)",,,,,,,,,,,,,,,,,,,,1,28422940,28422940,C,A,
+"intergenic","EYA3(dist=7798),PTAFR(dist=50731)",,,,,,0.01,,,,,,,,,,,,,,1,28422946,28422946,T,G,
+"intergenic","EYA3(dist=8047),PTAFR(dist=50482)",,,,,,0.03,,,,,,,,,,,,,,1,28423195,28423195,C,T,
+"intergenic","EYA3(dist=8335),PTAFR(dist=50194)",,,,,,0.34,rs11582538,,,,,,,,,,,,,1,28423483,28423483,C,T,
+"intergenic","EYA3(dist=8465),PTAFR(dist=50064)",,,,,,,,,,,,,,,,,,,,1,28423613,28423613,G,A,
+"intergenic","EYA3(dist=8611),PTAFR(dist=49918)",,,,,,,,,,,,,,,,,,,,1,28423759,28423759,A,G,
+"intergenic","EYA3(dist=8673),PTAFR(dist=49856)",,,,,,0.0014,,,,,,,,,,,,,,1,28423821,28423821,G,A,
+[  michaelt@node3  ~]$gene1="MSH2"
+[  michaelt@node3  ~]$dist1="30000"
+[  michaelt@node3  ~]$cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/GatheringVariantsForFollowupGenotyping/AllPools.Vs2.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wProperXChr.AnnovarFormat.genome_summary.csv | grep intergenic | grep PTAFR | perl -F, -sane 'if ($F[0] =~ m/intergenic/) { foreach my $entry1 (@F[0..9]) { my $flag1 = 0; if ($entry1 =~ m/(.*)($gene1\()(dist=)(\d+)(.*)/) { if ($4 < $dist1) { print join(",", @F); } } } } else { print join(",", @F); }' -- -gene1=$gene1 -dist1=$dist1
+[  michaelt@node3  ~]$cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/GatheringVariantsForFollowupGenotyping/AllPools.Vs2.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wProperXChr.AnnovarFormat.genome_summary.csv | grep MSH2 | grep -E 'exonic|splicing|intronic|UTR5|UTR3|upstream|downstream|intergenic' | perl -F, -sane 'if ($F[0] =~ m/intergenic/) { foreach my $entry1 (@F[0..9]) { my $flag1 = 0; if ($entry1 =~ m/(.*)($gene1\()(dist=)(\d+)(.*)/) { if ($4 < $dist1) { print join(",", @F); } } } } else { print join(",", @F); }' -- -gene1=$gene1 -dist1=$dist1 | wc
+    272     294   21361
+[  michaelt@node3  ~]$cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/GatheringVariantsForFollowupGenotyping/AllPools.Vs2.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wProperXChr.AnnovarFormat.genome_summary.csv | grep MSH2 | grep -E 'exonic|splicing|intronic|UTR5|UTR3|upstream|downstream|intergenic' | perl -F, -sane 'if ($F[0] =~ m/intergenic/) { foreach my $entry1 (@F[0..9]) { my $flag1 = 0; if ($entry1 =~ m/(.*)($gene1\()(dist=)(\d+)(.*)/) { if ($4 < $dist1) { print join(",", @F); } } } } else { print join(",", @F); }' -- -gene1=$gene1 -dist1=$dist1 | perl -F, -lane 'print $F[0];' | sort | uniq -c
+      3 "UTR3"
+      2 "UTR5"
+     10 "downstream"
+     22 "exonic"
+     16 "intergenic"
+    213 "intronic"
+      6 "upstream"
+[  michaelt@node3  ~]$dist1="28000"
+[  michaelt@node3  ~]$cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/GatheringVariantsForFollowupGenotyping/AllPools.Vs2.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wProperXChr.AnnovarFormat.genome_summary.csv | grep MSH2 | grep -E 'exonic|splicing|intronic|UTR5|UTR3|upstream|downstream|intergenic' | perl -F, -sane 'if ($F[0] =~ m/intergenic/) { foreach my $entry1 (@F[0..9]) { my $flag1 = 0; if ($entry1 =~ m/(.*)($gene1\()(dist=)(\d+)(.*)/) { if ($4 < $dist1) { print join(",", @F); } } } } else { print join(",", @F); }' -- -gene1=$gene1 -dist1=$dist1 | wc
+    256     278   19730
+[  michaelt@node3  ~]$cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/GatheringVariantsForFollowupGenotyping/AllPools.Vs2.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wProperXChr.AnnovarFormat.genome_summary.csv | grep MSH2 | grep -E 'exonic|splicing|intronic|UTR5|UTR3|upstream|downstream|intergenic' | perl -F, -sane 'if ($F[0] =~ m/intergenic/) { foreach my $entry1 (@F[0..9]) { my $flag1 = 0; if ($entry1 =~ m/(.*)($gene1\()(dist=)(\d+)(.*)/) { if ($4 < $dist1) { print join(",", @F); } } } } else { print join(",", @F); }' -- -gene1=$gene1 -dist1=$dist1 | perl -F, -lane 'print $F[0];' | sort | uniq -c
+      3 "UTR3"
+      2 "UTR5"
+     10 "downstream"
+     22 "exonic"
+    213 "intronic"
+      6 "upstream"
+[  michaelt@node3  ~]$dist1="29000"
+[  michaelt@node3  ~]$cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/GatheringVariantsForFollowupGenotyping/AllPools.Vs2.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wProperXChr.AnnovarFormat.genome_summary.csv | grep MSH2 | grep -E 'exonic|splicing|intronic|UTR5|UTR3|upstream|downstream|intergenic' | perl -F, -sane 'if ($F[0] =~ m/intergenic/) { foreach my $entry1 (@F[0..9]) { my $flag1 = 0; if ($entry1 =~ m/(.*)($gene1\()(dist=)(\d+)(.*)/) { if ($4 < $dist1) { print join(",", @F); } } } } else { print join(",", @F); }' -- -gene1=$gene1 -dist1=$dist1 | wc
+    263     285   20446
+[  michaelt@node3  ~]$cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/GatheringVariantsForFollowupGenotyping/AllPools.Vs2.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wProperXChr.AnnovarFormat.genome_summary.csv | grep MSH2 | grep -E 'exonic|splicing|intronic|UTR5|UTR3|upstream|downstream|intergenic' | perl -F, -sane 'if ($F[0] =~ m/intergenic/) { foreach my $entry1 (@F[0..9]) { my $flag1 = 0; if ($entry1 =~ m/(.*)($gene1\()(dist=)(\d+)(.*)/) { if ($4 < $dist1) { print join(",", @F); } } } } else { print join(",", @F); }' -- -gene1=$gene1 -dist1=$dist1 | perl -F, -lane 'print $F[0];' | sort | uniq -c
+      3 "UTR3"
+      2 "UTR5"
+     10 "downstream"
+     22 "exonic"
+      7 "intergenic"
+    213 "intronic"
+      6 "upstream"
+[  michaelt@node3  ~]$cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/GatheringVariantsForFollowupGenotyping/AllPools.Vs2.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wProperXChr.AnnovarFormat.genome_summary.csv | grep MSH2 | perl -F, -lane 'print $F[0];' | sort | uniq -c
+      3 "UTR3"
+      2 "UTR5"
+     10 "downstream"
+     22 "exonic"
+     16 "intergenic"
+    213 "intronic"
+      6 "upstream"
+[  michaelt@node3  ~]$cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/GatheringVariantsForFollowupGenotyping/AllPools.Vs2.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wProperXChr.AnnovarFormat.genome_summary.csv | grep MSH2 | grep -E 'exonic|splicing|intronic|UTR5|UTR3|upstream|downstream' | perl -F, -sane 'if ($F[0] =~ m/intergenic/) { foreach my $entry1 (@F[0..9]) { my $flag1 = 0; if ($entry1 =~ m/(.*)($gene1\()(dist=)(\d+)(.*)/) { if ($4 < $dist1) { print join(",", @F); } } } } else { print join(",", @F); }' -- -gene1=$gene1 -dist1=$dist1 | perl -F, -lane 'print $F[0];' | sort | uniq -c
+      3 "UTR3"
+      2 "UTR5"
+     10 "downstream"
+     22 "exonic"
+    213 "intronic"
+      6 "upstream"
+[  michaelt@node3  ~]$cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/GatheringVariantsForFollowupGenotyping/AllPools.Vs2.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wProperXChr.AnnovarFormat.genome_summary.csv | grep MSH2 | grep -E 'exonic|splicing|intronic|UTR5|UTR3' | perl -F, -sane 'if ($F[0] =~ m/intergenic/) { foreach my $entry1 (@F[0..9]) { my $flag1 = 0; if ($entry1 =~ m/(.*)($gene1\()(dist=)(\d+)(.*)/) { if ($4 < $dist1) { print join(",", @F); } } } } else { print join(",", @F); }' -- -gene1=$gene1 -dist1=$dist1 | perl -F, -lane 'print $F[0];' | sort | uniq -c
+      3 "UTR3"
+      2 "UTR5"
+     22 "exonic"
+    213 "intronic"
+[  michaelt@node3  ~]$cat /home/michaelt/Data/ExAC/0.3.1/ExAC.r0.3.1.sites.vep.vcf.AnnovarFormat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/GatheringVariantsForFollowupGenotyping/AllPools.Vs2.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wProperXChr.AnnovarFormat | awk '{ print $1, "\t", $2 }' | wc 
+8240769 16481538 112701013
+[  michaelt@node3  ~]$cat /home/michaelt/Data/ExAC/0.3.1/ExAC.r0.3.1.sites.vep.vcf.AnnovarFormat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/GatheringVariantsForFollowupGenotyping/AllPools.Vs2.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wProperXChr.AnnovarFormat | awk '{ print $1, "\t", $2 }' | sort | uniq | wc 
+8229040 16458080 112541591
+[  michaelt@node3  ~]$cat /home/michaelt/Data/ExAC/0.3.1/ExAC.r0.3.1.sites.vep.vcf.AnnovarFormat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/GatheringVariantsForFollowupGenotyping/AllPools.Vs2.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wProperXChr.AnnovarFormat | awk '{ print $1, "\t", $2 }' | sort | uniq -d | wc
+  11729   23458  159422
+[  michaelt@node3  ~]$cat /home/michaelt/Data/ExAC/0.3.1/ExAC.r0.3.1.sites.vep.vcf.AnnovarFormat.genome_summary.csv | wc
+8167518 12927577 951417204
+[  michaelt@node3  ~]$cat /home/michaelt/Data/ExAC/0.3.1/ExAC.r0.3.1.sites.vep.vcf.AnnovarFormat.UniqueFromHIV.genome_summary.vs4.csv | wc
+8155788 16311576 484979765
+[  michaelt@node3  ~]$R -q -e "8167518 - 8155788"
+> 8167518 - 8155788
+[1] 11730
+> 
+> 
+[  michaelt@node12  ~]$cat /home/michaelt/Data/ExAC/0.3.1/ExAC.r0.3.1.sites.vep.vcf.AnnovarFormat.UniqueFromHIV.genome_summary.vs4.csv | perl -F, -lane 'print $F[$#F-23];' | sort | uniq -c
+3349448
+3065881 "nonsynonymous_SNV"
+  87380 "stopgain_SNV"
+   7748 "stoploss_SNV"
+1593193 "synonymous_SNV"
+  52138 "unknown"
+[  michaelt@node3  ~]$cat /home/michaelt/Data/ExAC/0.3.1/ExAC.r0.3.1.sites.vep.vcf.AnnovarFormat.UniqueFromHIV.genome_summary.vs4.csv | grep -E 'exonic|splicing|intronic|UTR5|UTR3' | perl -F, -lane 'print $F[$#F-23];' | sort | uniq -c
+3189572
+3065881 "nonsynonymous_SNV"
+  87380 "stopgain_SNV"
+   7748 "stoploss_SNV"
+1593193 "synonymous_SNV"
+  52138 "unknown"
+[  michaelt@node12  ~]$join -j 1 -o 0 2.2 <(cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/GatheringVariantsForFollowupGenotyping/AllPools.Vs2.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wProperXChr.AnnovarFormat.genome_summary.csv | perl -F, -lane 'print $F[$#F-4], "_", $F[$#F-3], "\t", join(",", @F);' | sort -k 1,1) <(cat /home/michaelt/Data/ExAC/0.3.1/ExAC.r0.3.1.sites.vep.vcf.AnnovarFormat.genome_summary.csv | perl -F, -lane 'print $F[$#F-4], "_", $F[$#F-3], "\t", join(",", @F);' | sort -k 1,1) | wc
+  11730   23460  766130
+[  michaelt@node3  ~]$cat /home/michaelt/Data/ExAC/0.3.1/ExAC.r0.3.1.sites.vep.vcf.AnnovarFormat.UniqueFromHIV.genome_summary.vs4.csv | grep -E 'nonsynonymous|splicing|stopgain|stoploss' | wc
+3210598 6421196 552949678
+[  michaelt@node3  ~]$cat /home/michaelt/Data/ExAC/0.3.1/ExAC.r0.3.1.sites.vep.vcf.AnnovarFormat.UniqueFromHIV.genome_summary.vs4.csv | grep -E 'nonsynonymous|splicing|stopgain|stoploss' | grep -v ncRNA | wc               
+3209915 6419830 552858326
+[  michaelt@node3  ~]$cat /home/michaelt/Data/ExAC/0.3.1/ExAC.r0.3.1.sites.vep.vcf.AnnovarFormat.UniqueFromHIV.genome_summary.vs4.csv | grep -E 'nonsynonymous|splicing|stopgain|stoploss' | perl -F, -lane 'print $F[0];' | awk '{ print $2 }' | sort | uniq -c
+3160320 "exonic"
+   1015 "exonic;splicing"
+    683 "ncRNA_splicing"
+  48580 "splicing"
+[  michaelt@node3  ~]$cat /home/michaelt/Data/ExAC/0.3.1/ExAC.r0.3.1.sites.vep.vcf.AnnovarFormat.UniqueFromHIV.genome_summary.vs4.csv | grep -E 'nonsynonymous|splicing|stopgain|stoploss' | grep -v ncRNA | perl -F, -lane 'print $F[0];' | awk '{ print $2 }' | sort | uniq -c
+3160320 "exonic"
+   1015 "exonic;splicing"
+  48580 "splicing"
+[  michaelt@node3  ~]$cat /home/michaelt/Data/ExAC/0.3.1/ExAC.r0.3.1.sites.vep.vcf.AnnovarFormat.UniqueFromHIV.genome_summary.vs4.csv | grep -E 'nonsynonymous|splicing|stopgain|stoploss' | grep -v ncRNA | perl -F, -lane 'print $F[$#F-23];' | sort | uniq -c                
+  48582 
+3065881 "nonsynonymous_SNV"
+  87380 "stopgain_SNV"
+   7748 "stoploss_SNV"
+    271 "synonymous_SNV"
+     53 "unknown"
+[  michaelt@node3  ~]$cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/XChrFollowup/AllPools.Vs3.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.RRs.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wHM3.justWhite.QCed.DropIBD.indv80.vs3.wProperXChr.bim.wGeneIDs.GroupFile.Exonic.Nonsynonymous.wSplice | perl -lane 'print join("\t", @F[1..$#F]);' | perl -ane 'foreach my $variant1 (@F) { print $variant1, "\n"; }' | sed 's/_/ /g' | sed 's/:/_/' | awk '{ print $1 }' | sort | wc
+   3743    3743   43269
+[  michaelt@node3  ~]$cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/GatheringVariantsForFollowupGenotyping/AllPools.Vs2.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wProperXChr.AnnovarFormat.genome_summary.csv | sed 's/ /_/g' | perl -F, -lane 'print $F[$#F-4], "_", $F[$#F-3], "\t", join(",", @F);' | sort -k 1,1 | wc
+  73253  146506 6582757
+[  michaelt@node3  ~]$cat <(cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/XChrFollowup/AllPools.Vs3.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.RRs.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wHM3.justWhite.QCed.DropIBD.indv80.vs3.wProperXChr.bim.wGeneIDs.GroupFile.Exonic.Nonsynonymous.wSplice | perl -lane 'print join("\t", @F[1..$#F]);' | perl -ane 'foreach my $variant1 (@F) { print $variant1, "\n"; }' | sed 's/_/ /g' | sed 's/:/_/' | awk '{ print $1 }') <(cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/GatheringVariantsForFollowupGenotyping/AllPools.Vs2.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wProperXChr.AnnovarFormat | awk '{ print $1 "_" $2 }') | sort | wc       
+  76995   76995  894985
+[  michaelt@node3  ~]$R -q -e "73253 + 3743"
+> 73253 + 3743
+[1] 76996
+> 
+> 
+[  michaelt@node3  ~]$cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/XChrFollowup/AllPools.Vs3.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.RRs.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wHM3.justWhite.QCed.DropIBD.indv80.vs3.wProperXChr.bim.wGeneIDs.GroupFile.Exonic.Nonsynonymous.wSplice | perl -lane 'print join("\t", @F[1..$#F]);' | perl -ane 'foreach my $variant1 (@F) { print $variant1, "\n"; }' | sed 's/_/ /g' | sed 's/:/_/' | awk '{ print $1 }' | sort | uniq | wc
+   3714    3714   42921
+[  michaelt@node3  ~]$cat <(cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/XChrFollowup/AllPools.Vs3.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.RRs.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wHM3.justWhite.QCed.DropIBD.indv80.vs3.wProperXChr.bim.wGeneIDs.GroupFile.Exonic.Nonsynonymous.wSplice | perl -lane 'print join("\t", @F[1..$#F]);' | perl -ane 'foreach my $variant1 (@F) { print $variant1, "\n"; }' | sed 's/_/ /g' | sed 's/:/_/' | awk '{ print $1 }') <(cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/GatheringVariantsForFollowupGenotyping/AllPools.Vs2.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wProperXChr.AnnovarFormat | awk '{ print $1 "_" $2 }') | perl -lane 'print $#F;' | sort | uniq -c
+  76995 0
+[  michaelt@node3  ~]$cat <(cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/XChrFollowup/AllPools.Vs3.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.RRs.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wHM3.justWhite.QCed.DropIBD.indv80.vs3.wProperXChr.bim.wGeneIDs.GroupFile.Exonic.Nonsynonymous.wSplice | perl -lane 'print join("\t", @F[1..$#F]);' | perl -ane 'foreach my $variant1 (@F) { print $variant1, "\n"; }' | sed 's/_/ /g' | sed 's/:/_/' | awk '{ print $1 }') <(cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/GatheringVariantsForFollowupGenotyping/AllPools.Vs2.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wProperXChr.AnnovarFormat | awk '{ print $1 "_" $2 }') | sort | uniq | wc
+  73264   73264  851849
+[  michaelt@node3  ~]$cat <(cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/XChrFollowup/AllPools.Vs3.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.RRs.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wHM3.justWhite.QCed.DropIBD.indv80.vs3.wProperXChr.bim.wGeneIDs.GroupFile.Exonic.Nonsynonymous.wSplice | perl -lane 'print join("\t", @F[1..$#F]);' | perl -ane 'foreach my $variant1 (@F) { print $variant1, "\n"; }' | sed 's/_/ /g' | sed 's/:/_/' | awk '{ print $1 }') <(cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/GatheringVariantsForFollowupGenotyping/AllPools.Vs2.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wProperXChr.AnnovarFormat | awk '{ print $1 "_" $2 }') | sort | uniq -d | wc
+   3702    3702   42788
+[  michaelt@node3  ~]$R -q -e "73253 - 3702"
+> 73253 - 3702
+[1] 69551
+> 
+> 
+[  michaelt@node3  ~]$join -j 1 -v 2 -e NA1 -o 0 2.2 <(cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/XChrFollowup/AllPools.Vs3.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.RRs.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wHM3.justWhite.QCed.DropIBD.indv80.vs3.wProperXChr.bim.wGeneIDs.GroupFile.Exonic.Nonsynonymous.wSplice | perl -lane 'print join("\t", @F[1..$#F]);' | perl -ane 'foreach my $variant1 (@F) { print $variant1, "\n"; }' | sed 's/_/ /g' | sed 's/:/_/' | awk '{ print $1 }' | sort) <(cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/GatheringVariantsForFollowupGenotyping/AllPools.Vs2.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wProperXChr.AnnovarFormat.genome_summary.csv | sed 's/ /_/g' | perl -F, -lane 'print $F[$#F-4], "_", $F[$#F-3], "\t", join(",", @F);' | sort -k 1,1) | awk '{ print $2 }'  | wc
+  69551   69551 5106793
+~~~
+
+#20160721 NOTE -- Looks like 'upstream'/'downstream' is within 1kb, did some manual inspection via UCSC genome browser
+
+cat /home/michaelt/Data/ExAC/0.3.1/ExAC.r0.3.1.sites.vep.vcf.AnnovarFormat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/GatheringVariantsForFollowupGenotyping/AllPools.Vs2.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wProperXChr.AnnovarFormat | awk '{ print $1, "\t", $2 }' | wc
+cat /home/michaelt/Data/ExAC/0.3.1/ExAC.r0.3.1.sites.vep.vcf.AnnovarFormat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/GatheringVariantsForFollowupGenotyping/AllPools.Vs2.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wProperXChr.AnnovarFormat | awk '{ print $1, "\t", $2 }' | sort | uniq | wc
+cat /home/michaelt/Data/ExAC/0.3.1/ExAC.r0.3.1.sites.vep.vcf.AnnovarFormat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/GatheringVariantsForFollowupGenotyping/AllPools.Vs2.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wProperXChr.AnnovarFormat | awk '{ print $1, "\t", $2 }' | sort | uniq -d | wc
+
+##join -a 2 -e NA1 -o 0 2.2 <(cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/GatheringVariantsForFollowupGenotyping/AllPools.Vs2.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wProperXChr.AnnovarFormat.genome_summary.csv | sed 's/ /_/g' | perl -F, -lane 'print $F[$#F-4], "_", $F[$#F-3], "\t", join(",", @F);' | sort -g -k 1,1) <(cat /home/michaelt/Data/ExAC/0.3.1/ExAC.r0.3.1.sites.vep.vcf.AnnovarFormat.genome_summary.csv | sed 's/ /_/g' | perl -F, -lane 'print $F[$#F-4], "_", $F[$#F-3], "\t", join(",", @F);' | sort -g -k 1,1) | awk '{ print $2 }' > /home/michaelt/Data/ExAC/0.3.1/ExAC.r0.3.1.sites.vep.vcf.AnnovarFormat.UniqueFromHIVvs4.genome_summary.csv
+join -j 1 -v 2 -e NA1 -o 0 2.2 <(cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/GatheringVariantsForFollowupGenotyping/AllPools.Vs2.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wProperXChr.AnnovarFormat.genome_summary.csv | sed 's/ /_/g' | perl -F, -lane 'print $F[$#F-4], "_", $F[$#F-3], "\t", join(",", @F);' | sort -k 1,1) <(cat /home/michaelt/Data/ExAC/0.3.1/ExAC.r0.3.1.sites.vep.vcf.AnnovarFormat.genome_summary.csv | sed 's/ /_/g' | perl -F, -lane 'print $F[$#F-4], "_", $F[$#F-3], "\t", join(",", @F);' | sort -k 1,1) | awk '{ print $2 }' > /home/michaelt/Data/ExAC/0.3.1/ExAC.r0.3.1.sites.vep.vcf.AnnovarFormat.UniqueFromHIV.genome_summary.vs4.csv
+
+cat <(cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/XChrFollowup/AllPools.Vs3.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.RRs.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wHM3.justWhite.QCed.DropIBD.indv80.vs3.wProperXChr.bim.wGeneIDs.GroupFile.Exonic.Nonsynonymous.wSplice | perl -lane 'print join("\t", @F[1..$#F]);' | perl -ane 'foreach my $variant1 (@F) { print $variant1, "\n"; }' | sed 's/_/ /g' | sed 's/:/_/' | awk '{ print $1 }') <(cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/GatheringVariantsForFollowupGenotyping/AllPools.Vs2.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wProperXChr.AnnovarFormat | awk '{ print $1, "_", $2 }') | sort | wc
+cat <(cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/XChrFollowup/AllPools.Vs3.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.RRs.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wHM3.justWhite.QCed.DropIBD.indv80.vs3.wProperXChr.bim.wGeneIDs.GroupFile.Exonic.Nonsynonymous.wSplice | perl -lane 'print join("\t", @F[1..$#F]);' | perl -ane 'foreach my $variant1 (@F) { print $variant1, "\n"; }' | sed 's/_/ /g' | sed 's/:/_/' | awk '{ print $1 }') <(cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/GatheringVariantsForFollowupGenotyping/AllPools.Vs2.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wProperXChr.AnnovarFormat | awk '{ print $1, "_", $2 }') | sort | uniq | wc
+cat <(cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/XChrFollowup/AllPools.Vs3.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.RRs.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wHM3.justWhite.QCed.DropIBD.indv80.vs3.wProperXChr.bim.wGeneIDs.GroupFile.Exonic.Nonsynonymous.wSplice | perl -lane 'print join("\t", @F[1..$#F]);' | perl -ane 'foreach my $variant1 (@F) { print $variant1, "\n"; }' | sed 's/_/ /g' | sed 's/:/_/' | awk '{ print $1 }') <(cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/GatheringVariantsForFollowupGenotyping/AllPools.Vs2.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wProperXChr.AnnovarFormat | awk '{ print $1, "_", $2 }') | sort | uniq -d | wc
+
+
+##/data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/GatheringVariantsForFollowupGenotyping/AllPools.Vs2.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wProperXChr.AnnovarFormat.genome_summary.csv <(cat cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/XChrFollowup/AllPools.Vs3.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.RRs.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wHM3.justWhite.QCed.DropIBD.indv80.vs3.wProperXChr.bim.wGeneIDs.GroupFile.Exonic.Nonsynonymous.wSplice | perl -lane 'print join("\t", @F[1..$#F]);' | perl -ane 'foreach my $variant1 (@F) { print $variant1, "\n"; }' | sed 's/_/ /g' | sed 's/:/_/' | awk '{ print $1 }' | sort) <(cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/GatheringVariantsForFollowupGenotyping/AllPools.Vs2.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wProperXChr.AnnovarFormat.genome_summary.csv | sed 's/ /_/g' | perl -F, -lane 'print $F[$#F-4], "_", $F[$#F-3], "\t", join(",", @F);' | sort -k 1,1)
+join -j 1 -v 2 -e NA1 -o 0 2.2 <(cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/XChrFollowup/AllPools.Vs3.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.RRs.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wHM3.justWhite.QCed.DropIBD.indv80.vs3.wProperXChr.bim.wGeneIDs.GroupFile.Exonic.Nonsynonymous.wSplice | perl -lane 'print join("\t", @F[1..$#F]);' | perl -ane 'foreach my $variant1 (@F) { print $variant1, "\n"; }' | sed 's/_/ /g' | sed 's/:/_/' | awk '{ print $1 }' | sort) <(cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/GatheringVariantsForFollowupGenotyping/AllPools.Vs2.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wProperXChr.AnnovarFormat.genome_summary.csv | sed 's/ /_/g' | perl -F, -lane 'print $F[$#F-4], "_", $F[$#F-3], "\t", join(",", @F);' | sort -k 1,1) | awk '{ print $2 }' > /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/GatheringVariantsForFollowupGenotyping/AllPools.Vs2.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wProperXChr.AnnovarFormat.UniqueFromHIVNonSyn.genome_summary.csv 
+
+##/data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/GatheringVariantsForFollowupGenotyping/AllPools.Vs2.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wProperXChr.AnnovarFormat.genome_summary.csv
+#/data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/GatheringVariantsForFollowupGenotyping/AllPools.Vs2.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wProperXChr.AnnovarFormat.UniqueFromHIVNonSyn.genome_summary.csv
+#/home/m#ichaelt/Data/ExAC/0.3.1/ExAC.r0.3.1.sites.vep.vcf.AnnovarFormat.UniqueFromHIV.genome_summary.vs4.csv
+#grep -E 'exonic|splicing|intronic|UTR5|UTR3'
+#grep -E 'exonic|splicing|intronic|UTR5|UTR3|upstream|downstream|intergenic'
+
+#rm -f /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/GatheringVariantsForFollowupGenotyping/DataAnalysis.All.FollowupGenotypingList_AllGenesVarsHIVExAC.txt
+for gene1 in `cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/EPACTSFiles/Permutations/TruePheno_XChr/Pheno1/Exonic.Nonsynonymous/20160118_Orig1/DataProcessing.Pipeline.Utility.CollectPValsPerGeneAcrossMultRuns.vs2.TruePheno.Pheno1.Exonic.Nonsynonymous.output.noNAs.Routput.wVarCounts.wProperXChr | sort -g -k 2,2 | grep -v NUM_PASS_VARS | awk '{ print $1 }'`; do
+	
+	Genic=`cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/GatheringVariantsForFollowupGenotyping/AllPools.Vs2.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wProperXChr.AnnovarFormat.UniqueFromHIVNonSyn.genome_summary.csv | grep $gene1 | grep -E 'exonic|splicing|intronic|UTR5|UTR3' | wc | awk '{ print $1 }'`  
+	GenicPlus25=`cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/GatheringVariantsForFollowupGenotyping/AllPools.Vs2.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wProperXChr.AnnovarFormat.UniqueFromHIVNonSyn.genome_summary.csv | grep $gene1 | grep -E 'exonic|splicing|intronic|UTR5|UTR3|upstream|downstream|intergenic' | perl -F, -sane 'if ($F[0] =~ m/intergenic/) { foreach my $entry1 (@F[0..9]) { my $flag1 = 0; if ($entry1 =~ m/(.*)($gene1\()(dist=)(\d+)(.*)/) { if ($4 < 25000) { print join(",", @F); } } } } else { print join(",", @F); }' -- -gene1=$gene1 | wc | awk '{ print $1 }'` 
+	GenicPlus50=`cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/GatheringVariantsForFollowupGenotyping/AllPools.Vs2.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wProperXChr.AnnovarFormat.UniqueFromHIVNonSyn.genome_summary.csv | grep $gene1 | grep -E 'exonic|splicing|intronic|UTR5|UTR3|upstream|downstream|intergenic' | perl -F, -sane 'if ($F[0] =~ m/intergenic/) { foreach my $entry1 (@F[0..9]) { my $flag1 = 0; if ($entry1 =~ m/(.*)($gene1\()(dist=)(\d+)(.*)/) { if ($4 < 50000) { print join(",", @F); } } } } else { print join(",", @F); }' -- -gene1=$gene1 | wc | awk '{ print $1 }'`
+	GenicPlus75=`cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/GatheringVariantsForFollowupGenotyping/AllPools.Vs2.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wProperXChr.AnnovarFormat.UniqueFromHIVNonSyn.genome_summary.csv | grep $gene1 | grep -E 'exonic|splicing|intronic|UTR5|UTR3|upstream|downstream|intergenic' | perl -F, -sane 'if ($F[0] =~ m/intergenic/) { foreach my $entry1 (@F[0..9]) { my $flag1 = 0; if ($entry1 =~ m/(.*)($gene1\()(dist=)(\d+)(.*)/) { if ($4 < 75000) { print join(",", @F); } } } } else { print join(",", @F); }' -- -gene1=$gene1 | wc | awk '{ print $1 }'`
+	GenicPlus100=`cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/GatheringVariantsForFollowupGenotyping/AllPools.Vs2.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wProperXChr.AnnovarFormat.UniqueFromHIVNonSyn.genome_summary.csv | grep $gene1 | grep -E 'exonic|splicing|intronic|UTR5|UTR3|upstream|downstream|intergenic' | perl -F, -sane 'if ($F[0] =~ m/intergenic/) { foreach my $entry1 (@F[0..9]) { my $flag1 = 0; if ($entry1 =~ m/(.*)($gene1\()(dist=)(\d+)(.*)/) { if ($4 < 100000) { print join(",", @F); } } } } else { print join(",", @F); }' -- -gene1=$gene1 | wc | awk '{ print $1 }'`
+	GenicOver100=`cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/GatheringVariantsForFollowupGenotyping/AllPools.Vs2.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.ReduceReads.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wProperXChr.AnnovarFormat.UniqueFromHIVNonSyn.genome_summary.csv | grep $gene1 | grep -E 'exonic|splicing|intronic|UTR5|UTR3|upstream|downstream|intergenic' | wc | awk '{ print $1 }'`
+
+	ExACNonSyn=`cat /home/michaelt/Data/ExAC/0.3.1/ExAC.r0.3.1.sites.vep.vcf.AnnovarFormat.UniqueFromHIV.genome_summary.vs4.csv | grep $gene1 | grep -E 'nonsynonymous|splicing|stopgain|stoploss' | wc | awk '{ print $1 }'`
+	ExAC=`cat /home/michaelt/Data/ExAC/0.3.1/ExAC.r0.3.1.sites.vep.vcf.AnnovarFormat.UniqueFromHIV.genome_summary.vs4.csv | grep $gene1 | grep -E 'exonic|splicing|intronic|UTR5|UTR3' | wc | awk '{ print $1 }'`
+	ExACPlus25=`cat /home/michaelt/Data/ExAC/0.3.1/ExAC.r0.3.1.sites.vep.vcf.AnnovarFormat.UniqueFromHIV.genome_summary.vs4.csv | grep $gene1 | grep -E 'exonic|splicing|intronic|UTR5|UTR3|upstream|downstream|intergenic' | perl -F, -sane 'if ($F[0] =~ m/intergenic/) { foreach my $entry1 (@F[0..9]) { my $flag1 = 0; if ($entry1 =~ m/(.*)($gene1\()(dist=)(\d+)(.*)/) { if ($4 < 25000) { print join(",", @F); } } } } else { print join(",", @F); }' -- -gene1=$gene1 | wc | awk '{ print $1 }'`
+	ExACPlus50=`cat /home/michaelt/Data/ExAC/0.3.1/ExAC.r0.3.1.sites.vep.vcf.AnnovarFormat.UniqueFromHIV.genome_summary.vs4.csv | grep $gene1 | grep -E 'exonic|splicing|intronic|UTR5|UTR3|upstream|downstream|intergenic' | perl -F, -sane 'if ($F[0] =~ m/intergenic/) { foreach my $entry1 (@F[0..9]) { my $flag1 = 0; if ($entry1 =~ m/(.*)($gene1\()(dist=)(\d+)(.*)/) { if ($4 < 50000) { print join(",", @F); } } } } else { print join(",", @F); }' -- -gene1=$gene1 | wc | awk '{ print $1 }'`
+	ExACPlus75=`cat /home/michaelt/Data/ExAC/0.3.1/ExAC.r0.3.1.sites.vep.vcf.AnnovarFormat.UniqueFromHIV.genome_summary.vs4.csv | grep $gene1 | grep -E 'exonic|splicing|intronic|UTR5|UTR3|upstream|downstream|intergenic' | perl -F, -sane 'if ($F[0] =~ m/intergenic/) { foreach my $entry1 (@F[0..9]) { my $flag1 = 0; if ($entry1 =~ m/(.*)($gene1\()(dist=)(\d+)(.*)/) { if ($4 < 75000) { print join(",", @F); } } } } else { print join(",", @F); }' -- -gene1=$gene1 | wc | awk '{ print $1 }'`
+	ExACPlus100=`cat /home/michaelt/Data/ExAC/0.3.1/ExAC.r0.3.1.sites.vep.vcf.AnnovarFormat.UniqueFromHIV.genome_summary.vs4.csv | grep $gene1 | grep -E 'exonic|splicing|intronic|UTR5|UTR3|upstream|downstream|intergenic' | perl -F, -sane 'if ($F[0] =~ m/intergenic/) { foreach my $entry1 (@F[0..9]) { my $flag1 = 0; if ($entry1 =~ m/(.*)($gene1\()(dist=)(\d+)(.*)/) { if ($4 < 100000) { print join(",", @F); } } } } else { print join(",", @F); }' -- -gene1=$gene1 | wc | awk '{ print $1 }'`
+	ExACOver100=`cat /home/michaelt/Data/ExAC/0.3.1/ExAC.r0.3.1.sites.vep.vcf.AnnovarFormat.UniqueFromHIV.genome_summary.vs4.csv | grep $gene1 | grep -E 'exonic|splicing|intronic|UTR5|UTR3|upstream|downstream|intergenic' | wc | awk '{ print $1 }'`
+
+echo $gene1 $Genic $GenicPlus25 $GenicPlus50 $GenicPlus75 $GenicPlus100 $GenicOver100 $ExACNonSyn $ExAC $ExACPlus25 $ExACPlus50 $ExACPlus75 $ExACPlus100 $ExACOver100 >> /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/GatheringVariantsForFollowupGenotyping/DataAnalysis.All.FollowupGenotypingList_AllGenesVarsHIVExAC.txt.vs2
+
+done 
+
+cat 
+<(cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/GatheringVariantsForFollowupGenotyping/DataAnalysis.All.FollowupGenotypingList_AllGenesVarsHIVExAC.txt | head -n 25 | perl -lane 'push (@temp1, $F[0]); if (eof()) { print join(",", @temp1); print join("\t", @F[1..$#F]); } else { print join("\t", @F); }' | R -q -e "Data1 <- read.table(file('stdin')); Data2 <- as.numeric(as.character(Data1[,2:ncol(Data1)])); print(c(Data1[nrow(Data1),1], apply(Data2, 2, sum));"
+cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/GatheringVariantsForFollowupGenotyping/DataAnalysis.All.FollowupGenotypingList_AllGenesVarsHIVExAC.txt | head -n 25 | perl -lane 'push (@temp1, $F[0]); print join("\t", @F[0..$#F]);' | R -q -e "Data1 <- read.table(file('stdin')); Data2 <- as.matrix(Data1[,2:ncol(Data1)]); write.table(t(c(apply(Data2, 2, sum), paste(Data1[,1], collapse=\",\"))));" | grep -v V2 | grep -v \> | sed 's/"//g' | perl -lane 'print join("\t", @F[1..$#F]);'
+
+
+~~~
+[  michaelt@node3  ~]$cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/GatheringVariantsForFollowupGenotyping/DataAnalysis.All.FollowupGenotypingList_AllGenesVarsHIVExAC.txt | head -n 25 | perl -lane 'push (@temp1, $F[0]); print join("\t", @F[0..$#F]);' | R -q -e "Data1 <- read.table(file('stdin')); Data2 <- as.matrix(Data1[,2:ncol(Data1)]); write.table(t(c(apply(Data2, 2, sum), paste(Data1[,1], collapse=\",\"))));" | grep -v V2 | grep -v \> | sed 's/"//g' | perl -lane 'print join("\t", @F[1..$#F]);'
+2843    3051    3052    3052    3052    3052    45564   45682   45682   45682   45682   46140   GEMIN2,VTI1A,VDAC3,SDHD,NUDC,CUL5,EDC4,FUT8,MRPS9,CIAO1,GEMIN6,ICAM2,KIR3DL1,EIF3L,EEF1E1,PHKG1,FBN2,MLLT1,ATG3,GPATCH4,COPB1,TPR,CCNT1,OSBPL6,GIMAP5
+~~~
+
+
+
+
+
+
+
+
+#Do hwe1e4 as well as XChr het stuff? do --genome and look at distributions, remove z1 again? Drop indv80....do same for P2 as well?
+#Then look at/include ExAC material as well? Compare 'all' and 'exonic' to see where go with too? Maybe just go with 'all' and 'exonic' to begin with anyways?
+#Need to do the QC procedures of hwe1e4 and DropIBD, indv80 on all individuals (plus + nonwhites too) to get full list of variants? do QC? Don't do QC?
+#May not need to dorp individuals since only care about variants too?
+#Hwe14 matters but that may be it
+#Do hwe1e4, remove all X, do het stuff, bring back X after het, then do the Annovar All/Exonic stuff
+
+#anno
+#perl /home/michaelt/Software/annovar/summarize_annovar.pl 
+#/home/michaelt/Data/ExAC/0.3.1/ExAC.r0.3.1.sites.vep.vcf.AnnovarFormat 
+#/home/michaelt/Software/annovar/ --ver1000g 1000g2012apr --verdbsnp 129 --veresp 6500 --buildver hg19 --remove
+
+
+
+
+
+#Including the below code on 20160712
+cat <(cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/EPACTSFiles/Permutations/TruePheno/Pheno1/Exonic.Nonsynonymous/DataProcessing.Pipeline.Utility.CollectPValsPerGeneAcrossMultRuns.vs2.TruePheno.Pheno1.Exonic.Nonsynonymous.output.noNAs.Routput.wVarCounts | grep -v -f <(cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/EPACTSFiles/Permutations/TruePheno/Pheno1/Exonic.Nonsynonymous/AllPools.Vs3.ChrAll.GATK.RRs.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wHM3.justWhite.QCed.DropIBD.indv80.vs3.EPACTS.RMID5PCs.Exonic.Nonsynonymous.Pheno1.maf1.skat0.run1.epacts | grep ^X | perl -lane 'print join("_", (split(/_/, $F[3]))[1..scalar((split(/_/, $F[3])))-1]);')) /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/EPACTSFiles/Permutations/TruePheno_XChr/Pheno1/Exonic.Nonsynonymous/20160118_Orig1/DataProcessing.Pipeline.Utility.CollectPValsPerGeneAcrossMultRuns.vs2.TruePheno_XChr.Pheno1.Exonic.Nonsynonymous.output.noNAs.Routput.wVarCounts | sort > /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/EPACTSFiles/Permutations/TruePheno_XChr/Pheno1/Exonic.Nonsynonymous/20160118_Orig1/DataProcessing.Pipeline.Utility.CollectPValsPerGeneAcrossMultRuns.vs2.TruePheno.Pheno1.Exonic.Nonsynonymous.output.noNAs.Routput.wVarCounts.wProperXChr
+
+~~~
+[  michaelt@login2  /data/userdata/pg/michaelt/Data/ALL_MAPPING]$cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/EPACTSFiles/Permutations/TruePheno_XChr/Pheno1/Exonic.Nonsynonymous/20160118_Orig1/DataProcessing.Pipeline.Utility.CollectPValsPerGeneAcrossMultRuns.vs2.TruePheno.Pheno1.Exonic.Nonsynonymous.output.noNAs.Routput.wVarCounts.wProperXChr | sort -g -k 2,2 | grep -v NUM_PASS_VARS | wc       
+    473   12298   66647
+[  michaelt@login2  /data/userdata/pg/michaelt/Data/ALL_MAPPING]$cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/EPACTSFiles/Permutations/TruePheno_XChr/Pheno1/Exonic.Nonsynonymous/20160118_Orig1/DataProcessing.Pipeline.Utility.CollectPValsPerGeneAcrossMultRuns.vs2.TruePheno.Pheno1.Exonic.Nonsynonymous.output.noNAs.Routput.wVarCounts.wProperXChr | sort -g -k 2,2 | grep -v NUM_PASS_VARS | head -n 10
+GEMIN2          0.0007637044 2.849703e-04 0.20828       4       775     0.0090323       4       4       2       0.000482        0.09    775     0.0090323       4       4       2       0.00065358      0.09    775     0.0090323      4       4       2       0.00065358      0.09
+VTI1A           0.0011255423 1.964403e-04 0.20828       4       775     0.0077419       4       4       2       0.00093377      0.04    775     0.0077419       4       4       2       0.0012633       0.01    775     0.0077419      4       4       2       0.0012633       0.01
+VDAC3           0.0021478040 3.558253e-04 0.26496       5       775     0.014194        5       5       2       0.0024929       0       775     0.014194        5       5       2       0.0022545       0       775     0.014194       5       5       2       0.0022545       0
+SDHD            0.0061396500 5.411473e-04 0.31046       1       775     0.028387        1       1       0       0.0061798       NA      775     0.028387        1       1       0       0.0065964       NA      775     0.028387       1       1       0       0.0065964       NA
+NUDC            0.0076396000 0.000000e+00 0.31046       4       775     0.0090323       4       4       1       0.0076396       0.04    775     0.0090323       4       4       1       0.0076396       0.04    775     0.0090323      4       4       1       0.0076396       0.04
+CUL5            0.0081515040 1.771299e-04 0.31046       2       775     0.0064516       2       2       1       0.0080229       0       775     0.0064516       2       2       1       0.0083678       0       775     0.0064516      2       2       1       0.0083678       0
+EDC4            0.0083883740 8.115533e-04 0.31046       7       775     0.023226        7       7       3       0.0086551       0.5     775     0.023226        7       7       3       0.010771        0.5     775     0.023226       7       7       3       0.010771        0.5
+FUT8            0.0086799650 7.713121e-04 0.31046       6       775     0.31613 6       6       3       0.0089602       0       775     0.31613 6       6       3       0.0086014       0       775     0.31613 6       6     3
+        0.0086014       0
+MRPS9           0.0088281470 8.748790e-04 0.31046       9       775     0.059355        9       9       3       0.010088        0.09    775     0.059355        9       9       3       0.0073882       0.04    775     0.059355       9       9       3       0.0073882       0.04
+CIAO1           0.0096308820 2.880849e-04 0.31046       2       775     0.0077419       2       2       0       0.0095245       0       775     0.0077419       2       2       0       0.0096062       0       775     0.0077419      2       2       0       0.0096062       0
+~~~
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -14894,6 +15894,29 @@ Building 10, Rm 2608
 San Diego, CA 92037
 Ph: (858)646-3100 x3574
 ~~~
+
+
+
+##20160625
+##Random logs for 'in general' statements
+
+#20160625
+#Tried to open DataProcessing.Pipeline.pt4.ProcessSampleLvlbamFiles.vs2.sh but was getting an 'Error Read' of some sort thrown. Couldn't get the file to load or show any content, so moved it using the below command and copy/pasted the contents from the Github log of the file into a new version of the file
+
+mv DataProcessing.Pipeline.pt4.ProcessSampleLvlbamFiles.vs2.sh 20160625_PossiblyCorruptFile_ReplacedWithGithubLog_DataProcessing.Pipeline.pt4.ProcessSampleLvlbamFiles.vs2.sh 
+
+#Got the same error for DataProcessing.Pipeline.pt6.GATK.ptb.CreateVCFfilesPerChromosome.vs1.sh too, so did the same as above using the below command. Particular error was '[READ ERRORS]'
+
+mv DataProcessing.Pipeline.pt6.GATK.ptb.CreateVCFfilesPerChromosome.vs1.sh 20160625_PossiblyCorruptFile_ReplacedWithGithubLog_DataProcessing.Pipeline.pt6.GATK.ptb.CreateVCFfilesPerChromosome.vs1.sh
+
+#Same with DataProcessing.Pipeline.pt6.GATK.ptd.RecalAndApplyVCFfilesPerChromosome.vs2.sh
+
+mv DataProcessing.Pipeline.pt6.GATK.ptd.RecalAndApplyVCFfilesPerChromosome.vs2.sh 20160625_PossiblyCorruptFile_ReplacedWithGithubLog_DataProcessing.Pipeline.pt6.GATK.ptd.RecalAndApplyVCFfilesPerChromosome.vs2.sh
+
+
+
+
+
 
 
 
