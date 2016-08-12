@@ -9075,6 +9075,59 @@ scp -p /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_po
 
 
 
+##Steve e-mail stuff
+##20160812
+
+mkdir /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/TempMisc
+
+/data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/AllPools.P2.Vs1.AllPoolsMerged.ChrAll.GATK.RR.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.Indv99.geno95.hwe1e4.wHM3.justWhite.QCed.DropIBD.wAnnovarForQC.AllGenesPerVariant.vs2.vcf.gz
+
+ /backup/home/
+
+zcat /backup/home/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/AllPools.P2.Vs1.AllPoolsMerged.ChrAll.GATK.RR.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.Indv99.geno95.hwe1e4.wHM3.justWhite.QCed.DropIBD.wAnnovarForQC.AllGenesPerVariant.vs2.vcf.gz
+zcat /backup/home/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/AllPools.P2.Vs2.AllPoolsMerged.ChrAll.GATK.RR.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wHM3.justWhite.QCed.DropIBD.indv80.wAnnovarForQC.AllGenesPerVariant.vs2.vcf.gz
+
+join <(python /data/userdata/pg/michaelt/Data/ALL_MAPPING/DataProcessing.Pipeline.Utility.GetVCFQCStats.PerGene.vs2.HomozygSteveEmail.py --file1 /backup/home/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/AllPools.P2.Vs2.AllPoolsMerged.ChrAll.GATK.RR.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wHM3.justWhite.QCed.DropIBD.indv80.wAnnovarForQC.AllGenesPerVariant.vs2.vcf.gz | perl -F, -lane 'print $F[0], "\t", join(",", @F);' | sort -k 1,1) <(cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/EPACTSFiles/Permutations/TruePheno_XChr/Pheno1/Exonic.Nonsynonymous/20160120_Orig1/DataProcessing.Pipeline.Utility.CollectPValsPerGeneAcrossMultRuns.vs2.TruePheno.Pheno1.Exonic.Nonsynonymous.output.noNAs.Routput.wVarCounts.wProperXChr.GeneIDList | sort ) | awk '{ print $2 }' | perl -F, -lane 'print $F[9], "\t", $F[13], "\t", $F[15], "\t", $F[26], "\t", $F[34], "\t", $F[36], "\t", $F[38], "\t", $F[42], "\t", $F[43], "\t", $F[44], "\t", $F[45], "\t", $F[46];' > /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/TempMisc/20160812_SteveEmailWork.vs1.txt 
+
+/data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/TempMisc/20160812_SteveEmailWork.vs1.txt
+
+
+join <(python /data/userdata/pg/michaelt/Data/ALL_MAPPING/DataProcessing.Pipeline.Utility.GetVCFQCStats.PerGene.vs2.HomozygSteveEmail.py --file1 /backup/home/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/AllPools.Vs3.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.RRs.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wHM3.justWhite.QCed.DropIBD.indv80.wAnnovarForQC.AllGenesPerVariant.vcf.gz | perl -F, -lane 'print $F[0], "\t", join(",", @F);' | sort -k 1,1) <(cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/EPACTSFiles/Permutations/TruePheno_XChr/Pheno1/Exonic.Nonsynonymous/20160118_Orig1/DataProcessing.Pipeline.Utility.CollectPValsPerGeneAcrossMultRuns.vs2.TruePheno.Pheno1.Exonic.Nonsynonymous.output.noNAs.Routput.wVarCounts.wProperXChr.GeneIDList | sort ) | awk '{ print $2 }' | head -n 10 | perl -F, -lane 'print $F[9], "\t", $F[13], "\t", $F[15], "\t", $F[26], "\t", $F[34], "\t", $F[36], "\t", $F[38];'
+
+
+cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/TempMisc/20160812_SteveEmailWork.vs1.txt | perl -lane 'if ($F[7] >= 1) { print "1"; }' | sort | uniq -c
+cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/TempMisc/20160812_SteveEmailWork.vs1.txt | perl -lane 'if ($F[8] >= 1) { print "1"; }' | sort | uniq -c
+cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/TempMisc/20160812_SteveEmailWork.vs1.txt | perl -lane 'if ($F[9] >= 1) { print "1"; }' | sort | uniq -c
+cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/TempMisc/20160812_SteveEmailWork.vs1.txt | perl -lane 'if ($F[10] >= 1) { print "1"; }' | sort | uniq -c
+cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/TempMisc/20160812_SteveEmailWork.vs1.txt | perl -lane 'if ($F[11] >= 1) { print "1"; }' | sort | uniq -c
+
+[  michaelt@node12  ~]$cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/TempMisc/20160812_SteveEmailWork.vs1.txt | perl -lane 'if ($F[7] > 1) { print "1"; }' | sort | uniq -c
+    772 1
+[  michaelt@node12  ~]$cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/TempMisc/20160812_SteveEmailWork.vs1.txt | perl -lane 'if ($F[8] > 1) { print "1"; }' | sort | uniq -c
+    296 1
+[  michaelt@node12  ~]$cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/TempMisc/20160812_SteveEmailWork.vs1.txt | perl -lane 'if ($F[9] > 1) { print "1"; }' | sort | uniq -c
+     68 1
+[  michaelt@node12  ~]$cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/TempMisc/20160812_SteveEmailWork.vs1.txt | perl -lane 'if ($F[10] > 1) { print "1"; }' | sort | uniq -c
+     47 1
+[  michaelt@node12  ~]$cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/TempMisc/20160812_SteveEmailWork.vs1.txt | perl -lane 'if ($F[11] > 1) { print "1"; }' | sort | uniq -c
+     99 1
+
+[  michaelt@node12  ~]$cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/TempMisc/20160812_SteveEmailWork.vs1.txt | perl -lane 'if ($F[7] >= 1) { print "1"; }' | sort | uniq -c
+    777 1
+[  michaelt@node12  ~]$cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/TempMisc/20160812_SteveEmailWork.vs1.txt | perl -lane 'if ($F[8] >= 1) { print "1"; }' | sort | uniq -c
+    362 1
+[  michaelt@node12  ~]$cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/TempMisc/20160812_SteveEmailWork.vs1.txt | perl -lane 'if ($F[9] >= 1) { print "1"; }' | sort | uniq -c
+    108 1
+[  michaelt@node12  ~]$cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/TempMisc/20160812_SteveEmailWork.vs1.txt | perl -lane 'if ($F[10] >= 1) { print "1"; }' | sort | uniq -c
+     78 1
+[  michaelt@node12  ~]$cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/TempMisc/20160812_SteveEmailWork.vs1.txt | perl -lane 'if ($F[11] >= 1) { print "1"; }' | sort | uniq -c
+    145 1
+
+
+
+
+
+
 
 
 
