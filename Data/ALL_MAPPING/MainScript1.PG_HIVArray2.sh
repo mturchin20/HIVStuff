@@ -7058,6 +7058,24 @@ null device
 
 
 
+#20161215
+#Came back just to peak/look at a few things in a bit more detail. Wanted to look at the tail end of things instead of all the results at once, just to be sure
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ##20160209
 ##Looking at genotype array prediction scores for later phone call with Sudhir
