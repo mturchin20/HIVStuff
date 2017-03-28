@@ -7889,6 +7889,8 @@ qValThresh       NumGenes        PrevNonSyn      HIVNonSyn       HIVNoFlank     
 ~~~
 
 
+#20170327
+#<= .5 for HIVNoFlank now too
 
 
 
@@ -8812,25 +8814,30 @@ join <(cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mappin
 #Included the below header in file /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/Analyses/FinalizingFollowupGenotyping/P2.FollowupGenotyping.HIVLeftoverNonSyn.Update1.txt.gz
 #CHR    BP      RSID    CATEGORY        GENE    FUNC    REF     ALT     SEQUENCE        ORIG_POS_100
 
-#for gene1 in `cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/EPACTSFiles/Permutations/TruePheno_XChr/Pheno1/Exonic.Nonsynonymous/20160120_Orig1/DataProcessing.Pipeline.Utility.CollectPValsPerGeneAcrossMultRuns.vs2.TruePheno.Pheno1.Exonic.Nonsynonymous.output.noNAs.Routput.wVarCounts.wProperXChr | sort -g -k 2,2 | grep -v NUM_PASS_VARS | awk '{ if ($4 <= .5) { print $1 } }'`; do
-#
-#	 cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/Analyses/GatheringVariantsForFollowupGenotyping/AllPools.P2.Vs2.AllPoolsMerged.ChrAll.GATK.RR.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wProperXChr.AnnovarFormat.UniqueFromHIV_P2NonSyn.genome_summary.csv | grep -E 'exonic|splicing|intronic|UTR5|UTR3|upstream|downstream|intergenic' | grep -v ncRNA | grep -v -E 'nonsynonymous|splicing|stopgain|stoploss' | perl -F, -lane 'print $F[$#F-4], "_", $F[$#F-3], ",", $F[$#F-17], ",P2_HIVAllVarTypes,", $F[0], ",", $F[1], ",", $F[$#F-24], ",", $F[$#F-23], ",", $F[$#F-1], ",", $F[$#F];' | sed 's/"//g' | grep -E ",$gene1,|,$gene1\(" | perl -F, -slane 'if ($F[1] !~ /rs/) { $F[1] = "NA"; } if ($F[3] =~ m/splicing/) { $F[6] = $F[3]; } if (!$F[6]) { $F[6] = $F[3]; } $F[4] = $gene1; splice(@F, 3, 1); splice(@F, 4, 1); print $F[0], "\t", join(",", @F);' -- -gene1=$gene1 >> /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/Analyses/FinalizingFollowupGenotyping/DataAnalysis.All.FollowupGenotypingList.HIVAllVarTypes.vs1.txt
-#
-#done
-#
-##20160823 NOTE -- ran code below when realized using just ,$gene1, excluded splicing variants so reran using -E ",$gene1,|,$gene1\("
-##mv /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/Analyses/FinalizingFollowupGenotyping/DataAnalysis.All.FollowupGenotypingList.HIVAllVarTypes.vs1.txt /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/Analyses/FinalizingFollowupGenotyping/DataAnalysis.All.FollowupGenotypingList.HIVAllVarTypes.vs1.txt.OLD1_wCommaSplicingError
-#
-#cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/Analyses/FinalizingFollowupGenotyping/DataAnalysis.All.FollowupGenotypingList.HIVAllVarTypes.vs1.txt | perl -lane 'print $F[0];' | sed 's/_/ /g' | perl -lane 'print $F[0], "\t", $F[1], "\t", $F[1];' | sort | uniq > /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/Analyses/FinalizingFollowupGenotyping/DataAnalysis.All.FollowupGenotypingList.HIVAllVarTypes.vs1.uniq.bed
-#
-#bedtools slop -i /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/Analyses/FinalizingFollowupGenotyping/DataAnalysis.All.FollowupGenotypingList.HIVAllVarTypes.vs1.uniq.bed -g /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/Analyses/SudhirSNPFlankingSequence/hg19.chrom.sizes -b 100 > /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/Analyses/FinalizingFollowupGenotyping/DataAnalysis.All.FollowupGenotypingList.HIVAllVarTypes.vs1.uniq.Slop100.bed
-#
-#bedtools getfasta -fi /home/michaelt/Data/HumanGenome/GRCh37/Version1/human_g1k_v37.fasta -bed <(cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/Analyses/FinalizingFollowupGenotyping/DataAnalysis.All.FollowupGenotypingList.HIVAllVarTypes.vs1.uniq.Slop100.bed | sed 's/chr//g') -fo /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/Analyses/FinalizingFollowupGenotyping/DataAnalysis.All.FollowupGenotypingList.HIVAllVarTypes.vs1.uniq.Slop100.fasta
-#
-#join <(cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/Analyses/FinalizingFollowupGenotyping/DataAnalysis.All.FollowupGenotypingList.HIVAllVarTypes.vs1.txt | sort -k 1,1) <(cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/Analyses/FinalizingFollowupGenotyping/DataAnalysis.All.FollowupGenotypingList.HIVAllVarTypes.vs1.uniq.Slop100.fasta | perl -ane 'if ($F[0] =~ m/^>/) { print join("\t", @F), "\t"; } else { print join("\t", @F), "\n"; }' | perl -lane 'my $Chr = ((split(/\>/, ((split(/\:/, $F[0]))[0])))[1]); my $BP = ((split(/\-/, ((split(/\:/, $F[0]))[1])))[0]) + 100; print $Chr, "_", $BP, "\t$F[0]\t$Chr\t$BP\t$F[1]";' | sort -k 1,1) | sed 's/,/\t/g' | perl -lane 'my @fasta = split(//, $F[$#F]); my $origRef = $fasta[99]; $fasta[99] = "[$F[6]/$F[7]]"; $F[$#F] = join("", @fasta); push(@F, $origRef); print join("\t", @F);' | awk '{ print $1 "\t" $3 "\t" $4 "\t" $5 "\t" $6 "\t" $7 "\t" $8 "\t" $12 "\t" $13 }' | sort | uniq | perl -lane 'if ($. == 1) { $bp1 = $F[0]; @genes1 = ($F[3]); $entry1 = join("|", @F); } elsif ($F[0] eq $bp1) { push (@genes1, $F[3]); } else { @entry1 = split(/\|/, $entry1); $entry1[3] = join(",", @genes1); print join("\t", @entry1); $bp1 = $F[0]; @genes1 = ($F[3]); $entry1 = join("|", @F); } if (eof()) { @entry1 = split(/\|/, $entry1); $entry1[3] = join(",", @genes1); print join("\t", @entry1); }' | sed 's/_/ /' | perl -lane 'print join("\t", @F);' | gzip > /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/Analyses/FinalizingFollowupGenotyping/P2.FollowupGenotyping.HIVAllVarTypes.Update1.txt.gz
-#
-##Included the below header in file /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/Analyses/FinalizingFollowupGenotyping/P2.FollowupGenotyping.HIVAllVarTypes.Update1.txt.gz
-##CHR    BP      RSID    CATEGORY        GENE    FUNC    REF     ALT     SEQUENCE        ORIG_POS_100
+#20170327 NOTE -- Below was originally commented out and not included in the main custom array chip submission, but then re-included for the extra 4k additions
+for gene1 in `cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/EPACTSFiles/Permutations/TruePheno_XChr/Pheno1/Exonic.Nonsynonymous/20160120_Orig1/DataProcessing.Pipeline.Utility.CollectPValsPerGeneAcrossMultRuns.vs2.TruePheno.Pheno1.Exonic.Nonsynonymous.output.noNAs.Routput.wVarCounts.wProperXChr | sort -g -k 2,2 | grep -v NUM_PASS_VARS | awk '{ if ($4 <= .5) { print $1 } }'`; do
+
+	 cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/Analyses/GatheringVariantsForFollowupGenotyping/AllPools.P2.Vs2.AllPoolsMerged.ChrAll.GATK.RR.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wProperXChr.AnnovarFormat.UniqueFromHIV_P2NonSyn.genome_summary.csv | grep -E 'exonic|splicing|intronic|UTR5|UTR3|upstream|downstream|intergenic' | grep -v ncRNA | grep -v -E 'nonsynonymous|splicing|stopgain|stoploss' | perl -F, -lane 'print $F[$#F-4], "_", $F[$#F-3], ",", $F[$#F-17], ",P2_HIVAllVarTypes,", $F[0], ",", $F[1], ",", $F[$#F-24], ",", $F[$#F-23], ",", $F[$#F-1], ",", $F[$#F];' | sed 's/"//g' | grep -E ",$gene1,|,$gene1\(" | perl -F, -slane 'if ($F[1] !~ /rs/) { $F[1] = "NA"; } if ($F[3] =~ m/splicing/) { $F[6] = $F[3]; } if (!$F[6]) { $F[6] = $F[3]; } $F[4] = $gene1; splice(@F, 3, 1); splice(@F, 4, 1); print $F[0], "\t", join(",", @F);' -- -gene1=$gene1 >> /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/Analyses/FinalizingFollowupGenotyping/DataAnalysis.All.FollowupGenotypingList.HIVAllVarTypes.vs1.txt
+
+done
+
+#20160823 NOTE -- ran code below when realized using just ,$gene1, excluded splicing variants so reran using -E ",$gene1,|,$gene1\("
+#mv /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/Analyses/FinalizingFollowupGenotyping/DataAnalysis.All.FollowupGenotypingList.HIVAllVarTypes.vs1.txt /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/Analyses/FinalizingFollowupGenotyping/DataAnalysis.All.FollowupGenotypingList.HIVAllVarTypes.vs1.txt.OLD1_wCommaSplicingError
+
+cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/Analyses/FinalizingFollowupGenotyping/DataAnalysis.All.FollowupGenotypingList.HIVAllVarTypes.vs1.txt | perl -lane 'print $F[0];' | sed 's/_/ /g' | perl -lane 'print $F[0], "\t", $F[1], "\t", $F[1];' | sort | uniq > /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/Analyses/FinalizingFollowupGenotyping/DataAnalysis.All.FollowupGenotypingList.HIVAllVarTypes.vs1.uniq.bed
+
+bedtools slop -i /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/Analyses/FinalizingFollowupGenotyping/DataAnalysis.All.FollowupGenotypingList.HIVAllVarTypes.vs1.uniq.bed -g /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/Analyses/SudhirSNPFlankingSequence/hg19.chrom.sizes -b 100 > /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/Analyses/FinalizingFollowupGenotyping/DataAnalysis.All.FollowupGenotypingList.HIVAllVarTypes.vs1.uniq.Slop100.bed
+
+bedtools getfasta -fi /home/michaelt/Data/HumanGenome/GRCh37/Version1/human_g1k_v37.fasta -bed <(cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/Analyses/FinalizingFollowupGenotyping/DataAnalysis.All.FollowupGenotypingList.HIVAllVarTypes.vs1.uniq.Slop100.bed | sed 's/chr//g') -fo /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/Analyses/FinalizingFollowupGenotyping/DataAnalysis.All.FollowupGenotypingList.HIVAllVarTypes.vs1.uniq.Slop100.fasta
+
+join <(cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/Analyses/FinalizingFollowupGenotyping/DataAnalysis.All.FollowupGenotypingList.HIVAllVarTypes.vs1.txt | sort -k 1,1) <(cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/Analyses/FinalizingFollowupGenotyping/DataAnalysis.All.FollowupGenotypingList.HIVAllVarTypes.vs1.uniq.Slop100.fasta | perl -ane 'if ($F[0] =~ m/^>/) { print join("\t", @F), "\t"; } else { print join("\t", @F), "\n"; }' | perl -lane 'my $Chr = ((split(/\>/, ((split(/\:/, $F[0]))[0])))[1]); my $BP = ((split(/\-/, ((split(/\:/, $F[0]))[1])))[0]) + 100; print $Chr, "_", $BP, "\t$F[0]\t$Chr\t$BP\t$F[1]";' | sort -k 1,1) | sed 's/,/\t/g' | perl -lane 'my @fasta = split(//, $F[$#F]); my $origRef = $fasta[99]; $fasta[99] = "[$F[6]/$F[7]]"; $F[$#F] = join("", @fasta); push(@F, $origRef); print join("\t", @F);' | awk '{ print $1 "\t" $3 "\t" $4 "\t" $5 "\t" $6 "\t" $7 "\t" $8 "\t" $12 "\t" $13 }' | sort | uniq | perl -lane 'if ($. == 1) { $bp1 = $F[0]; @genes1 = ($F[3]); $entry1 = join("|", @F); } elsif ($F[0] eq $bp1) { push (@genes1, $F[3]); } else { @entry1 = split(/\|/, $entry1); $entry1[3] = join(",", @genes1); print join("\t", @entry1); $bp1 = $F[0]; @genes1 = ($F[3]); $entry1 = join("|", @F); } if (eof()) { @entry1 = split(/\|/, $entry1); $entry1[3] = join(",", @genes1); print join("\t", @entry1); }' | sed 's/_/ /' | perl -lane 'print join("\t", @F);' | gzip > /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/Analyses/FinalizingFollowupGenotyping/P2.FollowupGenotyping.HIVAllVarTypes.Update1.txt.gz
+
+#Included the below header in file /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/Analyses/FinalizingFollowupGenotyping/P2.FollowupGenotyping.HIVAllVarTypes.Update1.txt.gz
+#CHR    BP      RSID    CATEGORY        GENE    FUNC    REF     ALT     SEQUENCE        ORIG_POS_100
+
+#Below is a 20170327 addition
+ln -s /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/Analyses/FinalizingFollowupGenotyping/P2.FollowupGenotyping.HIVAllVarTypes.Update1.txt.gz /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/Analyses/FinalizingFollowupGenotyping/P2.FollowupGenotyping.HIVAllVarTypes.Update1.4kExtra.txt.gz
+
 
 ~~~
 [  michaelt@node11  ~]$cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/Analyses/FinalizingFollowupGenotyping/DataAnalysis.All.FollowupGenotypingList.HIVLeftoverNonSyn.vs1.txt.OLD1_wCommaSplicingError | wc
@@ -9173,6 +9180,32 @@ scp -p /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_po
 ~~~
 
 
+
+
+
+
+##20170327
+##Additional ~4k variants for custom array submission
+
+#Uncommented the HIVAllVarTypes section again and soft linked via /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/Analyses/FinalizingFollowupGenotyping/P2.FollowupGenotyping.HIVAllVarTypes.Update1.4kExtra.txt.gz 
+
+ln -s /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/Analyses/FinalizingFollowupGenotyping/P2.FollowupGenotyping.HIVAllVarTypes.Update1.4kExtra.txt.gz /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/Analyses/FinalizingFollowupGenotyping/P2.FollowupGenotyping.AllVariants.Update1.4kExtra.uniq.txt.gz 
+
+ln -s /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/Analyses/FinalizingFollowupGenotyping/P2.FollowupGenotyping.AllVariants.Update1.4kExtra.uniq.txt.gz /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/ForPeople/ForSudhir/P2.FollowupGenotyping.AllVariants.Update1.4kExtra.uniq.txt.gz
+
+scp -p /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/ForPeople/ForSudhir/P2.FollowupGenotyping.AllVariants.Update1.4kExtra.uniq.txt.gz mturchin20@wolfy.uchicago.edu:/Users/mturchin20/LabMisc/StephensLab/HIVStuff/PG/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/ForPeople/ForSudhir/.
+
+~~~
+[  michaelt@node3  ~]$zcat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/Analyses/FinalizingFollowupGenotyping/P2.FollowupGenotyping.AllVariants.Update1.4kExtra.uniq.txt.gz | awk '{ print $4 }' | sort | uniq -c
+      1 CATEGORY
+    701 P2_HIVAllVarTypes
+~~~
+
+
+
+ln -s /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/Analyses/FinalizingFollowupGenotyping/P2.FollowupGenotyping.AllVariants.Update1.uniq.txt.gz /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/ForPeople/ForSudhir/P2.FollowupGenotyping.AllVariants.Update1.uniq.txt.gz
+
+scp -p /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/ForPeople/ForSudhir/P2.FollowupGenotyping.AllVariants.Update1.uniq.txt.gz mturchin20@wolfy.uchicago.edu:/Users/mturchin20/LabMisc/StephensLab/HIVStuff/PG/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/ForPeople/ForSudhir/.
 
 
 
