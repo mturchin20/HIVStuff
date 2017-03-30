@@ -9203,11 +9203,6 @@ scp -p /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_po
 
 
 
-ln -s /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/Analyses/FinalizingFollowupGenotyping/P2.FollowupGenotyping.AllVariants.Update1.uniq.txt.gz /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/ForPeople/ForSudhir/P2.FollowupGenotyping.AllVariants.Update1.uniq.txt.gz
-
-scp -p /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/ForPeople/ForSudhir/P2.FollowupGenotyping.AllVariants.Update1.uniq.txt.gz mturchin20@wolfy.uchicago.edu:/Users/mturchin20/LabMisc/StephensLab/HIVStuff/PG/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/ForPeople/ForSudhir/.
-
-
 
 
 
