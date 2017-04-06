@@ -7876,6 +7876,10 @@ qValThresh      NumGenes        PrevNonSyn      HIVNonSyn       HIVNoFlank      
 [  michaelt@node3  ~]$cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/Analyses/GatheringVariantsForFollowupGenotyping/DataAnalysis.All.FollowupGenotypingList_AllGenesVarsHIVExAC.SummedOverGroups.qVals.txt | perl -lane 'print join("\t", @F[0..$#F-1]);' | awk '{ print $1, "\t", $2, "\t", $3, "\t", $4, "\t", $5, "\t", $6, "\t", $9, "\t", $10, "\t", $11, "\t", $12, "\t", $13, "\t", $16, "\t", $17 }'
 qValThresh       NumGenes        PrevNonSyn      HIVNonSyn       HIVNoFlank      HIV25kb         HIV100kb        HIVOver100kb    ExACNonSyn      ExACNoFlank     ExAC25kb        ExAC100kb       ExACOver100kb
 .5       5       44      7       657     720     720     720     756     2158    2162    2162    2162
+.51      5       44      7       657     720     720     720     756     2158    2162    2162    2162  #20170405
+.52      23      208     23      2658    2819    2819    2819    3767    10766   10781   11177   11178  #20170405
+.53      28      264     30      2997    3205    3205    3205    4741    12561   12576   12972   12973  #20170405
+.54      32      289     32      3492    3736    3736    3736    5229    13846   13871   14267   14268  #20170405
 .55      32      289     32      3492    3736    3736    3736    5229    13846   13871   14267   14268
 .6       43      353     37      4545    4887    4887    4887    6751    18284   18341   18802   18803
 .65      67      533     56      7015    7557    7557    7557    10637   27679   27797   28275   28281
@@ -7891,6 +7895,12 @@ qValThresh       NumGenes        PrevNonSyn      HIVNonSyn       HIVNoFlank     
 
 #20170327
 #<= .5 for HIVNoFlank now too
+
+#20170405
+cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/Analyses/GatheringVariantsForFollowupGenotyping/DataAnalysis.All.FollowupGenotypingList_AllGenesVarsHIVExAC.txt.vs3 | awk '{ if ($3 <= .51 ) { print $0 } } ' | perl -lane 'push (@temp1, $F[0]); print $F[0], "\t", join("\t", @F[3..$#F]);' | R -q -e "Data1 <- read.table(file('stdin')); Data2 <- as.matrix(Data1[,2:ncol(Data1)]); write.table(t(c(apply(Data2, 2, sum), paste(Data1[,1], collapse=\",\"))));" | grep -v V16 | grep -v \> | sed 's/"//g' | perl -lane 'print ".51\t", scalar((split(/,/, $F[$#F]))), "\t", join("\t", @F[1..$#F]);' | perl -lane 'print join("\t", @F[0..$#F-1]);' | awk '{ print $1, "\t", $2, "\t", $3, "\t", $4, "\t", $5, "\t", $6, "\t", $9, "\t", $10, "\t", $11, "\t", $12, "\t", $13, "\t", $16, "\t", $17 }'
+cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/Analyses/GatheringVariantsForFollowupGenotyping/DataAnalysis.All.FollowupGenotypingList_AllGenesVarsHIVExAC.txt.vs3 | awk '{ if ($3 <= .52 ) { print $0 } } ' | perl -lane 'push (@temp1, $F[0]); print $F[0], "\t", join("\t", @F[3..$#F]);' | R -q -e "Data1 <- read.table(file('stdin')); Data2 <- as.matrix(Data1[,2:ncol(Data1)]); write.table(t(c(apply(Data2, 2, sum), paste(Data1[,1], collapse=\",\"))));" | grep -v V16 | grep -v \> | sed 's/"//g' | perl -lane 'print ".52\t", scalar((split(/,/, $F[$#F]))), "\t", join("\t", @F[1..$#F]);' | perl -lane 'print join("\t", @F[0..$#F-1]);' | awk '{ print $1, "\t", $2, "\t", $3, "\t", $4, "\t", $5, "\t", $6, "\t", $9, "\t", $10, "\t", $11, "\t", $12, "\t", $13, "\t", $16, "\t", $17 }'
+cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/Analyses/GatheringVariantsForFollowupGenotyping/DataAnalysis.All.FollowupGenotypingList_AllGenesVarsHIVExAC.txt.vs3 | awk '{ if ($3 <= .53 ) { print $0 } } ' | perl -lane 'push (@temp1, $F[0]); print $F[0], "\t", join("\t", @F[3..$#F]);' | R -q -e "Data1 <- read.table(file('stdin')); Data2 <- as.matrix(Data1[,2:ncol(Data1)]); write.table(t(c(apply(Data2, 2, sum), paste(Data1[,1], collapse=\",\"))));" | grep -v V16 | grep -v \> | sed 's/"//g' | perl -lane 'print ".53\t", scalar((split(/,/, $F[$#F]))), "\t", join("\t", @F[1..$#F]);' | perl -lane 'print join("\t", @F[0..$#F-1]);' | awk '{ print $1, "\t", $2, "\t", $3, "\t", $4, "\t", $5, "\t", $6, "\t", $9, "\t", $10, "\t", $11, "\t", $12, "\t", $13, "\t", $16, "\t", $17 }'
+cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/Analyses/GatheringVariantsForFollowupGenotyping/DataAnalysis.All.FollowupGenotypingList_AllGenesVarsHIVExAC.txt.vs3 | awk '{ if ($3 <= .54 ) { print $0 } } ' | perl -lane 'push (@temp1, $F[0]); print $F[0], "\t", join("\t", @F[3..$#F]);' | R -q -e "Data1 <- read.table(file('stdin')); Data2 <- as.matrix(Data1[,2:ncol(Data1)]); write.table(t(c(apply(Data2, 2, sum), paste(Data1[,1], collapse=\",\"))));" | grep -v V16 | grep -v \> | sed 's/"//g' | perl -lane 'print ".54\t", scalar((split(/,/, $F[$#F]))), "\t", join("\t", @F[1..$#F]);' | perl -lane 'print join("\t", @F[0..$#F-1]);' | awk '{ print $1, "\t", $2, "\t", $3, "\t", $4, "\t", $5, "\t", $6, "\t", $9, "\t", $10, "\t", $11, "\t", $12, "\t", $13, "\t", $16, "\t", $17 }'
 
 
 
@@ -9201,6 +9211,61 @@ scp -p /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_po
     701 P2_HIVAllVarTypes
 ~~~
 
+#Maybe will be adding some of my own again since this seems like to be a list of SNPs that should have already been included in the previous 'final' submission file containing the original 'final' list + '4k additions'?
+#20170405 -- yes, adding another 6k
+
+#20170405 -- up to .46 for HIVNoFlank, .4 for ExACNonSyn, and for PP2 up to .52 for HIVNoFlank
+
+for gene1 in `cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/EPACTSFiles/Permutations/TruePheno_XChr/Pheno1/Exonic.Nonsynonymous/20160120_Orig1/DataProcessing.Pipeline.Utility.CollectPValsPerGeneAcrossMultRuns.vs2.TruePheno.Pheno1.Exonic.Nonsynonymous.output.noNAs.Routput.wVarCounts.wProperXChr | sort -g -k 2,2 | grep -v NUM_PASS_VARS | awk '{ if (($4 > .5) && ($4 <= .52)) { print $1 } }'`; do
+
+	 cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/Analyses/GatheringVariantsForFollowupGenotyping/AllPools.P2.Vs2.AllPoolsMerged.ChrAll.GATK.RR.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wProperXChr.AnnovarFormat.UniqueFromHIV_P2NonSyn.genome_summary.csv | grep -E 'exonic|splicing|intronic|UTR5|UTR3|upstream|downstream|intergenic' | grep -v ncRNA | grep -v -E 'nonsynonymous|splicing|stopgain|stoploss' | perl -F, -lane 'print $F[$#F-4], "_", $F[$#F-3], ",", $F[$#F-17], ",P2_HIVAllVarTypes,", $F[0], ",", $F[1], ",", $F[$#F-24], ",", $F[$#F-23], ",", $F[$#F-1], ",", $F[$#F];' | sed 's/"//g' | grep -E ",$gene1,|,$gene1\(" | perl -F, -slane 'if ($F[1] !~ /rs/) { $F[1] = "NA"; } if ($F[3] =~ m/splicing/) { $F[6] = $F[3]; } if (!$F[6]) { $F[6] = $F[3]; } $F[4] = $gene1; splice(@F, 3, 1); splice(@F, 4, 1); print $F[0], "\t", join(",", @F);' -- -gene1=$gene1 >> /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/Analyses/FinalizingFollowupGenotyping/DataAnalysis.All.FollowupGenotypingList.HIVAllVarTypes.6kExtraOverflow.vs1.txt
+
+done
+
+cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/Analyses/FinalizingFollowupGenotyping/DataAnalysis.All.FollowupGenotypingList.HIVAllVarTypes.6kExtraOverflow.vs1.txt | perl -lane 'print $F[0];' | sed 's/_/ /g' | perl -lane 'print $F[0], "\t", $F[1], "\t", $F[1];' | sort | uniq > /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/Analyses/FinalizingFollowupGenotyping/DataAnalysis.All.FollowupGenotypingList.HIVAllVarTypes.6kExtraOverflow.vs1.uniq.bed
+
+bedtools slop -i /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/Analyses/FinalizingFollowupGenotyping/DataAnalysis.All.FollowupGenotypingList.HIVAllVarTypes.6kExtraOverflow.vs1.uniq.bed -g /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/Analyses/SudhirSNPFlankingSequence/hg19.chrom.sizes -b 100 > /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/Analyses/FinalizingFollowupGenotyping/DataAnalysis.All.FollowupGenotypingList.HIVAllVarTypes.6kExtraOverflow.vs1.uniq.Slop100.bed
+
+bedtools getfasta -fi /home/michaelt/Data/HumanGenome/GRCh37/Version1/human_g1k_v37.fasta -bed <(cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/Analyses/FinalizingFollowupGenotyping/DataAnalysis.All.FollowupGenotypingList.HIVAllVarTypes.6kExtraOverflow.vs1.uniq.Slop100.bed | sed 's/chr//g') -fo /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/Analyses/FinalizingFollowupGenotyping/DataAnalysis.All.FollowupGenotypingList.HIVAllVarTypes.6kExtraOverflow.vs1.uniq.Slop100.fasta
+
+join <(cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/Analyses/FinalizingFollowupGenotyping/DataAnalysis.All.FollowupGenotypingList.HIVAllVarTypes.6kExtraOverflow.vs1.txt | sort -k 1,1) <(cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/Analyses/FinalizingFollowupGenotyping/DataAnalysis.All.FollowupGenotypingList.HIVAllVarTypes.6kExtraOverflow.vs1.uniq.Slop100.fasta | perl -ane 'if ($F[0] =~ m/^>/) { print join("\t", @F), "\t"; } else { print join("\t", @F), "\n"; }' | perl -lane 'my $Chr = ((split(/\>/, ((split(/\:/, $F[0]))[0])))[1]); my $BP = ((split(/\-/, ((split(/\:/, $F[0]))[1])))[0]) + 100; print $Chr, "_", $BP, "\t$F[0]\t$Chr\t$BP\t$F[1]";' | sort -k 1,1) | sed 's/,/\t/g' | perl -lane 'my @fasta = split(//, $F[$#F]); my $origRef = $fasta[99]; $fasta[99] = "[$F[6]/$F[7]]"; $F[$#F] = join("", @fasta); push(@F, $origRef); print join("\t", @F);' | awk '{ print $1 "\t" $3 "\t" $4 "\t" $5 "\t" $6 "\t" $7 "\t" $8 "\t" $12 "\t" $13 }' | sort | uniq | perl -lane 'if ($. == 1) { $bp1 = $F[0]; @genes1 = ($F[3]); $entry1 = join("|", @F); } elsif ($F[0] eq $bp1) { push (@genes1, $F[3]); } else { @entry1 = split(/\|/, $entry1); $entry1[3] = join(",", @genes1); print join("\t", @entry1); $bp1 = $F[0]; @genes1 = ($F[3]); $entry1 = join("|", @F); } if (eof()) { @entry1 = split(/\|/, $entry1); $entry1[3] = join(",", @genes1); print join("\t", @entry1); }' | sed 's/_/ /' | perl -lane 'print join("\t", @F);' | gzip > /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/Analyses/FinalizingFollowupGenotyping/P2.FollowupGenotyping.HIVAllVarTypes.Update1.6kExtraOverflow.txt.gz
+
+#Included the below header in file /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/Analyses/FinalizingFollowupGenotyping/P2.FollowupGenotyping.HIVAllVarTypes.Update1.6kExtraOverflow.txt.gz
+#CHR    BP      RSID    CATEGORY        GENE    FUNC    REF     ALT     SEQUENCE        ORIG_POS_100
+
+ln -s /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/Analyses/FinalizingFollowupGenotyping/P2.FollowupGenotyping.HIVAllVarTypes.Update1.6kExtraOverflow.txt.gz /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/Analyses/FinalizingFollowupGenotyping/P2.FollowupGenotyping.AllVariants.Update1.6kExtraOverflow.uniq.txt.gz 
+
+ln -s /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/Analyses/FinalizingFollowupGenotyping/P2.FollowupGenotyping.AllVariants.Update1.6kExtraOverflow.uniq.txt.gz /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/ForPeople/ForSudhir/P2.FollowupGenotyping.AllVariants.Update1.6kExtraOverflow.uniq.txt.gz
+
+scp -p /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/ForPeople/ForSudhir/P2.FollowupGenotyping.AllVariants.Update1.6kExtraOverflow.uniq.txt.gz mturchin20@wolfy.uchicago.edu:/Users/mturchin20/LabMisc/StephensLab/HIVStuff/PG/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/ForPeople/ForSudhir/.
+
+~~~
+[  michaelt@login2  /data/userdata/pg/michaelt/Data]$zcat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/Analyses/FinalizingFollowupGenotyping/P2.FollowupGenotyping.HIVAllVarTypes.Update1.6kExtraOverflow.txt.gz | wc
+   2034   20340  529013
+[  michaelt@login2  /data/userdata/pg/michaelt/Data]$zcat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/Analyses/FinalizingFollowupGenotyping/P2.FollowupGenotyping.HIVAllVarTypes.Update1.6kExtraOverflow.txt.gz | awk '{ print $5 }' | sort | uniq -c 
+     40 C9orf69
+    169 CAPZB
+     58 CYBA
+      1 GENE
+     49 GRIN1
+     82 KLF6
+     71 MEF2C
+    318 NCAM1
+     53 PIGH
+      7 PPAN
+     50 PPAN,PPAN-P2RY11
+     36 PPAN-P2RY11
+     95 PPP3CB
+    140 PRRC2A
+    374 PSME4
+     12 S1PR5
+     56 SPP1
+    113 SULT1C2
+    241 THRB
+     69 UBE2J1
+[  michaelt@login2  /data/userdata/pg/michaelt/Data]$zcat /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/Analyses/FinalizingFollowupGenotyping/P2.FollowupGenotyping.HIVAllVarTypes.Update1.6kExtraOverflow.txt.gz | awk '{ print $5 }' | sort | uniq -c | wc
+     20      40     297
+~~~
 
 
 
