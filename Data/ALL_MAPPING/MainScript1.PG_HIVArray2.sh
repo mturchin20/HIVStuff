@@ -9271,6 +9271,15 @@ scp -p /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_po
 
 
 
+##20180712
+##Specific gene/variant skat-O inquiries (from Steve)
+
+#20180817
+
+
+
+
+
 
 
 
