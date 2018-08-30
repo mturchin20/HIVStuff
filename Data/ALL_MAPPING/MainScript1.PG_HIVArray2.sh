@@ -9450,31 +9450,42 @@ Q-value: Storey's q-value for that particular p-value given all the p-values in 
 Rho: Skat-O is a combination of a burden test and variance test; 0 means the test is 'most significant' when it conducts a 100% variance test and 1 indicates the test is 'most significant' when it conducts a 100% burden test. Anything in between is a weighted combination of the two tests in the given rho proportion (e.g. rho of .3 means 70% variance test and 30% burden test).
 
 
-
-
 mkdir /data/userdata/pg/michaelt/Data/ALL_MAPPING/ForPeople/ForEunyoung
 mkdir /data/userdata/pg/michaelt/Data/ALL_MAPPING/ForPeople/ForEunyoung/Epacts
 cp -p /data/userdata/pg/michaelt/Data/ALL_MAPPING/DataProcessing.Pipeline.pt6.All.ptf.EPACTruns.vs2.sh /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/Analyses/20180822ForSteve/LaunchEpacts.skat0.vs1.sh
 #Edited /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/Analyses/20180822ForSteve/LaunchEpacts.skatO.vs1.sh
 cp -p /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/P2/PostMerge/mapping_pool_merged/Vs1/GATK/Analyses/20180822ForSteve/LaunchEpacts.skatO.vs1.sh /data/userdata/pg/michaelt/Data/ALL_MAPPING/ForPeople/ForEunyoung/Epacts/.
 vi /data/userdata/pg/michaelt/Data/ALL_MAPPING/ForPeople/ForEunyoung/Epacts.skatO.README.txt
+#Below is material that is mostly in `/data/userdata/pg/michaelt/Data/ALL_MAPPING/ForPeople/ForEunyoung/Epacts.skatO.README.txt` and was used to help setup the same document
 
-/home/michaelt/Software/EPACTS-3.2.4/bin/epacts group --vcf vcf_bgzipped_filed 
---groupf groupf_file 
---ped  ped_file
---pheno pheno_file
---cov RMID 
+
+
+#/home/michaelt/Software/EPACTS-3.2.4/bin/epacts group example (multiple lines)
+/home/michaelt/Software/EPACTS-3.2.4/bin/epacts group --vcf vcf_bgzipped_filed
+--groupf groupf_file (gene variant-grouping file)
+--ped  ped_file (not a full PLINK .ped file -- specifies phenotypes and covariates)
+--pheno HIVPROG (specifying phenotype to use)
+--cov RMID (specifying covariates -- I use RMID# and the top 5 PCs)
 --cov PC1
 --cov PC2
 --cov PC3
 --cov PC4
 --cov PC5
---test skat-o 
---skat-adjust 
---beta 1,25 
---run 6 
---out output_name
+--max-maf 1.0 (maximum MAF threshold to drop SNPs by, ie remove SNPs with MAFs > than the value given)
+--test skat-o (specifying which test to use)
+--skat-adjust (adjustment procedure for small sample sizes)
+--beta 1,25 (beta priors for skat-O test; 1,25 is default, emphasizes rare variants)
+--run 6 (number of CPUs to use)
+--out output_name (output name)
 
+NOTE -- .vcf file must be sorted, bgzipped, and tabixed, eg:
+cat file1.vcf | /home/michaelt/Software/vcftools_0.1.11/bin/vcf-sort > file1.sorted.bgzip.vcf
+/home/shared/software/tabix-0.2.5/bgzip file1.sorted.bgzip.vcf
+/home/shared/software/tabix-0.2.5/tabix -pvcf -f file1.sorted.bgzip.vcf.gz
+
+
+
+cp -p /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/DataProcessing.Pipeline.Utility.PrepareGroupFileForEPACTS.vs1.py /data/userdata/pg/michaelt/Data/ALL_MAPPING/ForPeople/ForEunyoung/Epacts/.
 cp -p /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/XChrFollowup/AllPools.Vs3.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.RRs.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wHM3.justWhite.QCed.DropIBD.indv80.wProperXChr.vcf.bgzip.gz /data/userdata/pg/michaelt/Data/ALL_MAPPING/ForPeople/ForEunyoung/Epacts/.
 cp -p /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/Analyses/XChrFollowup/AllPools.Vs3.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.RRs.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wHM3.justWhite.QCed.DropIBD.indv80.wProperXChr.vcf.bgzip.gz.tbi /data/userdata/pg/michaelt/Data/ALL_MAPPING/ForPeople/ForEunyoung/Epacts/.
 cp -p /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/PLINKfiles/AllPools.Vs3.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.justWhite.QCed.DropIBD.indv80.vs3.EPACTSedit.ped /data/userdata/pg/michaelt/Data/ALL_MAPPING/ForPeople/ForEunyoung/Epacts/.
@@ -9504,6 +9515,7 @@ example groupf: /data/userdata/pg/michaelt/Data/ALL_MAPPING/ForPeople/ForEunyoun
 1,rs78479912,0,1151917,G,A,downstream,SDF4,,,,,,
 1,rs201719242,0,1153080,C,T,exonic,SDF4,synonymous_SNV,NM_016547:c.G1017A:p.P339P,,,,
 
+#Column information in annotation files '*bim.wGeneIDs'
 CHR: Chromosome
 RSID (or CHR:BP): Variant rsID#, if present; presented as 'chr:bp" otherwise
 ?: Unsure!
@@ -9521,7 +9533,36 @@ MutationTaster: Exonic variant annotation from MutationTaster (possibly deprecat
 
 
 
-cat AllPools.P2.Vs2.AllPoolsMerged.ChrAll.GATK.RR.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wHM3.justWhite.QCed.DropIBD.indv80.vs2.bim.wGeneIDs | awk -F, '{ if (($7 == "exonic") || ($7 == "splicing") || ($7 == "exonic;splicing")) { print $0 } }' | python /data/userdata/pg/michaelt/Data/ALL_MAPPING/Pools/MM5/PostMerge/mapping_pool_merged/GATK/DataProcessing.Pipeline.Utility.PrepareGroupFileForEPACTS.vs1.py --file1 - > AllPools.P2.Vs2.AllPoolsMerged.ChrAll.GATK.RR.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wHM3.justWhite.QCed.DropIBD.indv80.vs2.bim.wGeneIDs.GroupFile.Exonic
+#Info on groupf file from EPACTS website:
+"Creating marker group file
+The marker group file has the following format
+
+[GROUP_ID]  [MARKER_ID_1]   [MARKER_ID_2]  .... [MARKER_ID_N]
+where
+
+[GROUP_ID] is a string representing the group (e.g. gene name)
+[MARKER_ID_K] is a marker key as a format of [CHROM]:[POS]_[REF]/[ALT] (NOTE THAT THIS IS DIFFERENT FROM TYPICAL VCF MARKER ID field)
+Note that [MARKER_ID_K] has to be sorted by increasing order of genomic coordinate"
+
+#groupf file example:
+cat /data/userdata/pg/michaelt/Data/ALL_MAPPING/ForPeople/ForEunyoung/Epacts/AllPools.Vs3.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.RRs.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wHM3.justWhite.QCed.DropIBD.indv80.vs3.wProperXChr.bim.wGeneIDs.GroupFile.Exonic.Nonsynonymous.wSplice | head -n 10
+PGAP2  11:3819108_G/C
+HSPA6  1:161494743_G/T  1:161495003_T/G 1:161495040_C/T 1:161495148_G/A 1:161495275_T/C 1:161495463_G/A 1:161495497_A/G 1:161495757_C/T 1:161496010_T/G 1:161496039_G/C
+AP1M1  19:16314427_G/A  19:16339645_A/G 19:16339672_C/T
+P4HA2  5:131530706_C/T  5:131531112_G/A 5:131533954_C/T 5:131543430_C/T 5:131543541_G/A 5:131546032_G/C
+SGPL1  10:72604246_A/G  10:72604263_G/T 10:72617424_A/G 10:72628170_G/C 10:72629578_T/A 10:72629610_A/G 10:72633127_G/T 10:72633216_C/T 10:72633291_G/A 10:72633336_C/T 10:72637078_C/T
+SDF4   1:1163951_G/A    1:1164031_A/G   1:1164080_T/C
+SDF2   17:26976071_A/G  17:26976108_T/C 17:26982321_G/A 17:26988852_C/T 17:26988885_C/G
+ALMS1  2:73613108_G/A   2:73613176_C/A  2:73613177_G/C  2:73650009_C/A  2:73651920_C/G  2:73651937_A/G  2:73651967_C/T  2:73653610_G/A  2:73675110_A/G  2:73675263_C/G  2:73675492_G/A  2:73675525_A/G  2:73675630_C/T  2:73675669_T/G  2:73675850_C/G     2:73676131_T/C  2:73676547_T/C  2:73676623_A/G  2:73676730_G/C  2:73676797_G/A  2:73676961_C/G  2:73676965_G/A  2:73677033_C/T  2:73677066_A/G  2:73677466_C/A  2:73677553_C/T  2:73677808_C/G  2:73677853_A/G  2:73677876_G/A    2:73678360_C/T   2:73678540_G/A  2:73678616_G/T  2:73678641_A/G  2:73678642_C/T  2:73678843_A/G  2:73679013_A/G  2:73679107_G/T  2:73679280_A/G  2:73679440_G/A  2:73679617_A/G  2:73679687_T/G  2:73679866_T/C  2:73679990_T/A  2:73680118_A/G     2:73680207_C/T  2:73680226_A/G  2:73680508_G/C  2:73680580_C/T  2:73680922_A/G  2:73680942_A/C  2:73681090_T/C  2:73716810_G/A  2:73717103_G/C  2:73717169_G/A  2:73717343_C/A  2:73717497_G/A  2:73717532_G/C  2:73717567_G/T    2:73717656_A/G   2:73717921_C/G  2:73718012_G/A  2:73718546_A/T  2:73746979_C/T  2:73747021_T/C  2:73747074_C/T  2:73777400_A/G  2:73786188_A/G  2:73799632_C/G  2:73800058_G/A  2:73800109_G/A  2:73800259_A/G  2:73800264_C/G  2:73800270_G/A     2:73800357_A/G  2:73800396_A/G  2:73800496_T/G  2:73826621_C/T  2:73827844_G/A  2:73828443_G/C  2:73828453_C/T  2:73828538_G/A
+TCEB2  16:2821525_G/A   16:2821573_C/T  16:2821589_G/T
+ABCD3  1:94930338_G/T   1:94939335_C/T  1:94946030_G/C  1:94948746_A/G  1:94955337_A/G
+
+
+
+#Some example code to convert a '*bim.wGeneIDs' file into a *.groupf file using DataProcessing.Pipeline.Utility.PrepareGroupFileForEPACTS.vs1.py, a custom script I wrote
+
+cat File1.bim.wGeneIDs | grep intronic  | python DataProcessing.Pipeline.Utility.PrepareGroupFileForEPACTS.vs1.py --file1 - > File1.bim.wGeneIDs.GroupFile.Intronic
+cat AllPools.P2.Vs2.AllPoolsMerged.ChrAll.GATK.RR.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wHM3.justWhite.QCed.DropIBD.indv80.vs2.bim.wGeneIDs | awk -F, '{ if (($7 == "exonic") || ($7 == "splicing") || ($7 == "exonic;splicing")) { print $0 } }' | python DataProcessing.Pipeline.Utility.PrepareGroupFileForEPACTS.vs1.py --file1 - > AllPools.P2.Vs2.AllPoolsMerged.ChrAll.GATK.RR.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wHM3.justWhite.QCed.DropIBD.indv80.vs2.bim.wGeneIDs.GroupFile.Exonic
 
 
 
@@ -9540,6 +9581,8 @@ for i in {1..1}; do
 
 done
        
+#Example code for Epacts skat-O analysis -- single run
+
 bsubout1="LaunchEpacts.skat0.vs1.bsubout"
 vcf1="AllPools.Vs3.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.RRs.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wHM3.justWhite.QCed.DropIBD.indv80.wProperXChr.vcf.bgzip.gz" 
 groupf1="AllPools.Vs3.QCed.preGATK.QCed.samplesMerged.rmdup.BQSR.calmd.AllPoolsMerged.ChrAll.GATK.RRs.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wHM3.justWhite.QCed.DropIBD.indv80.vs3.wProperXChr.bim.wGeneIDs.GroupFile.Exonic.Nonsynonymous.wSplice"
