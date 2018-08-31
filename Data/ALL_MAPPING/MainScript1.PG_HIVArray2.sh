@@ -9531,15 +9531,13 @@ Polyphen2: Exonic variant annotation from Polyphen2 (possibly deprecated)
 LRT: Exonic variant annotation from likelihood ratio test (possibly deprecated)
 MutationTaster: Exonic variant annotation from MutationTaster (possibly deprecated)
 
-
-
 #Info on groupf file from EPACTS website:
 "Creating marker group file
 The marker group file has the following format
 
 [GROUP_ID]  [MARKER_ID_1]   [MARKER_ID_2]  .... [MARKER_ID_N]
-where
 
+where
 [GROUP_ID] is a string representing the group (e.g. gene name)
 [MARKER_ID_K] is a marker key as a format of [CHROM]:[POS]_[REF]/[ALT] (NOTE THAT THIS IS DIFFERENT FROM TYPICAL VCF MARKER ID field)
 Note that [MARKER_ID_K] has to be sorted by increasing order of genomic coordinate"
@@ -9563,8 +9561,6 @@ ABCD3  1:94930338_G/T   1:94939335_C/T  1:94946030_G/C  1:94948746_A/G  1:949553
 
 cat File1.bim.wGeneIDs | grep intronic  | python DataProcessing.Pipeline.Utility.PrepareGroupFileForEPACTS.vs1.py --file1 - > File1.bim.wGeneIDs.GroupFile.Intronic
 cat AllPools.P2.Vs2.AllPoolsMerged.ChrAll.GATK.RR.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wHM3.justWhite.QCed.DropIBD.indv80.vs2.bim.wGeneIDs | awk -F, '{ if (($7 == "exonic") || ($7 == "splicing") || ($7 == "exonic;splicing")) { print $0 } }' | python DataProcessing.Pipeline.Utility.PrepareGroupFileForEPACTS.vs1.py --file1 - > AllPools.P2.Vs2.AllPoolsMerged.ChrAll.GATK.RR.UG.VQSR.SNP.PASSts99_9.wAA.Bi.DropOffTarg_1kb.geno95.hwe1e4.wHM3.justWhite.QCed.DropIBD.indv80.vs2.bim.wGeneIDs.GroupFile.Exonic
-
-
 
 #From https://superuser.com/questions/1192723/feed-environment-variables-through-bsub-platform-lsf
 for i in {1..1}; do
@@ -9691,6 +9687,42 @@ APOBEC3G
 
 APOBEC3F
 [1] 125
+[  michaelt@login2  /data/userdata/pg/michaelt/Data/ALL_MAPPING/ForPeople/ForEunyoung/Epacts]$cmp LaunchEpacts.skatO.vs1.output.epacts LaunchEpacts.skat0.vs1.output.epacts
+LaunchEpacts.skatO.vs1.output.epacts LaunchEpacts.skat0.vs1.output.epacts differ: char 323, line 4
+[  michaelt@login2  /data/userdata/pg/michaelt/Data/ALL_MAPPING/ForPeople/ForEunyoung/Epacts]$cat LaunchEpacts.skat0.vs1.output.epacts | head -n 10
+#CHROM BEGIN    END     MARKER_ID       NS      FRAC_WITH_RARE  NUM_ALL_VARS    NUM_PASS_VARS   NUM_SING_VARS   PVALUE  STATRHO
+11     3819108  3819108 11:3819108-3819108_PGAP2   775  0.0012903    1  1  1    0.75364 NA
+1      161494743        161496039       1:161494743-161496039_HSPA6  775   0.26452      10      10      2       1       1
+19     16314427 16339672     19:16314427-16339672_AP1M1 775     0.0064516  3    3       1 0.094904      0
+5      131530706        131546032       5:131530706-131546032_P4HA2  775   0.018065     6 6     0       0.22186 0.25
+10     72604246 72637078     10:72604246-72637078_SGPL1 775     0.27097 11 11   8       0.17187 0.25
+1      1163951  1164080 1:1163951-1164080_SDF4  775     0.003871     3  3  3    0.90615 0
+17     26976071 26988885     17:26976071-26988885_SDF2  775     0.0077419  5    5       4 0.17536       0
+2      73613108 73828538     2:73613108-73828538_ALMS1  775     0.73419 81 81   34      0.63843 1
+16     2821525  2821589 16:2821525-2821589_TCEB2   775  0.74968 3    3  1  0.42747      1
+[  michaelt@login2  /data/userdata/pg/michaelt/Data/ALL_MAPPING/ForPeople/ForEunyoung/Epacts]$cat LaunchEpacts.skatO.vs1.output.epacts | head -n 10
+#CHROM BEGIN    END     MARKER_ID       NS      FRAC_WITH_RARE  NUM_ALL_VARS    NUM_PASS_VARS   NUM_SING_VARS   PVALUE  STATRHO
+11     3819108  3819108 11:3819108-3819108_PGAP2   775  0.0012903    1  1  1    0.75364 NA
+1      161494743        161496039       1:161494743-161496039_HSPA6  775   0.26452      10      10      2       1       1
+19     16314427 16339672     19:16314427-16339672_AP1M1 775     0.0064516  3    3       1 0.095498      0
+5      131530706        131546032       5:131530706-131546032_P4HA2  775   0.018065     6 6     0       0.21776 0.25
+10     72604246 72637078     10:72604246-72637078_SGPL1 775     0.27097 11 11   8       0.17186 0.25
+1      1163951  1164080 1:1163951-1164080_SDF4  775     0.003871     3  3  3    0.90615 0
+17     26976071 26988885     17:26976071-26988885_SDF2  775     0.0077419  5    5       4 0.17649       0
+2      73613108 73828538     2:73613108-73828538_ALMS1  775     0.73419 81 81   34      0.60634 1
+16     2821525  2821589 16:2821525-2821589_TCEB2   775  0.74968 3    3  1  0.41242      1
+[  michaelt@login2  /data/userdata/pg/michaelt/Data/ALL_MAPPING/ForPeople/ForEunyoung/Epacts]$paste <(cat LaunchEpacts.skat0.vs1.output.epacts | awk '{ print $1 "\t" $2 "\t" $3 "\t" $4 }') <(cat LaunchEpacts.skatO.vs1.output.epacts | awk '{ print $1 "\t" $2 "\t" $3 "\t" $4 }') | head -n 10
+#CHROM BEGIN    END     MARKER_ID       #CHROM  BEGIN   END     MARKER_ID
+11     3819108  3819108 11:3819108-3819108_PGAP2   11   3819108 3819108 11:3819108-3819108_PGAP2
+1      161494743        161496039       1:161494743-161496039_HSPA6  1  161494743       161496039       1:161494743-161496039_HSPA6
+19     16314427 16339672     19:16314427-16339672_AP1M1 19      16314427   16339672     19:16314427-16339672_AP1M1
+5      131530706        131546032       5:131530706-131546032_P4HA2  5  131530706       131546032       5:131530706-131546032_P4HA2
+10     72604246 72637078     10:72604246-72637078_SGPL1 10      72604246   72637078     10:72604246-72637078_SGPL1
+1      1163951  1164080 1:1163951-1164080_SDF4  1  1163951      1164080 1:1163951-1164080_SDF4
+17     26976071 26988885     17:26976071-26988885_SDF2  17      26976071   26988885     17:26976071-26988885_SDF2
+2      73613108 73828538     2:73613108-73828538_ALMS1  2       73613108   73828538     2:73613108-73828538_ALMS1
+16     2821525  2821589 16:2821525-2821589_TCEB2   16   2821525 2821589 16:2821525-2821589_TCEB2
+[  michaelt@login2  /data/userdata/pg/michaelt/Data/ALL_MAPPING/ForPeople/ForEunyoung/Epacts]$cmp <(cat LaunchEpacts.skat0.vs1.output.epacts | awk '{ print $1 "\t" $2 "\t" $3 "\t" $4 }') <(cat LaunchEpacts.skatO.vs1.output.epacts | awk '{ print $1 "\t" $2 "\t" $3 "\t" $4 }')             
 
 
 
